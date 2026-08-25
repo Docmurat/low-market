@@ -1,0 +1,17 @@
+{
+  "comment": "Имитация ответа API поставщика. На шаге 6 заменим на реальный запрос с SUPPLIER_API_KEY.",
+  "items": [
+    { "sku": "GPU-4070-PAL", "name": "GeForce RTX 4070 Dual 12GB", "brand": "Palit", "category": "videokarty", "purchase_price": 52300, "stock": 14, "specs": { "Объём памяти": "12 ГБ GDDR6X", "Разъёмы": "3x DisplayPort, HDMI", "Доп. питание": "16-pin" } },
+    { "sku": "CPU-7600-AMD", "name": "Ryzen 5 7600 OEM", "brand": "AMD", "category": "protsessory", "purchase_price": 17800, "stock": 32, "specs": { "Сокет": "AM5", "Ядер": "6", "Потоков": "12", "Базовая частота": "3.8 ГГц" } },
+    { "sku": "MB-B650-MSI", "name": "B650 GAMING PLUS WIFI", "brand": "MSI", "category": "materinskie-platy", "purchase_price": 14200, "stock": 21, "specs": { "Сокет": "AM5", "Чипсет": "B650", "Формат": "ATX", "Память": "4x DDR5" } },
+    { "sku": "NB-15-ACER", "name": "Aspire 15 A15-51M (Core 5 120U, 16/512)", "brand": "Acer", "category": "noutbuki", "purchase_price": 46900, "stock": 9, "specs": { "Диагональ": "15.6\"", "Процессор": "Intel Core 5 120U", "ОЗУ": "16 ГБ", "SSD": "512 ГБ" } },
+    { "sku": "MON-27-LG", "name": "UltraGear 27GS60QC 180Гц", "brand": "LG", "category": "monitory", "purchase_price": 18600, "stock": 17, "specs": { "Диагональ": "27\"", "Разрешение": "2560x1440", "Частота": "180 Гц", "Матрица": "VA изогнутая" } },
+    { "sku": "SSD-1TB-KING", "name": "NV3 1TB M.2 NVMe", "brand": "Kingston", "category": "ssd-nakopiteli", "purchase_price": 5400, "stock": 64, "specs": { "Объём": "1 ТБ", "Интерфейс": "PCIe 4.0 x4", "Чтение": "6000 МБ/с" } },
+    { "sku": "RAM-32-KNGF", "name": "FURY Beast DDR5 32GB (2x16) 6000", "brand": "Kingston", "category": "operativnaya-pamyat", "purchase_price": 9100, "stock": 40, "specs": { "Тип": "DDR5", "Объём": "32 ГБ (2x16)", "Частота": "6000 МГц" } },
+    { "sku": "PSU-750-DEEP", "name": "PF750 80+ Bronze", "brand": "Deepcool", "category": "bloki-pitaniya", "purchase_price": 4700, "stock": 28, "specs": { "Мощность": "750 Вт", "Сертификат": "80+ Bronze" } },
+    { "sku": "KB-MECH-RED", "name": "K552 механическая, свичи Red", "brand": "Redragon", "category": "periferiya", "purchase_price": 2600, "stock": 55, "specs": { "Тип": "Механическая", "Свичи": "Red", "Подсветка": "RGB" } },
+    { "sku": "CAB-HDMI-2M", "name": "Кабель HDMI 2.1 8K, 2 м", "brand": "Ugreen", "category": "kabeli-i-aksessuary", "purchase_price": 620, "stock": 200, "specs": { "Версия": "HDMI 2.1", "Длина": "2 м" } },
+    { "sku": "VAC-ROBO-XIA", "name": "Robot Vacuum S20", "brand": "Xiaomi", "category": "melkaya-bytovaya-tehnika", "purchase_price": 13900, "stock": 12, "specs": { "Мощность всасывания": "5000 Па", "Ёмкость АКБ": "3200 мАч" } },
+    { "sku": "FRIDGE-NF-HAI", "name": "Холодильник CEF535ASD No Frost", "brand": "Haier", "category": "krupnaya-bytovaya-tehnika", "purchase_price": 54800, "stock": 4, "specs": { "Высота": "190 см", "Объём": "346 л", "Класс": "A+" } }
+  ]
+}

@@ -1,0 +1,39 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --ink: #14171c;        /* графит — корпус */
+  --steel: #6b7280;      /* сталь — вторичный текст */
+  --volt: #cdf138;       /* вольт-лайм — акцент, заряд */
+  --volt-dark: #a8cc1d;
+  --bg: #f3f4f6;
+  --card: #ffffff;
+  --line: #e5e7eb;
+}
+
+body {
+  background: var(--bg);
+  color: var(--ink);
+}
+
+/* Сигнатурный элемент: «заряд» — подчёркивание, бегущее при ховере */
+.charge-link {
+  position: relative;
+}
+.charge-link::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  height: 2px;
+  width: 0;
+  background: var(--volt);
+  transition: width 0.25s ease;
+}
+.charge-link:hover::after {
+  width: 100%;
+}
+@media (prefers-reduced-motion: reduce) {
+  .charge-link::after { transition: none; }
+}

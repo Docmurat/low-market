@@ -1,6 +1,25 @@
+# зависимости
 node_modules/
-.next/
-.env
-*.log
 
+# сборка Next.js
+.next/
+out/
 tsconfig.tsbuildinfo
+
+# окружение (секреты)
+.env
+.env.local
+.env.*.local
+
+# логи
+*.log
+npm-debug.log*
+
+# Prisma
+prisma/*.db
+
+# IDE / ОС
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db

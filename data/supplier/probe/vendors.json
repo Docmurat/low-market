@@ -1,0 +1,4490 @@
+[
+  {
+    "vendorName": "BOARDSYS",
+    "vendorCode": "_0"
+  },
+  {
+    "vendorName": "AVEX",
+    "vendorCode": "_1"
+  },
+  {
+    "vendorName": "ATLANT",
+    "vendorCode": "_2"
+  },
+  {
+    "vendorName": "ENERGY",
+    "vendorCode": "_3"
+  },
+  {
+    "vendorName": "GEFEST",
+    "vendorCode": "_4"
+  },
+  {
+    "vendorName": "ALPHA AUDIO",
+    "vendorCode": "_5"
+  },
+  {
+    "vendorName": "MACKIE",
+    "vendorCode": "_6"
+  },
+  {
+    "vendorName": "IEK",
+    "vendorCode": "_7"
+  },
+  {
+    "vendorName": "HOTFROST",
+    "vendorCode": "_8"
+  },
+  {
+    "vendorName": "PIT",
+    "vendorCode": "_9"
+  },
+  {
+    "vendorName": "APLINE",
+    "vendorCode": "_A"
+  },
+  {
+    "vendorName": "ASSOL",
+    "vendorCode": "_B"
+  },
+  {
+    "vendorName": "CATA",
+    "vendorCode": "_C"
+  },
+  {
+    "vendorName": "DIGMA",
+    "vendorCode": "_D"
+  },
+  {
+    "vendorName": "ELICA",
+    "vendorCode": "_E"
+  },
+  {
+    "vendorName": "FUSION",
+    "vendorCode": "_F"
+  },
+  {
+    "vendorName": "GA.MA",
+    "vendorCode": "_G"
+  },
+  {
+    "vendorName": "HANSA",
+    "vendorCode": "_H"
+  },
+  {
+    "vendorName": "IRIT",
+    "vendorCode": "_I"
+  },
+  {
+    "vendorName": "JET AIR",
+    "vendorCode": "_J"
+  },
+  {
+    "vendorName": "GFGRIL",
+    "vendorCode": "_K"
+  },
+  {
+    "vendorName": "LEX",
+    "vendorCode": "_L"
+  },
+  {
+    "vendorName": "MACAUDIO",
+    "vendorCode": "_M"
+  },
+  {
+    "vendorName": "NORD",
+    "vendorCode": "_N"
+  },
+  {
+    "vendorName": "HISENSE",
+    "vendorCode": "_O"
+  },
+  {
+    "vendorName": "PARKCITY",
+    "vendorCode": "_P"
+  },
+  {
+    "vendorName": "Test",
+    "vendorCode": "_Q"
+  },
+  {
+    "vendorName": "RUSSELL HOBBS",
+    "vendorCode": "_R"
+  },
+  {
+    "vendorName": "SIMFER",
+    "vendorCode": "_S"
+  },
+  {
+    "vendorName": "REFLECT",
+    "vendorCode": "_T"
+  },
+  {
+    "vendorName": "TOUCHBEAUTY",
+    "vendorCode": "_U"
+  },
+  {
+    "vendorName": "SHIVAKI",
+    "vendorCode": "_V"
+  },
+  {
+    "vendorName": "WHISTLER",
+    "vendorCode": "_W"
+  },
+  {
+    "vendorName": "ARTWAY",
+    "vendorCode": "_X"
+  },
+  {
+    "vendorName": "TESLER",
+    "vendorCode": "_Y"
+  },
+  {
+    "vendorName": "ZIGMUND&SHTAIN",
+    "vendorCode": "_Z"
+  },
+  {
+    "vendorName": "ASANO",
+    "vendorCode": "1A"
+  },
+  {
+    "vendorName": "BIRYUSA",
+    "vendorCode": "1B"
+  },
+  {
+    "vendorName": "CANDY",
+    "vendorCode": "1C"
+  },
+  {
+    "vendorName": "DARINA",
+    "vendorCode": "1D"
+  },
+  {
+    "vendorName": "EVGA",
+    "vendorCode": "1E"
+  },
+  {
+    "vendorName": "FISKARS",
+    "vendorCode": "1F"
+  },
+  {
+    "vendorName": "SANDBERG",
+    "vendorCode": "1G"
+  },
+  {
+    "vendorName": "MH BATTERY",
+    "vendorCode": "1H"
+  },
+  {
+    "vendorName": "INTERSKOL",
+    "vendorCode": "1I"
+  },
+  {
+    "vendorName": "RESTO",
+    "vendorCode": "1J"
+  },
+  {
+    "vendorName": "KIT",
+    "vendorCode": "1K"
+  },
+  {
+    "vendorName": "LISVA",
+    "vendorCode": "1L"
+  },
+  {
+    "vendorName": "MERCUSYS",
+    "vendorCode": "1M"
+  },
+  {
+    "vendorName": "NINEBOT BY SEGWAY",
+    "vendorCode": "1N"
+  },
+  {
+    "vendorName": "OASIS",
+    "vendorCode": "1O"
+  },
+  {
+    "vendorName": "PUPPYOO",
+    "vendorCode": "1P"
+  },
+  {
+    "vendorName": "KES",
+    "vendorCode": "1Q"
+  },
+  {
+    "vendorName": "1MORE",
+    "vendorCode": "1R"
+  },
+  {
+    "vendorName": "STAVR",
+    "vendorCode": "1S"
+  },
+  {
+    "vendorName": "IBOTO",
+    "vendorCode": "1T"
+  },
+  {
+    "vendorName": "UGREEN",
+    "vendorCode": "1U"
+  },
+  {
+    "vendorName": "SARATOV",
+    "vendorCode": "1V"
+  },
+  {
+    "vendorName": "WOOX",
+    "vendorCode": "1W"
+  },
+  {
+    "vendorName": "AXION",
+    "vendorCode": "1X"
+  },
+  {
+    "vendorName": "YUNO",
+    "vendorCode": "1Y"
+  },
+  {
+    "vendorName": "JPIK",
+    "vendorCode": "1Z"
+  },
+  {
+    "vendorName": "ATMOR",
+    "vendorCode": "2A"
+  },
+  {
+    "vendorName": "BUFFERZONE SECURITY",
+    "vendorCode": "2B"
+  },
+  {
+    "vendorName": "COMFEE",
+    "vendorCode": "2C"
+  },
+  {
+    "vendorName": "DAHLE",
+    "vendorCode": "2D"
+  },
+  {
+    "vendorName": "REEX",
+    "vendorCode": "2E"
+  },
+  {
+    "vendorName": "FUTUREHOME",
+    "vendorCode": "2F"
+  },
+  {
+    "vendorName": "GEPLINK",
+    "vendorCode": "2G"
+  },
+  {
+    "vendorName": "HAMMER",
+    "vendorCode": "2H"
+  },
+  {
+    "vendorName": "INSTREAM",
+    "vendorCode": "2I"
+  },
+  {
+    "vendorName": "ELAGO",
+    "vendorCode": "2J"
+  },
+  {
+    "vendorName": "KENEKSI",
+    "vendorCode": "2K"
+  },
+  {
+    "vendorName": "LEFF",
+    "vendorCode": "2L"
+  },
+  {
+    "vendorName": "MICROMAX",
+    "vendorCode": "2M"
+  },
+  {
+    "vendorName": "2N",
+    "vendorCode": "2N"
+  },
+  {
+    "vendorName": "OURSSON",
+    "vendorCode": "2O"
+  },
+  {
+    "vendorName": "PANTUM",
+    "vendorCode": "2P"
+  },
+  {
+    "vendorName": "ITC",
+    "vendorCode": "2Q"
+  },
+  {
+    "vendorName": "REKAM",
+    "vendorCode": "2R"
+  },
+  {
+    "vendorName": "SINBO",
+    "vendorCode": "2S"
+  },
+  {
+    "vendorName": "TNB",
+    "vendorCode": "2T"
+  },
+  {
+    "vendorName": "TRUAUDIO",
+    "vendorCode": "2U"
+  },
+  {
+    "vendorName": "VERINT",
+    "vendorCode": "2V"
+  },
+  {
+    "vendorName": "AKSION",
+    "vendorCode": "2W"
+  },
+  {
+    "vendorName": "MAXLINE",
+    "vendorCode": "2X"
+  },
+  {
+    "vendorName": "MYSTERY",
+    "vendorCode": "2Y"
+  },
+  {
+    "vendorName": "WI-TEK",
+    "vendorCode": "2Z"
+  },
+  {
+    "vendorName": "APERIO",
+    "vendorCode": "3A"
+  },
+  {
+    "vendorName": "BRIEFCAM",
+    "vendorCode": "3B"
+  },
+  {
+    "vendorName": "3COM",
+    "vendorCode": "3C"
+  },
+  {
+    "vendorName": "3DCONNEXION",
+    "vendorCode": "3D"
+  },
+  {
+    "vendorName": "ELIKOR",
+    "vendorCode": "3E"
+  },
+  {
+    "vendorName": "FORMOVIE",
+    "vendorCode": "3F"
+  },
+  {
+    "vendorName": "GREKKOM",
+    "vendorCode": "3G"
+  },
+  {
+    "vendorName": "HIBERG",
+    "vendorCode": "3H"
+  },
+  {
+    "vendorName": "GENKI",
+    "vendorCode": "3I"
+  },
+  {
+    "vendorName": "JETBRAINS",
+    "vendorCode": "3J"
+  },
+  {
+    "vendorName": "KRUPS",
+    "vendorCode": "3K"
+  },
+  {
+    "vendorName": "ADLER",
+    "vendorCode": "3L"
+  },
+  {
+    "vendorName": "MAX",
+    "vendorCode": "3M"
+  },
+  {
+    "vendorName": "OZONEHD",
+    "vendorCode": "3O"
+  },
+  {
+    "vendorName": "PROTECT ME",
+    "vendorCode": "3P"
+  },
+  {
+    "vendorName": "3Q",
+    "vendorCode": "3Q"
+  },
+  {
+    "vendorName": "ROTOR",
+    "vendorCode": "3R"
+  },
+  {
+    "vendorName": "SAIMOS",
+    "vendorCode": "3S"
+  },
+  {
+    "vendorName": "STATIC CONTROL",
+    "vendorCode": "3T"
+  },
+  {
+    "vendorName": "SHURE",
+    "vendorCode": "3U"
+  },
+  {
+    "vendorName": "SEVERIN",
+    "vendorCode": "3V"
+  },
+  {
+    "vendorName": "WENTRONIC",
+    "vendorCode": "3W"
+  },
+  {
+    "vendorName": "NOVEX",
+    "vendorCode": "3X"
+  },
+  {
+    "vendorName": "YADRO",
+    "vendorCode": "3Y"
+  },
+  {
+    "vendorName": "HUTT",
+    "vendorCode": "3Z"
+  },
+  {
+    "vendorName": "ACRONIS",
+    "vendorCode": "4A"
+  },
+  {
+    "vendorName": "BABYLISS",
+    "vendorCode": "4B"
+  },
+  {
+    "vendorName": "COMFORT",
+    "vendorCode": "4C"
+  },
+  {
+    "vendorName": "DE LUXE",
+    "vendorCode": "4D"
+  },
+  {
+    "vendorName": "EXPLAY",
+    "vendorCode": "4E"
+  },
+  {
+    "vendorName": "4GOOD",
+    "vendorCode": "4G"
+  },
+  {
+    "vendorName": "HORIZONT",
+    "vendorCode": "4H"
+  },
+  {
+    "vendorName": "IVIDEON",
+    "vendorCode": "4I"
+  },
+  {
+    "vendorName": "LONGSYS",
+    "vendorCode": "4J"
+  },
+  {
+    "vendorName": "KEENETIC",
+    "vendorCode": "4K"
+  },
+  {
+    "vendorName": "TRIMBLE",
+    "vendorCode": "4L"
+  },
+  {
+    "vendorName": "MERRYLOCK",
+    "vendorCode": "4M"
+  },
+  {
+    "vendorName": "NOBO",
+    "vendorCode": "4N"
+  },
+  {
+    "vendorName": "PROCONNECT",
+    "vendorCode": "4O"
+  },
+  {
+    "vendorName": "CYBERPOWER",
+    "vendorCode": "4P"
+  },
+  {
+    "vendorName": "MANTRA",
+    "vendorCode": "4Q"
+  },
+  {
+    "vendorName": "ROIDMI",
+    "vendorCode": "4R"
+  },
+  {
+    "vendorName": "STIEBEL ELTRON",
+    "vendorCode": "4S"
+  },
+  {
+    "vendorName": "A4TECH",
+    "vendorCode": "4T"
+  },
+  {
+    "vendorName": "USMILE",
+    "vendorCode": "4U"
+  },
+  {
+    "vendorName": "VONHAUS",
+    "vendorCode": "4V"
+  },
+  {
+    "vendorName": "SWETRACK",
+    "vendorCode": "4W"
+  },
+  {
+    "vendorName": "SITRONICS",
+    "vendorCode": "4X"
+  },
+  {
+    "vendorName": "GOOBAY",
+    "vendorCode": "4Y"
+  },
+  {
+    "vendorName": "NEFF",
+    "vendorCode": "4Z"
+  },
+  {
+    "vendorName": "ASCOLI",
+    "vendorCode": "5A"
+  },
+  {
+    "vendorName": "BORT",
+    "vendorCode": "5B"
+  },
+  {
+    "vendorName": "CACTUS",
+    "vendorCode": "5C"
+  },
+  {
+    "vendorName": "DON",
+    "vendorCode": "5D"
+  },
+  {
+    "vendorName": "ELEMENT",
+    "vendorCode": "5E"
+  },
+  {
+    "vendorName": "TECHNOGROUP",
+    "vendorCode": "5F"
+  },
+  {
+    "vendorName": "GREENWORKS",
+    "vendorCode": "5G"
+  },
+  {
+    "vendorName": "HAND ANTIBACTERIAL",
+    "vendorCode": "5H"
+  },
+  {
+    "vendorName": "INSTA360",
+    "vendorCode": "5I"
+  },
+  {
+    "vendorName": "PROXIMA",
+    "vendorCode": "5J"
+  },
+  {
+    "vendorName": "KLEVV",
+    "vendorCode": "5K"
+  },
+  {
+    "vendorName": "YANDEX",
+    "vendorCode": "5L"
+  },
+  {
+    "vendorName": "MITECH",
+    "vendorCode": "5M"
+  },
+  {
+    "vendorName": "SOOCAS",
+    "vendorCode": "5O"
+  },
+  {
+    "vendorName": "PROPHETE",
+    "vendorCode": "5P"
+  },
+  {
+    "vendorName": "BEYERDYNAMIC",
+    "vendorCode": "5Q"
+  },
+  {
+    "vendorName": "SPEEDROLL",
+    "vendorCode": "5S"
+  },
+  {
+    "vendorName": "THERMOR",
+    "vendorCode": "5T"
+  },
+  {
+    "vendorName": "RUPOST",
+    "vendorCode": "5U"
+  },
+  {
+    "vendorName": "MOVAVI",
+    "vendorCode": "5V"
+  },
+  {
+    "vendorName": "CROWN",
+    "vendorCode": "5W"
+  },
+  {
+    "vendorName": "TEST",
+    "vendorCode": "5X"
+  },
+  {
+    "vendorName": "RUBEKAP",
+    "vendorCode": "5Y"
+  },
+  {
+    "vendorName": "ARMORSTANDART",
+    "vendorCode": "5Z"
+  },
+  {
+    "vendorName": "AIWA",
+    "vendorCode": "6A"
+  },
+  {
+    "vendorName": "B.WELL",
+    "vendorCode": "6B"
+  },
+  {
+    "vendorName": "CAMMPRO",
+    "vendorCode": "6C"
+  },
+  {
+    "vendorName": "DEEPCOOL",
+    "vendorCode": "6D"
+  },
+  {
+    "vendorName": "ECOVACS",
+    "vendorCode": "6E"
+  },
+  {
+    "vendorName": "FABER",
+    "vendorCode": "6F"
+  },
+  {
+    "vendorName": "G&G",
+    "vendorCode": "6G"
+  },
+  {
+    "vendorName": "HUTER",
+    "vendorCode": "6H"
+  },
+  {
+    "vendorName": "ITV",
+    "vendorCode": "6I"
+  },
+  {
+    "vendorName": "SYSTEME ELECTRIC",
+    "vendorCode": "6J"
+  },
+  {
+    "vendorName": "KUSTOM SIGNALS",
+    "vendorCode": "6K"
+  },
+  {
+    "vendorName": "LIFESMART",
+    "vendorCode": "6L"
+  },
+  {
+    "vendorName": "MAKITA",
+    "vendorCode": "6M"
+  },
+  {
+    "vendorName": "SENNHEISER",
+    "vendorCode": "6N"
+  },
+  {
+    "vendorName": "OCLEAN",
+    "vendorCode": "6O"
+  },
+  {
+    "vendorName": "PARALLELS",
+    "vendorCode": "6P"
+  },
+  {
+    "vendorName": "STIHL",
+    "vendorCode": "6Q"
+  },
+  {
+    "vendorName": "ROMSAT",
+    "vendorCode": "6R"
+  },
+  {
+    "vendorName": "STADLER FORM",
+    "vendorCode": "6S"
+  },
+  {
+    "vendorName": "ATCOM",
+    "vendorCode": "6T"
+  },
+  {
+    "vendorName": "LUMIEN",
+    "vendorCode": "6U"
+  },
+  {
+    "vendorName": "VECOM",
+    "vendorCode": "6V"
+  },
+  {
+    "vendorName": "MAUNFELD",
+    "vendorCode": "6W"
+  },
+  {
+    "vendorName": "NewGrade",
+    "vendorCode": "6Y"
+  },
+  {
+    "vendorName": "ANKER",
+    "vendorCode": "7A"
+  },
+  {
+    "vendorName": "BIODEZ",
+    "vendorCode": "7B"
+  },
+  {
+    "vendorName": "COOLIT SYSTEMS",
+    "vendorCode": "7C"
+  },
+  {
+    "vendorName": "DREAME",
+    "vendorCode": "7D"
+  },
+  {
+    "vendorName": "ECON",
+    "vendorCode": "7E"
+  },
+  {
+    "vendorName": "INFOCUS",
+    "vendorCode": "7F"
+  },
+  {
+    "vendorName": "AIRGLE",
+    "vendorCode": "7G"
+  },
+  {
+    "vendorName": "INDILINX",
+    "vendorCode": "7I"
+  },
+  {
+    "vendorName": "NOIROT",
+    "vendorCode": "7J"
+  },
+  {
+    "vendorName": "VATTEN",
+    "vendorCode": "7K"
+  },
+  {
+    "vendorName": "LONGHE",
+    "vendorCode": "7L"
+  },
+  {
+    "vendorName": "MODENA",
+    "vendorCode": "7M"
+  },
+  {
+    "vendorName": "KBT",
+    "vendorCode": "7N"
+  },
+  {
+    "vendorName": "TAOTRONICS",
+    "vendorCode": "7O"
+  },
+  {
+    "vendorName": "POWERCOM",
+    "vendorCode": "7P"
+  },
+  {
+    "vendorName": "REALME",
+    "vendorCode": "7R"
+  },
+  {
+    "vendorName": "SNAIGE",
+    "vendorCode": "7S"
+  },
+  {
+    "vendorName": "TFN",
+    "vendorCode": "7T"
+  },
+  {
+    "vendorName": "UFESA",
+    "vendorCode": "7U"
+  },
+  {
+    "vendorName": "BROVI",
+    "vendorCode": "7V"
+  },
+  {
+    "vendorName": "SCHAUB LORENZ",
+    "vendorCode": "7W"
+  },
+  {
+    "vendorName": "LE'STER",
+    "vendorCode": "7Y"
+  },
+  {
+    "vendorName": "ATS CONVERS",
+    "vendorCode": "7Z"
+  },
+  {
+    "vendorName": "AKG",
+    "vendorCode": "8A"
+  },
+  {
+    "vendorName": "ELITEBOARD",
+    "vendorCode": "8B"
+  },
+  {
+    "vendorName": "A&D",
+    "vendorCode": "8D"
+  },
+  {
+    "vendorName": "ENDEVER",
+    "vendorCode": "8E"
+  },
+  {
+    "vendorName": "IFFALCON",
+    "vendorCode": "8F"
+  },
+  {
+    "vendorName": "GOOGLE",
+    "vendorCode": "8G"
+  },
+  {
+    "vendorName": "HONOR CHOICE",
+    "vendorCode": "8H"
+  },
+  {
+    "vendorName": "ACD",
+    "vendorCode": "8J"
+  },
+  {
+    "vendorName": "BALLU",
+    "vendorCode": "8K"
+  },
+  {
+    "vendorName": "LEBOOO",
+    "vendorCode": "8L"
+  },
+  {
+    "vendorName": "MARVO",
+    "vendorCode": "8M"
+  },
+  {
+    "vendorName": "EUFY",
+    "vendorCode": "8N"
+  },
+  {
+    "vendorName": "SECTONA",
+    "vendorCode": "8O"
+  },
+  {
+    "vendorName": "BQ",
+    "vendorCode": "8Q"
+  },
+  {
+    "vendorName": "R&M",
+    "vendorCode": "8R"
+  },
+  {
+    "vendorName": "SUNSEEKER",
+    "vendorCode": "8S"
+  },
+  {
+    "vendorName": "TTEC",
+    "vendorCode": "8T"
+  },
+  {
+    "vendorName": "TESSA",
+    "vendorCode": "8U"
+  },
+  {
+    "vendorName": "ENVITECH",
+    "vendorCode": "8V"
+  },
+  {
+    "vendorName": "ECOSTAR",
+    "vendorCode": "8W"
+  },
+  {
+    "vendorName": "FUNAI",
+    "vendorCode": "8X"
+  },
+  {
+    "vendorName": "ACTILITY",
+    "vendorCode": "9A"
+  },
+  {
+    "vendorName": "BERGNER",
+    "vendorCode": "9B"
+  },
+  {
+    "vendorName": "ID-COOLING",
+    "vendorCode": "9C"
+  },
+  {
+    "vendorName": "ERGO",
+    "vendorCode": "9E"
+  },
+  {
+    "vendorName": "GOOXI",
+    "vendorCode": "9G"
+  },
+  {
+    "vendorName": "HAYLOU",
+    "vendorCode": "9H"
+  },
+  {
+    "vendorName": "BION",
+    "vendorCode": "9I"
+  },
+  {
+    "vendorName": "RIKOR",
+    "vendorCode": "9K"
+  },
+  {
+    "vendorName": "LIL",
+    "vendorCode": "9L"
+  },
+  {
+    "vendorName": "MOSER",
+    "vendorCode": "9M"
+  },
+  {
+    "vendorName": "NOTHING PHONE",
+    "vendorCode": "9N"
+  },
+  {
+    "vendorName": "LEGO",
+    "vendorCode": "9O"
+  },
+  {
+    "vendorName": "COOLPAD",
+    "vendorCode": "9P"
+  },
+  {
+    "vendorName": "AQUARIUS",
+    "vendorCode": "9Q"
+  },
+  {
+    "vendorName": "RSA SECURITY",
+    "vendorCode": "9R"
+  },
+  {
+    "vendorName": "SIBLING",
+    "vendorCode": "9S"
+  },
+  {
+    "vendorName": "TEKTELIC",
+    "vendorCode": "9T"
+  },
+  {
+    "vendorName": "BRUDER",
+    "vendorCode": "9U"
+  },
+  {
+    "vendorName": "EXEGATE",
+    "vendorCode": "9V"
+  },
+  {
+    "vendorName": "AUDIO-TECHNICA",
+    "vendorCode": "9W"
+  },
+  {
+    "vendorName": "AURORA",
+    "vendorCode": "A0"
+  },
+  {
+    "vendorName": "ADOBE",
+    "vendorCode": "A1"
+  },
+  {
+    "vendorName": "DAIKIN",
+    "vendorCode": "A2"
+  },
+  {
+    "vendorName": "ACTIVEJET",
+    "vendorCode": "A3"
+  },
+  {
+    "vendorName": "ARCTIC",
+    "vendorCode": "A4"
+  },
+  {
+    "vendorName": "AVERMEDIA",
+    "vendorCode": "A5"
+  },
+  {
+    "vendorName": "ARMOR",
+    "vendorCode": "A6"
+  },
+  {
+    "vendorName": "AIMETIS",
+    "vendorCode": "A7"
+  },
+  {
+    "vendorName": "ACTI",
+    "vendorCode": "A8"
+  },
+  {
+    "vendorName": "A+ CASE",
+    "vendorCode": "A9"
+  },
+  {
+    "vendorName": "ADAPTEC",
+    "vendorCode": "AA"
+  },
+  {
+    "vendorName": "ARUBA BY HPE",
+    "vendorCode": "AB"
+  },
+  {
+    "vendorName": "ACORP",
+    "vendorCode": "AC"
+  },
+  {
+    "vendorName": "A-TREND",
+    "vendorCode": "AD"
+  },
+  {
+    "vendorName": "OVISLINK",
+    "vendorCode": "AE"
+  },
+  {
+    "vendorName": "TANITA",
+    "vendorCode": "AF"
+  },
+  {
+    "vendorName": "AOPEN",
+    "vendorCode": "AG"
+  },
+  {
+    "vendorName": "APACER",
+    "vendorCode": "AH"
+  },
+  {
+    "vendorName": "ASUSTOR",
+    "vendorCode": "AI"
+  },
+  {
+    "vendorName": "ASROCK",
+    "vendorCode": "AJ"
+  },
+  {
+    "vendorName": "ALANTIK",
+    "vendorCode": "AK"
+  },
+  {
+    "vendorName": "ALLIED",
+    "vendorCode": "AL"
+  },
+  {
+    "vendorName": "*any value*",
+    "vendorCode": "ALL"
+  },
+  {
+    "vendorName": "AMD",
+    "vendorCode": "AM"
+  },
+  {
+    "vendorName": "ANUBIS",
+    "vendorCode": "AN"
+  },
+  {
+    "vendorName": "AORUS",
+    "vendorCode": "AO"
+  },
+  {
+    "vendorName": "APC BY SCHNEIDER ELECTRIC",
+    "vendorCode": "AP"
+  },
+  {
+    "vendorName": "AOC",
+    "vendorCode": "AQ"
+  },
+  {
+    "vendorName": "ACER",
+    "vendorCode": "AR"
+  },
+  {
+    "vendorName": "ADATA",
+    "vendorCode": "AS"
+  },
+  {
+    "vendorName": "ATI",
+    "vendorCode": "AT"
+  },
+  {
+    "vendorName": "ASUS",
+    "vendorCode": "AU"
+  },
+  {
+    "vendorName": "ADVANTECH",
+    "vendorCode": "AV"
+  },
+  {
+    "vendorName": "AEROCOOL",
+    "vendorCode": "AW"
+  },
+  {
+    "vendorName": "AXIS",
+    "vendorCode": "AX"
+  },
+  {
+    "vendorName": "AAEON",
+    "vendorCode": "AY"
+  },
+  {
+    "vendorName": "BBK",
+    "vendorCode": "B0"
+  },
+  {
+    "vendorName": "BROTHER",
+    "vendorCode": "B1"
+  },
+  {
+    "vendorName": "BEHOLDER",
+    "vendorCode": "B2"
+  },
+  {
+    "vendorName": "BITFENIX",
+    "vendorCode": "B3"
+  },
+  {
+    "vendorName": "BITDEFENDER",
+    "vendorCode": "B4"
+  },
+  {
+    "vendorName": "BEATS BY DR. DRE",
+    "vendorCode": "B5"
+  },
+  {
+    "vendorName": "BOSCH",
+    "vendorCode": "B6"
+  },
+  {
+    "vendorName": "BRAUN",
+    "vendorCode": "B7"
+  },
+  {
+    "vendorName": "BLACK&DECKER",
+    "vendorCode": "B8"
+  },
+  {
+    "vendorName": "BINATONE",
+    "vendorCode": "B9"
+  },
+  {
+    "vendorName": "BRABANTIA",
+    "vendorCode": "BA"
+  },
+  {
+    "vendorName": "BLACKBERRY",
+    "vendorCode": "BB"
+  },
+  {
+    "vendorName": "BLACKSHARK",
+    "vendorCode": "BC"
+  },
+  {
+    "vendorName": "NATIONAL",
+    "vendorCode": "BD"
+  },
+  {
+    "vendorName": "POINT OF VIEW",
+    "vendorCode": "BE"
+  },
+  {
+    "vendorName": "BUFFALO",
+    "vendorCode": "BF"
+  },
+  {
+    "vendorName": "BASEUS",
+    "vendorCode": "BG"
+  },
+  {
+    "vendorName": "HAVIT",
+    "vendorCode": "BH"
+  },
+  {
+    "vendorName": "BIOSTAR",
+    "vendorCode": "BI"
+  },
+  {
+    "vendorName": "BESTWAY",
+    "vendorCode": "BJ"
+  },
+  {
+    "vendorName": "INKBOOK",
+    "vendorCode": "BK"
+  },
+  {
+    "vendorName": "BELKIN",
+    "vendorCode": "BL"
+  },
+  {
+    "vendorName": "MULTIBRACKETS",
+    "vendorCode": "BM"
+  },
+  {
+    "vendorName": "BANG & OLUFSEN",
+    "vendorCode": "BN"
+  },
+  {
+    "vendorName": "BORASCO",
+    "vendorCode": "BO"
+  },
+  {
+    "vendorName": "COMPAL",
+    "vendorCode": "BP"
+  },
+  {
+    "vendorName": "BENQ",
+    "vendorCode": "BQ"
+  },
+  {
+    "vendorName": "BROADCOM",
+    "vendorCode": "BR"
+  },
+  {
+    "vendorName": "BECKER",
+    "vendorCode": "BS"
+  },
+  {
+    "vendorName": "BTC",
+    "vendorCode": "BT"
+  },
+  {
+    "vendorName": "BULAT",
+    "vendorCode": "BU"
+  },
+  {
+    "vendorName": "BLACKVIEW",
+    "vendorCode": "BV"
+  },
+  {
+    "vendorName": "AETINA",
+    "vendorCode": "BW"
+  },
+  {
+    "vendorName": "BASEALT",
+    "vendorCode": "BX"
+  },
+  {
+    "vendorName": "RAYBERRY",
+    "vendorCode": "BY"
+  },
+  {
+    "vendorName": "BLUETTI",
+    "vendorCode": "BZ"
+  },
+  {
+    "vendorName": "CAMBIUM",
+    "vendorCode": "C0"
+  },
+  {
+    "vendorName": "CAMBRIDGE AUDIO",
+    "vendorCode": "C1"
+  },
+  {
+    "vendorName": "CHIEFTEC",
+    "vendorCode": "C2"
+  },
+  {
+    "vendorName": "CRUCIAL",
+    "vendorCode": "C3"
+  },
+  {
+    "vendorName": "CHICONY",
+    "vendorCode": "C4"
+  },
+  {
+    "vendorName": "CRONO",
+    "vendorCode": "C6"
+  },
+  {
+    "vendorName": "CANOVATE",
+    "vendorCode": "C7"
+  },
+  {
+    "vendorName": "CULCHARGE",
+    "vendorCode": "C8"
+  },
+  {
+    "vendorName": "COGNIMATICS",
+    "vendorCode": "C9"
+  },
+  {
+    "vendorName": "CIRCUIT ASSEMBLY",
+    "vendorCode": "CA"
+  },
+  {
+    "vendorName": "CLUB3D",
+    "vendorCode": "CB"
+  },
+  {
+    "vendorName": "COMPUCASE",
+    "vendorCode": "CC"
+  },
+  {
+    "vendorName": "CANON",
+    "vendorCode": "CD"
+  },
+  {
+    "vendorName": "CHENBRO",
+    "vendorCode": "CE"
+  },
+  {
+    "vendorName": "CAT",
+    "vendorCode": "CF"
+  },
+  {
+    "vendorName": "CODEGEN",
+    "vendorCode": "CG"
+  },
+  {
+    "vendorName": "CHUENER FONG",
+    "vendorCode": "CH"
+  },
+  {
+    "vendorName": "CISCO",
+    "vendorCode": "CI"
+  },
+  {
+    "vendorName": "CORSAIR",
+    "vendorCode": "CJ"
+  },
+  {
+    "vendorName": "TURBOSKY",
+    "vendorCode": "CK"
+  },
+  {
+    "vendorName": "COOLER MASTER",
+    "vendorCode": "CL"
+  },
+  {
+    "vendorName": "CUBOT",
+    "vendorCode": "CM"
+  },
+  {
+    "vendorName": "CNET",
+    "vendorCode": "CN"
+  },
+  {
+    "vendorName": "COMPAL",
+    "vendorCode": "CO"
+  },
+  {
+    "vendorName": "POWER COLOR",
+    "vendorCode": "CP"
+  },
+  {
+    "vendorName": "CONTEG",
+    "vendorCode": "CQ"
+  },
+  {
+    "vendorName": "CREATIVE",
+    "vendorCode": "CR"
+  },
+  {
+    "vendorName": "CASIO",
+    "vendorCode": "CS"
+  },
+  {
+    "vendorName": "CNB",
+    "vendorCode": "CT"
+  },
+  {
+    "vendorName": "ASSMANN",
+    "vendorCode": "CU"
+  },
+  {
+    "vendorName": "MAGOS",
+    "vendorCode": "CW"
+  },
+  {
+    "vendorName": "MACROSCOP",
+    "vendorCode": "CX"
+  },
+  {
+    "vendorName": "COMPULOCKS",
+    "vendorCode": "CY"
+  },
+  {
+    "vendorName": "REVLON",
+    "vendorCode": "CZ"
+  },
+  {
+    "vendorName": "TESVOR",
+    "vendorCode": "D0"
+  },
+  {
+    "vendorName": "DRWEB",
+    "vendorCode": "D1"
+  },
+  {
+    "vendorName": "DOT HILL",
+    "vendorCode": "D2"
+  },
+  {
+    "vendorName": "DELFA",
+    "vendorCode": "D3"
+  },
+  {
+    "vendorName": "DELONGHI",
+    "vendorCode": "D4"
+  },
+  {
+    "vendorName": "ESCADA ELECTRONICS",
+    "vendorCode": "D5"
+  },
+  {
+    "vendorName": "DROBO",
+    "vendorCode": "D6"
+  },
+  {
+    "vendorName": "AUTODESK",
+    "vendorCode": "D7"
+  },
+  {
+    "vendorName": "SANDEEP",
+    "vendorCode": "D8"
+  },
+  {
+    "vendorName": "DANAVERO",
+    "vendorCode": "D9"
+  },
+  {
+    "vendorName": "DICOTA",
+    "vendorCode": "DA"
+  },
+  {
+    "vendorName": "DECENTLAB",
+    "vendorCode": "DB"
+  },
+  {
+    "vendorName": "DAHUA CONSUMER",
+    "vendorCode": "DC"
+  },
+  {
+    "vendorName": "NOTHING",
+    "vendorCode": "DD"
+  },
+  {
+    "vendorName": "DELL",
+    "vendorCode": "DE"
+  },
+  {
+    "vendorName": "DEFENDER",
+    "vendorCode": "DF"
+  },
+  {
+    "vendorName": "DYMO",
+    "vendorCode": "DG"
+  },
+  {
+    "vendorName": "DAHUA",
+    "vendorCode": "DH"
+  },
+  {
+    "vendorName": "INNODISK",
+    "vendorCode": "DI"
+  },
+  {
+    "vendorName": "DJI",
+    "vendorCode": "DJ"
+  },
+  {
+    "vendorName": "D-LINK",
+    "vendorCode": "DL"
+  },
+  {
+    "vendorName": "ARM MEDIA",
+    "vendorCode": "DM"
+  },
+  {
+    "vendorName": "DANTEX",
+    "vendorCode": "DN"
+  },
+  {
+    "vendorName": "DOMO",
+    "vendorCode": "DO"
+  },
+  {
+    "vendorName": "DEPPA",
+    "vendorCode": "DP"
+  },
+  {
+    "vendorName": "KIOXIA",
+    "vendorCode": "DR"
+  },
+  {
+    "vendorName": "DSSL",
+    "vendorCode": "DS"
+  },
+  {
+    "vendorName": "DEVELOPMENT",
+    "vendorCode": "DT"
+  },
+  {
+    "vendorName": "DEFUNC",
+    "vendorCode": "DU"
+  },
+  {
+    "vendorName": "ARK DEVICE",
+    "vendorCode": "DV"
+  },
+  {
+    "vendorName": "DAEWOO",
+    "vendorCode": "DW"
+  },
+  {
+    "vendorName": "DIGITEX",
+    "vendorCode": "DX"
+  },
+  {
+    "vendorName": "DYSON",
+    "vendorCode": "DY"
+  },
+  {
+    "vendorName": "DORTEN",
+    "vendorCode": "DZ"
+  },
+  {
+    "vendorName": "ELTEX",
+    "vendorCode": "E0"
+  },
+  {
+    "vendorName": "ESET",
+    "vendorCode": "E1"
+  },
+  {
+    "vendorName": "EDIFIER",
+    "vendorCode": "E2"
+  },
+  {
+    "vendorName": "EMACS",
+    "vendorCode": "E3"
+  },
+  {
+    "vendorName": "ESCAN",
+    "vendorCode": "E4"
+  },
+  {
+    "vendorName": "AEG",
+    "vendorCode": "E5"
+  },
+  {
+    "vendorName": "ELECTROLUX",
+    "vendorCode": "E6"
+  },
+  {
+    "vendorName": "EZVIZ",
+    "vendorCode": "E7"
+  },
+  {
+    "vendorName": "ERISSON",
+    "vendorCode": "E8"
+  },
+  {
+    "vendorName": "EDUGET",
+    "vendorCode": "E9"
+  },
+  {
+    "vendorName": "EASTERN DYNAMICS",
+    "vendorCode": "EA"
+  },
+  {
+    "vendorName": "ERNEST",
+    "vendorCode": "EB"
+  },
+  {
+    "vendorName": "ECS",
+    "vendorCode": "EC"
+  },
+  {
+    "vendorName": "RENEWD",
+    "vendorCode": "ED"
+  },
+  {
+    "vendorName": "AEE",
+    "vendorCode": "EE"
+  },
+  {
+    "vendorName": "ERGOFOUNT",
+    "vendorCode": "EF"
+  },
+  {
+    "vendorName": "ELGATO",
+    "vendorCode": "EG"
+  },
+  {
+    "vendorName": "TESLA TOOLS",
+    "vendorCode": "EH"
+  },
+  {
+    "vendorName": "VERTIV",
+    "vendorCode": "EI"
+  },
+  {
+    "vendorName": "INFINIX",
+    "vendorCode": "EJ"
+  },
+  {
+    "vendorName": "EATON",
+    "vendorCode": "EK"
+  },
+  {
+    "vendorName": "SATEL",
+    "vendorCode": "EL"
+  },
+  {
+    "vendorName": "EMTEC",
+    "vendorCode": "EM"
+  },
+  {
+    "vendorName": "HPE",
+    "vendorCode": "EN"
+  },
+  {
+    "vendorName": "EUROCASE",
+    "vendorCode": "EO"
+  },
+  {
+    "vendorName": "EPSON",
+    "vendorCode": "EP"
+  },
+  {
+    "vendorName": "SHARP / NEC",
+    "vendorCode": "EQ"
+  },
+  {
+    "vendorName": "ELARI",
+    "vendorCode": "ER"
+  },
+  {
+    "vendorName": "ELSYS",
+    "vendorCode": "ES"
+  },
+  {
+    "vendorName": "EDIMAX",
+    "vendorCode": "ET"
+  },
+  {
+    "vendorName": "EMU",
+    "vendorCode": "EU"
+  },
+  {
+    "vendorName": "AUTEL",
+    "vendorCode": "EV"
+  },
+  {
+    "vendorName": "ENGENIUS",
+    "vendorCode": "EW"
+  },
+  {
+    "vendorName": "EMC COMPUTER SYSTEMS",
+    "vendorCode": "EX"
+  },
+  {
+    "vendorName": "BLUEO",
+    "vendorCode": "EY"
+  },
+  {
+    "vendorName": "BROCADE",
+    "vendorCode": "EZ"
+  },
+  {
+    "vendorName": "FANVIL",
+    "vendorCode": "F0"
+  },
+  {
+    "vendorName": "FOXCONN",
+    "vendorCode": "F1"
+  },
+  {
+    "vendorName": "FIRTECH",
+    "vendorCode": "F2"
+  },
+  {
+    "vendorName": "SMARTFORTEC",
+    "vendorCode": "F3"
+  },
+  {
+    "vendorName": "FLUKE NETWORKS",
+    "vendorCode": "F4"
+  },
+  {
+    "vendorName": "FITBIT",
+    "vendorCode": "F5"
+  },
+  {
+    "vendorName": "FIBARO",
+    "vendorCode": "F6"
+  },
+  {
+    "vendorName": "F-SECURE",
+    "vendorCode": "F7"
+  },
+  {
+    "vendorName": "FORTINET",
+    "vendorCode": "F8"
+  },
+  {
+    "vendorName": "FOXLINE",
+    "vendorCode": "F9"
+  },
+  {
+    "vendorName": "AVAST",
+    "vendorCode": "FA"
+  },
+  {
+    "vendorName": "WEISSGAUFF",
+    "vendorCode": "FB"
+  },
+  {
+    "vendorName": "FIC",
+    "vendorCode": "FC"
+  },
+  {
+    "vendorName": "FELLOWES",
+    "vendorCode": "FD"
+  },
+  {
+    "vendorName": "FALCON EYE",
+    "vendorCode": "FE"
+  },
+  {
+    "vendorName": "FF GROUP",
+    "vendorCode": "FF"
+  },
+  {
+    "vendorName": "SOLIDFIRE",
+    "vendorCode": "FI"
+  },
+  {
+    "vendorName": "FUJIFILM",
+    "vendorCode": "FJ"
+  },
+  {
+    "vendorName": "LANAFORM",
+    "vendorCode": "FL"
+  },
+  {
+    "vendorName": "FREECOM",
+    "vendorCode": "FM"
+  },
+  {
+    "vendorName": "FNATIC GEAR",
+    "vendorCode": "FN"
+  },
+  {
+    "vendorName": "FSP",
+    "vendorCode": "FO"
+  },
+  {
+    "vendorName": "TREND MICRO",
+    "vendorCode": "FQ"
+  },
+  {
+    "vendorName": "MYFIRST",
+    "vendorCode": "FR"
+  },
+  {
+    "vendorName": "FUJITSU",
+    "vendorCode": "FS"
+  },
+  {
+    "vendorName": "SAF TEHNIKA",
+    "vendorCode": "FT"
+  },
+  {
+    "vendorName": "FUJITSU DEUTCHLAND",
+    "vendorCode": "FU"
+  },
+  {
+    "vendorName": "SOLIDIGM",
+    "vendorCode": "FX"
+  },
+  {
+    "vendorName": "AMAZFIT",
+    "vendorCode": "FY"
+  },
+  {
+    "vendorName": "ECOFLOW",
+    "vendorCode": "FZ"
+  },
+  {
+    "vendorName": "GRANDSTREAM",
+    "vendorCode": "G0"
+  },
+  {
+    "vendorName": "GOODRAM",
+    "vendorCode": "G1"
+  },
+  {
+    "vendorName": "GEMBIRD",
+    "vendorCode": "G2"
+  },
+  {
+    "vendorName": "GETNET",
+    "vendorCode": "G3"
+  },
+  {
+    "vendorName": "GEAR4",
+    "vendorCode": "G4"
+  },
+  {
+    "vendorName": "GORENJE",
+    "vendorCode": "G5"
+  },
+  {
+    "vendorName": "GALAXY",
+    "vendorCode": "G6"
+  },
+  {
+    "vendorName": "GOLDSTAR",
+    "vendorCode": "G7"
+  },
+  {
+    "vendorName": "GARMIN",
+    "vendorCode": "G8"
+  },
+  {
+    "vendorName": "GINZZU",
+    "vendorCode": "G9"
+  },
+  {
+    "vendorName": "HAPICA",
+    "vendorCode": "GA"
+  },
+  {
+    "vendorName": "GRIFFIN",
+    "vendorCode": "GB"
+  },
+  {
+    "vendorName": "INFO-TEK",
+    "vendorCode": "GC"
+  },
+  {
+    "vendorName": "GLOBAL TCAD",
+    "vendorCode": "GD"
+  },
+  {
+    "vendorName": "GENIUS",
+    "vendorCode": "GE"
+  },
+  {
+    "vendorName": "GTB",
+    "vendorCode": "GF"
+  },
+  {
+    "vendorName": "GIGABYTE",
+    "vendorCode": "GG"
+  },
+  {
+    "vendorName": "GEAR HEAD",
+    "vendorCode": "GH"
+  },
+  {
+    "vendorName": "GP BATTERIES",
+    "vendorCode": "GI"
+  },
+  {
+    "vendorName": "GEMILUX",
+    "vendorCode": "GJ"
+  },
+  {
+    "vendorName": "G.SKILL",
+    "vendorCode": "GK"
+  },
+  {
+    "vendorName": "SEEK",
+    "vendorCode": "GL"
+  },
+  {
+    "vendorName": "ANDIS",
+    "vendorCode": "GM"
+  },
+  {
+    "vendorName": "KORTING",
+    "vendorCode": "GN"
+  },
+  {
+    "vendorName": "GOLDEN TIGER",
+    "vendorCode": "GO"
+  },
+  {
+    "vendorName": "GIGAIPC",
+    "vendorCode": "GP"
+  },
+  {
+    "vendorName": "GEOZON",
+    "vendorCode": "GQ"
+  },
+  {
+    "vendorName": "RUGGEAR",
+    "vendorCode": "GR"
+  },
+  {
+    "vendorName": "GLOBAL SECURITY ONE",
+    "vendorCode": "GS"
+  },
+  {
+    "vendorName": "GETAC",
+    "vendorCode": "GT"
+  },
+  {
+    "vendorName": "NEBULA",
+    "vendorCode": "GU"
+  },
+  {
+    "vendorName": "SMEG",
+    "vendorCode": "GV"
+  },
+  {
+    "vendorName": "GENWAY",
+    "vendorCode": "GW"
+  },
+  {
+    "vendorName": "SOUNDCORE",
+    "vendorCode": "GX"
+  },
+  {
+    "vendorName": "G-TECHNOLOGY",
+    "vendorCode": "GY"
+  },
+  {
+    "vendorName": "ENERGEA",
+    "vendorCode": "GZ"
+  },
+  {
+    "vendorName": "HILOOK",
+    "vendorCode": "H0"
+  },
+  {
+    "vendorName": "HOTPOINT",
+    "vendorCode": "H1"
+  },
+  {
+    "vendorName": "HONEYWELL",
+    "vendorCode": "H2"
+  },
+  {
+    "vendorName": "HYNIX 3RD",
+    "vendorCode": "H3"
+  },
+  {
+    "vendorName": "HARMAN KARDON",
+    "vendorCode": "H4"
+  },
+  {
+    "vendorName": "SPHERO",
+    "vendorCode": "H5"
+  },
+  {
+    "vendorName": "ARTHUR HOLM",
+    "vendorCode": "H6"
+  },
+  {
+    "vendorName": "HITACHI",
+    "vendorCode": "H7"
+  },
+  {
+    "vendorName": "THOMSON",
+    "vendorCode": "H8"
+  },
+  {
+    "vendorName": "HIGHPOINT",
+    "vendorCode": "H9"
+  },
+  {
+    "vendorName": "HANSOL",
+    "vendorCode": "HA"
+  },
+  {
+    "vendorName": "HAIER",
+    "vendorCode": "HB"
+  },
+  {
+    "vendorName": "HTC",
+    "vendorCode": "HC"
+  },
+  {
+    "vendorName": "HIPER POWER",
+    "vendorCode": "HD"
+  },
+  {
+    "vendorName": "HERCULES",
+    "vendorCode": "HE"
+  },
+  {
+    "vendorName": "HIGHSCREEN",
+    "vendorCode": "HF"
+  },
+  {
+    "vendorName": "HASEE",
+    "vendorCode": "HG"
+  },
+  {
+    "vendorName": "HMS",
+    "vendorCode": "HH"
+  },
+  {
+    "vendorName": "WESTERN DIGITAL ULTRASTAR",
+    "vendorCode": "HI"
+  },
+  {
+    "vendorName": "HOMMYN",
+    "vendorCode": "HJ"
+  },
+  {
+    "vendorName": "GBC",
+    "vendorCode": "HK"
+  },
+  {
+    "vendorName": "HL DATA STORAGE",
+    "vendorCode": "HL"
+  },
+  {
+    "vendorName": "HONOR",
+    "vendorCode": "HM"
+  },
+  {
+    "vendorName": "HYNIX",
+    "vendorCode": "HN"
+  },
+  {
+    "vendorName": "ARCHOS",
+    "vendorCode": "HO"
+  },
+  {
+    "vendorName": "HP",
+    "vendorCode": "HP"
+  },
+  {
+    "vendorName": "COMPAQ",
+    "vendorCode": "HQ"
+  },
+  {
+    "vendorName": "HERTA SECURITY",
+    "vendorCode": "HR"
+  },
+  {
+    "vendorName": "HSM",
+    "vendorCode": "HS"
+  },
+  {
+    "vendorName": "HIGHTECH INFORMATION SYSTEM",
+    "vendorCode": "HT"
+  },
+  {
+    "vendorName": "HUAWEI",
+    "vendorCode": "HU"
+  },
+  {
+    "vendorName": "HIKVISION",
+    "vendorCode": "HV"
+  },
+  {
+    "vendorName": "FINLUX",
+    "vendorCode": "HW"
+  },
+  {
+    "vendorName": "HUAWEI CARRIER",
+    "vendorCode": "HX"
+  },
+  {
+    "vendorName": "HYUNDAI",
+    "vendorCode": "HY"
+  },
+  {
+    "vendorName": "HORIZON HOBBY",
+    "vendorCode": "HZ"
+  },
+  {
+    "vendorName": "MIDEA",
+    "vendorCode": "I0"
+  },
+  {
+    "vendorName": "IMPRESSION",
+    "vendorCode": "I1"
+  },
+  {
+    "vendorName": "ICYBOX",
+    "vendorCode": "I2"
+  },
+  {
+    "vendorName": "IGO",
+    "vendorCode": "I3"
+  },
+  {
+    "vendorName": "INDESIT",
+    "vendorCode": "I4"
+  },
+  {
+    "vendorName": "I.SAFE",
+    "vendorCode": "I5"
+  },
+  {
+    "vendorName": "IRBIS",
+    "vendorCode": "I6"
+  },
+  {
+    "vendorName": "SPIGEN",
+    "vendorCode": "I7"
+  },
+  {
+    "vendorName": "IROBOT",
+    "vendorCode": "I8"
+  },
+  {
+    "vendorName": "ARISTON",
+    "vendorCode": "I9"
+  },
+  {
+    "vendorName": "AIINO",
+    "vendorCode": "IA"
+  },
+  {
+    "vendorName": "IT BAGGAGE",
+    "vendorCode": "IB"
+  },
+  {
+    "vendorName": "AIC",
+    "vendorCode": "IC"
+  },
+  {
+    "vendorName": "ID LOCK",
+    "vendorCode": "ID"
+  },
+  {
+    "vendorName": "IEI",
+    "vendorCode": "IE"
+  },
+  {
+    "vendorName": "INFORTREND",
+    "vendorCode": "IF"
+  },
+  {
+    "vendorName": "I.R.I.S.",
+    "vendorCode": "IG"
+  },
+  {
+    "vendorName": "SLINEX",
+    "vendorCode": "IH"
+  },
+  {
+    "vendorName": "IT INVENTORY",
+    "vendorCode": "II"
+  },
+  {
+    "vendorName": "ILIFE",
+    "vendorCode": "IJ"
+  },
+  {
+    "vendorName": "IGLOOHOME",
+    "vendorCode": "IK"
+  },
+  {
+    "vendorName": "INTEGRAL",
+    "vendorCode": "IL"
+  },
+  {
+    "vendorName": "INNO3D",
+    "vendorCode": "IM"
+  },
+  {
+    "vendorName": "INTEL",
+    "vendorCode": "IN"
+  },
+  {
+    "vendorName": "IMOU",
+    "vendorCode": "IO"
+  },
+  {
+    "vendorName": "IPPON",
+    "vendorCode": "IP"
+  },
+  {
+    "vendorName": "ICONBIT",
+    "vendorCode": "IQ"
+  },
+  {
+    "vendorName": "IR-TEC",
+    "vendorCode": "IR"
+  },
+  {
+    "vendorName": "INSPUR",
+    "vendorCode": "IS"
+  },
+  {
+    "vendorName": "INTENSO",
+    "vendorCode": "IT"
+  },
+  {
+    "vendorName": "BLUEAIR",
+    "vendorCode": "IU"
+  },
+  {
+    "vendorName": "INVENTEC",
+    "vendorCode": "IV"
+  },
+  {
+    "vendorName": "IN WIN",
+    "vendorCode": "IW"
+  },
+  {
+    "vendorName": "IQUNIX",
+    "vendorCode": "IX"
+  },
+  {
+    "vendorName": "IIYAMA",
+    "vendorCode": "IY"
+  },
+  {
+    "vendorName": "IZUMI",
+    "vendorCode": "IZ"
+  },
+  {
+    "vendorName": "IIE",
+    "vendorCode": "J0"
+  },
+  {
+    "vendorName": "JBL",
+    "vendorCode": "J1"
+  },
+  {
+    "vendorName": "JARRE",
+    "vendorCode": "J2"
+  },
+  {
+    "vendorName": "JINGA",
+    "vendorCode": "J3"
+  },
+  {
+    "vendorName": "JJRC",
+    "vendorCode": "J4"
+  },
+  {
+    "vendorName": "JANOME",
+    "vendorCode": "J5"
+  },
+  {
+    "vendorName": "JAGUAR",
+    "vendorCode": "J6"
+  },
+  {
+    "vendorName": "JABRA",
+    "vendorCode": "J7"
+  },
+  {
+    "vendorName": "ROYAL CLIMA",
+    "vendorCode": "J8"
+  },
+  {
+    "vendorName": "BE QUIET",
+    "vendorCode": "J9"
+  },
+  {
+    "vendorName": "DKC",
+    "vendorCode": "JC"
+  },
+  {
+    "vendorName": "IDIS",
+    "vendorCode": "JD"
+  },
+  {
+    "vendorName": "NIVONA",
+    "vendorCode": "JH"
+  },
+  {
+    "vendorName": "ABC MOUNT",
+    "vendorCode": "JM"
+  },
+  {
+    "vendorName": "JNC",
+    "vendorCode": "JN"
+  },
+  {
+    "vendorName": "LEX COMPUTECH",
+    "vendorCode": "JT"
+  },
+  {
+    "vendorName": "JVC",
+    "vendorCode": "JV"
+  },
+  {
+    "vendorName": "JETWAY",
+    "vendorCode": "JW"
+  },
+  {
+    "vendorName": "OPTICELL",
+    "vendorCode": "JX"
+  },
+  {
+    "vendorName": "KINGSMITH",
+    "vendorCode": "JY"
+  },
+  {
+    "vendorName": "KRAFT",
+    "vendorCode": "K0"
+  },
+  {
+    "vendorName": "KASPERSKY",
+    "vendorCode": "K1"
+  },
+  {
+    "vendorName": "KENSINGTON",
+    "vendorCode": "K2"
+  },
+  {
+    "vendorName": "KATA",
+    "vendorCode": "K3"
+  },
+  {
+    "vendorName": "KENWOOD",
+    "vendorCode": "K4"
+  },
+  {
+    "vendorName": "AMAZON",
+    "vendorCode": "K5"
+  },
+  {
+    "vendorName": "KAWASAKI",
+    "vendorCode": "K6"
+  },
+  {
+    "vendorName": "AMORK",
+    "vendorCode": "K7"
+  },
+  {
+    "vendorName": "NAKIVO",
+    "vendorCode": "K8"
+  },
+  {
+    "vendorName": "KARCHER",
+    "vendorCode": "K9"
+  },
+  {
+    "vendorName": "KRAMER",
+    "vendorCode": "KA"
+  },
+  {
+    "vendorName": "AKAI",
+    "vendorCode": "KB"
+  },
+  {
+    "vendorName": "AKIRA",
+    "vendorCode": "KC"
+  },
+  {
+    "vendorName": "KANDAO",
+    "vendorCode": "KD"
+  },
+  {
+    "vendorName": "KEDACOM",
+    "vendorCode": "KE"
+  },
+  {
+    "vendorName": "KFA2",
+    "vendorCode": "KF"
+  },
+  {
+    "vendorName": "KINGSTON",
+    "vendorCode": "KG"
+  },
+  {
+    "vendorName": "KEYCHRON",
+    "vendorCode": "KH"
+  },
+  {
+    "vendorName": "TOSHIBA KIOXIA",
+    "vendorCode": "KI"
+  },
+  {
+    "vendorName": "LR-LINK",
+    "vendorCode": "KJ"
+  },
+  {
+    "vendorName": "KONICA MINOLTA",
+    "vendorCode": "KL"
+  },
+  {
+    "vendorName": "KME",
+    "vendorCode": "KM"
+  },
+  {
+    "vendorName": "KONTRON",
+    "vendorCode": "KN"
+  },
+  {
+    "vendorName": "KOLNER",
+    "vendorCode": "KO"
+  },
+  {
+    "vendorName": "KNOPKA",
+    "vendorCode": "KP"
+  },
+  {
+    "vendorName": "KONDATOR",
+    "vendorCode": "KQ"
+  },
+  {
+    "vendorName": "KREOLZ",
+    "vendorCode": "KR"
+  },
+  {
+    "vendorName": "KROMAX",
+    "vendorCode": "KS"
+  },
+  {
+    "vendorName": "SECURITY CODE",
+    "vendorCode": "KU"
+  },
+  {
+    "vendorName": "KVANTUM",
+    "vendorCode": "KV"
+  },
+  {
+    "vendorName": "CLICK AND GROW",
+    "vendorCode": "KW"
+  },
+  {
+    "vendorName": "KUBIC",
+    "vendorCode": "KX"
+  },
+  {
+    "vendorName": "KYOCERA",
+    "vendorCode": "KY"
+  },
+  {
+    "vendorName": "J-LIGHT",
+    "vendorCode": "L0"
+  },
+  {
+    "vendorName": "LINKSYS",
+    "vendorCode": "L1"
+  },
+  {
+    "vendorName": "LANDE",
+    "vendorCode": "L2"
+  },
+  {
+    "vendorName": "LACIE",
+    "vendorCode": "L3"
+  },
+  {
+    "vendorName": "LEOCH",
+    "vendorCode": "L4"
+  },
+  {
+    "vendorName": "ALTEC LANSING",
+    "vendorCode": "L5"
+  },
+  {
+    "vendorName": "CLEARONE",
+    "vendorCode": "L6"
+  },
+  {
+    "vendorName": "LEDURO",
+    "vendorCode": "L7"
+  },
+  {
+    "vendorName": "LEADER",
+    "vendorCode": "L8"
+  },
+  {
+    "vendorName": "ELBACOM",
+    "vendorCode": "L9"
+  },
+  {
+    "vendorName": "LANTECH",
+    "vendorCode": "LA"
+  },
+  {
+    "vendorName": "IMILAB",
+    "vendorCode": "LB"
+  },
+  {
+    "vendorName": "ALCATEL",
+    "vendorCode": "LC"
+  },
+  {
+    "vendorName": "LEDVANCE",
+    "vendorCode": "LD"
+  },
+  {
+    "vendorName": "LUWEN",
+    "vendorCode": "LE"
+  },
+  {
+    "vendorName": "LEECO",
+    "vendorCode": "LF"
+  },
+  {
+    "vendorName": "LG",
+    "vendorCode": "LG"
+  },
+  {
+    "vendorName": "LIEBHERR",
+    "vendorCode": "LH"
+  },
+  {
+    "vendorName": "LANNER",
+    "vendorCode": "LI"
+  },
+  {
+    "vendorName": "VLK",
+    "vendorCode": "LJ"
+  },
+  {
+    "vendorName": "LENKENG",
+    "vendorCode": "LK"
+  },
+  {
+    "vendorName": "LED LINE",
+    "vendorCode": "LL"
+  },
+  {
+    "vendorName": "LEXAR",
+    "vendorCode": "LM"
+  },
+  {
+    "vendorName": "LITE ON",
+    "vendorCode": "LN"
+  },
+  {
+    "vendorName": "LOGITECH",
+    "vendorCode": "LO"
+  },
+  {
+    "vendorName": "LEGEND PERFORMANCE TEHN.",
+    "vendorCode": "LP"
+  },
+  {
+    "vendorName": "KINGXBAR",
+    "vendorCode": "LQ"
+  },
+  {
+    "vendorName": "FROSTOR",
+    "vendorCode": "LR"
+  },
+  {
+    "vendorName": "LSI",
+    "vendorCode": "LS"
+  },
+  {
+    "vendorName": "ASALITE",
+    "vendorCode": "LT"
+  },
+  {
+    "vendorName": "LENEL",
+    "vendorCode": "LU"
+  },
+  {
+    "vendorName": "LENOVO",
+    "vendorCode": "LV"
+  },
+  {
+    "vendorName": "MILL",
+    "vendorCode": "LW"
+  },
+  {
+    "vendorName": "LEXMARK",
+    "vendorCode": "LX"
+  },
+  {
+    "vendorName": "LINDY",
+    "vendorCode": "LY"
+  },
+  {
+    "vendorName": "INCASE",
+    "vendorCode": "LZ"
+  },
+  {
+    "vendorName": "MAXWELL",
+    "vendorCode": "M0"
+  },
+  {
+    "vendorName": "MOTOROLA",
+    "vendorCode": "M1"
+  },
+  {
+    "vendorName": "MUSHKIN",
+    "vendorCode": "M2"
+  },
+  {
+    "vendorName": "MANFROTTO",
+    "vendorCode": "M3"
+  },
+  {
+    "vendorName": "MELLANOX",
+    "vendorCode": "M4"
+  },
+  {
+    "vendorName": "MODECOM",
+    "vendorCode": "M5"
+  },
+  {
+    "vendorName": "MOXA",
+    "vendorCode": "M6"
+  },
+  {
+    "vendorName": "MCAFEE",
+    "vendorCode": "M7"
+  },
+  {
+    "vendorName": "METRICI",
+    "vendorCode": "M8"
+  },
+  {
+    "vendorName": "MOULINEX",
+    "vendorCode": "M9"
+  },
+  {
+    "vendorName": "MA LAB",
+    "vendorCode": "MA"
+  },
+  {
+    "vendorName": "MEIZU",
+    "vendorCode": "MB"
+  },
+  {
+    "vendorName": "APPLE",
+    "vendorCode": "MC"
+  },
+  {
+    "vendorName": "MICRODOWELL",
+    "vendorCode": "MD"
+  },
+  {
+    "vendorName": "MILESIGHT",
+    "vendorCode": "ME"
+  },
+  {
+    "vendorName": "MONTA",
+    "vendorCode": "MF"
+  },
+  {
+    "vendorName": "MGE",
+    "vendorCode": "MG"
+  },
+  {
+    "vendorName": "MATROX",
+    "vendorCode": "MH"
+  },
+  {
+    "vendorName": "MICRON",
+    "vendorCode": "MI"
+  },
+  {
+    "vendorName": "MONTA USD",
+    "vendorCode": "MJ"
+  },
+  {
+    "vendorName": "MIKROTIK",
+    "vendorCode": "MK"
+  },
+  {
+    "vendorName": "MARSHALL",
+    "vendorCode": "ML"
+  },
+  {
+    "vendorName": "MAXMOBILE",
+    "vendorCode": "MM"
+  },
+  {
+    "vendorName": "MILESTONE",
+    "vendorCode": "MN"
+  },
+  {
+    "vendorName": "MIO",
+    "vendorCode": "MO"
+  },
+  {
+    "vendorName": "SCREENMEDIA",
+    "vendorCode": "MP"
+  },
+  {
+    "vendorName": "70MAI",
+    "vendorCode": "MQ"
+  },
+  {
+    "vendorName": "MSI",
+    "vendorCode": "MR"
+  },
+  {
+    "vendorName": "MICROSOFT",
+    "vendorCode": "MS"
+  },
+  {
+    "vendorName": "MITAC",
+    "vendorCode": "MT"
+  },
+  {
+    "vendorName": "MUSTEK",
+    "vendorCode": "MU"
+  },
+  {
+    "vendorName": "MEDION",
+    "vendorCode": "MV"
+  },
+  {
+    "vendorName": "INCIPIO",
+    "vendorCode": "MW"
+  },
+  {
+    "vendorName": "MAXTOR",
+    "vendorCode": "MX"
+  },
+  {
+    "vendorName": "OLD MSI",
+    "vendorCode": "MY"
+  },
+  {
+    "vendorName": "MAZI",
+    "vendorCode": "MZ"
+  },
+  {
+    "vendorName": "NEUROTECHNOLOGY",
+    "vendorCode": "N0"
+  },
+  {
+    "vendorName": "AMP NETCONNECT BY COMMSCOPE",
+    "vendorCode": "N1"
+  },
+  {
+    "vendorName": "NETIS",
+    "vendorCode": "N2"
+  },
+  {
+    "vendorName": "SONIM",
+    "vendorCode": "N3"
+  },
+  {
+    "vendorName": "NETATMO",
+    "vendorCode": "N4"
+  },
+  {
+    "vendorName": "NETS",
+    "vendorCode": "N5"
+  },
+  {
+    "vendorName": "TG-NET",
+    "vendorCode": "N6"
+  },
+  {
+    "vendorName": "NILLKIN",
+    "vendorCode": "N7"
+  },
+  {
+    "vendorName": "ANTEC",
+    "vendorCode": "N8"
+  },
+  {
+    "vendorName": "NANYA",
+    "vendorCode": "N9"
+  },
+  {
+    "vendorName": "NAVIGON",
+    "vendorCode": "NA"
+  },
+  {
+    "vendorName": "NORDIC AUTOMATION SYSTEMS",
+    "vendorCode": "NB"
+  },
+  {
+    "vendorName": "NEOCLIMA",
+    "vendorCode": "NC"
+  },
+  {
+    "vendorName": "TENDA",
+    "vendorCode": "ND"
+  },
+  {
+    "vendorName": "ATEN",
+    "vendorCode": "NE"
+  },
+  {
+    "vendorName": "NETWORK OPTIX",
+    "vendorCode": "NF"
+  },
+  {
+    "vendorName": "NETGEAR",
+    "vendorCode": "NG"
+  },
+  {
+    "vendorName": "NECCHI",
+    "vendorCode": "NH"
+  },
+  {
+    "vendorName": "NINTENDO",
+    "vendorCode": "NI"
+  },
+  {
+    "vendorName": "NITECORE",
+    "vendorCode": "NJ"
+  },
+  {
+    "vendorName": "NOKIA",
+    "vendorCode": "NK"
+  },
+  {
+    "vendorName": "NOBELIC",
+    "vendorCode": "NL"
+  },
+  {
+    "vendorName": "MEDISANA",
+    "vendorCode": "NM"
+  },
+  {
+    "vendorName": "NIKON",
+    "vendorCode": "NN"
+  },
+  {
+    "vendorName": "NEOVO",
+    "vendorCode": "NO"
+  },
+  {
+    "vendorName": "NETAPP",
+    "vendorCode": "NP"
+  },
+  {
+    "vendorName": "NETAC",
+    "vendorCode": "NQ"
+  },
+  {
+    "vendorName": "NATEKS",
+    "vendorCode": "NR"
+  },
+  {
+    "vendorName": "NETAVIS SOFTWARE",
+    "vendorCode": "NS"
+  },
+  {
+    "vendorName": "NVIDIA",
+    "vendorCode": "NT"
+  },
+  {
+    "vendorName": "NUBIA",
+    "vendorCode": "NU"
+  },
+  {
+    "vendorName": "NOVA",
+    "vendorCode": "NV"
+  },
+  {
+    "vendorName": "NEOMOUNTS BY NEWSTAR",
+    "vendorCode": "NW"
+  },
+  {
+    "vendorName": "CAMSTREAMER",
+    "vendorCode": "NX"
+  },
+  {
+    "vendorName": "LYDSTO",
+    "vendorCode": "NY"
+  },
+  {
+    "vendorName": "NZXT",
+    "vendorCode": "NZ"
+  },
+  {
+    "vendorName": "ONE",
+    "vendorCode": "O1"
+  },
+  {
+    "vendorName": "OPTOMA",
+    "vendorCode": "O2"
+  },
+  {
+    "vendorName": "SOL REPUBLIC",
+    "vendorCode": "O3"
+  },
+  {
+    "vendorName": "ORION",
+    "vendorCode": "O4"
+  },
+  {
+    "vendorName": "SOLTEC",
+    "vendorCode": "O5"
+  },
+  {
+    "vendorName": "BOSE",
+    "vendorCode": "O6"
+  },
+  {
+    "vendorName": "ORFEY",
+    "vendorCode": "O7"
+  },
+  {
+    "vendorName": "ONEPLUS",
+    "vendorCode": "O8"
+  },
+  {
+    "vendorName": "CINEMOOD",
+    "vendorCode": "O9"
+  },
+  {
+    "vendorName": "CLEAN AIR OPTIMA",
+    "vendorCode": "OA"
+  },
+  {
+    "vendorName": "MOBILE ACTION",
+    "vendorCode": "OB"
+  },
+  {
+    "vendorName": "OCZ",
+    "vendorCode": "OC"
+  },
+  {
+    "vendorName": "OPEN-DEV",
+    "vendorCode": "OD"
+  },
+  {
+    "vendorName": "AEOTEC",
+    "vendorCode": "OE"
+  },
+  {
+    "vendorName": "OPPO",
+    "vendorCode": "OF"
+  },
+  {
+    "vendorName": "OPTOGAN",
+    "vendorCode": "OG"
+  },
+  {
+    "vendorName": "PROSHIELD",
+    "vendorCode": "OH"
+  },
+  {
+    "vendorName": "TELTONIKA",
+    "vendorCode": "OI"
+  },
+  {
+    "vendorName": "POCO",
+    "vendorCode": "OJ"
+  },
+  {
+    "vendorName": "OKI",
+    "vendorCode": "OK"
+  },
+  {
+    "vendorName": "SCOOLE",
+    "vendorCode": "OL"
+  },
+  {
+    "vendorName": "ATHOM",
+    "vendorCode": "OM"
+  },
+  {
+    "vendorName": "SONY OPTIARC",
+    "vendorCode": "ON"
+  },
+  {
+    "vendorName": "OPTEX",
+    "vendorCode": "OP"
+  },
+  {
+    "vendorName": "OPTOR",
+    "vendorCode": "OR"
+  },
+  {
+    "vendorName": "BORETTI",
+    "vendorCode": "OS"
+  },
+  {
+    "vendorName": "OTHER",
+    "vendorCode": "OT"
+  },
+  {
+    "vendorName": "ONKRON",
+    "vendorCode": "OU"
+  },
+  {
+    "vendorName": "HOOVER",
+    "vendorCode": "OV"
+  },
+  {
+    "vendorName": "NAVEE",
+    "vendorCode": "OW"
+  },
+  {
+    "vendorName": "UFESA",
+    "vendorCode": "OX"
+  },
+  {
+    "vendorName": "OLYMPUS",
+    "vendorCode": "OY"
+  },
+  {
+    "vendorName": "OPZOON",
+    "vendorCode": "OZ"
+  },
+  {
+    "vendorName": "POLARIS",
+    "vendorCode": "P0"
+  },
+  {
+    "vendorName": "PANDA",
+    "vendorCode": "P1"
+  },
+  {
+    "vendorName": "PATRIOT",
+    "vendorCode": "P2"
+  },
+  {
+    "vendorName": "PQI",
+    "vendorCode": "P3"
+  },
+  {
+    "vendorName": "PANASONIC",
+    "vendorCode": "P4"
+  },
+  {
+    "vendorName": "PACKARD BELL",
+    "vendorCode": "P5"
+  },
+  {
+    "vendorName": "PLEXTOR",
+    "vendorCode": "P6"
+  },
+  {
+    "vendorName": "PAPERNOMAD",
+    "vendorCode": "P7"
+  },
+  {
+    "vendorName": "POWERPLANT",
+    "vendorCode": "P8"
+  },
+  {
+    "vendorName": "PYRAMIDA",
+    "vendorCode": "P9"
+  },
+  {
+    "vendorName": "AFOX",
+    "vendorCode": "PA"
+  },
+  {
+    "vendorName": "POCKETBOOK",
+    "vendorCode": "PB"
+  },
+  {
+    "vendorName": "PHILIPS SAECO",
+    "vendorCode": "PC"
+  },
+  {
+    "vendorName": "PDP SYSTEMS",
+    "vendorCode": "PD"
+  },
+  {
+    "vendorName": "P&H",
+    "vendorCode": "PE"
+  },
+  {
+    "vendorName": "PORTDESIGN",
+    "vendorCode": "PG"
+  },
+  {
+    "vendorName": "PHILIPS",
+    "vendorCode": "PH"
+  },
+  {
+    "vendorName": "PLAYME",
+    "vendorCode": "PI"
+  },
+  {
+    "vendorName": "PRIME LINE",
+    "vendorCode": "PJ"
+  },
+  {
+    "vendorName": "PLANET",
+    "vendorCode": "PL"
+  },
+  {
+    "vendorName": "PROLINK MICROSYSTEMS",
+    "vendorCode": "PM"
+  },
+  {
+    "vendorName": "PNY",
+    "vendorCode": "PN"
+  },
+  {
+    "vendorName": "PHANTEKS",
+    "vendorCode": "PO"
+  },
+  {
+    "vendorName": "BLACKPHONE",
+    "vendorCode": "PP"
+  },
+  {
+    "vendorName": "E-PRO DIGITAL MEDIA",
+    "vendorCode": "PR"
+  },
+  {
+    "vendorName": "PALIT",
+    "vendorCode": "PS"
+  },
+  {
+    "vendorName": "PRIOTHERM",
+    "vendorCode": "PT"
+  },
+  {
+    "vendorName": "ORBEX",
+    "vendorCode": "PU"
+  },
+  {
+    "vendorName": "PROVISION-ISR",
+    "vendorCode": "PV"
+  },
+  {
+    "vendorName": "GOPOWER",
+    "vendorCode": "PW"
+  },
+  {
+    "vendorName": "AX PRO",
+    "vendorCode": "PX"
+  },
+  {
+    "vendorName": "PANZOR",
+    "vendorCode": "PZ"
+  },
+  {
+    "vendorName": "BASTION",
+    "vendorCode": "Q0"
+  },
+  {
+    "vendorName": "BEKO",
+    "vendorCode": "Q1"
+  },
+  {
+    "vendorName": "PIONEER",
+    "vendorCode": "Q2"
+  },
+  {
+    "vendorName": "PRESTIGIO",
+    "vendorCode": "Q3"
+  },
+  {
+    "vendorName": "SHARP",
+    "vendorCode": "Q4"
+  },
+  {
+    "vendorName": "SIEMENS",
+    "vendorCode": "Q5"
+  },
+  {
+    "vendorName": "PERCO",
+    "vendorCode": "Q6"
+  },
+  {
+    "vendorName": "VIVOTEK",
+    "vendorCode": "Q7"
+  },
+  {
+    "vendorName": "EUROLAN",
+    "vendorCode": "Q8"
+  },
+  {
+    "vendorName": "SYMANITRON",
+    "vendorCode": "Q9"
+  },
+  {
+    "vendorName": "QUANTA",
+    "vendorCode": "QA"
+  },
+  {
+    "vendorName": "ABS",
+    "vendorCode": "QB"
+  },
+  {
+    "vendorName": "KAFFIT",
+    "vendorCode": "QD"
+  },
+  {
+    "vendorName": "ENERGOFLEX",
+    "vendorCode": "QG"
+  },
+  {
+    "vendorName": "HOLOSONICS",
+    "vendorCode": "QH"
+  },
+  {
+    "vendorName": "MIELE",
+    "vendorCode": "QI"
+  },
+  {
+    "vendorName": "LANDZO",
+    "vendorCode": "QK"
+  },
+  {
+    "vendorName": "QLOGIC",
+    "vendorCode": "QL"
+  },
+  {
+    "vendorName": "QUMO",
+    "vendorCode": "QM"
+  },
+  {
+    "vendorName": "QNAP",
+    "vendorCode": "QN"
+  },
+  {
+    "vendorName": "IQOS",
+    "vendorCode": "QO"
+  },
+  {
+    "vendorName": "VESTFROST",
+    "vendorCode": "QP"
+  },
+  {
+    "vendorName": "LENOVO RUBLES",
+    "vendorCode": "QQ"
+  },
+  {
+    "vendorName": "AQARA",
+    "vendorCode": "QR"
+  },
+  {
+    "vendorName": "SILVERSTONE",
+    "vendorCode": "QS"
+  },
+  {
+    "vendorName": "KENTATSU",
+    "vendorCode": "QT"
+  },
+  {
+    "vendorName": "QUANTUM",
+    "vendorCode": "QU"
+  },
+  {
+    "vendorName": "RAUTITAN",
+    "vendorCode": "QV"
+  },
+  {
+    "vendorName": "RUIJIE",
+    "vendorCode": "QZ"
+  },
+  {
+    "vendorName": "ROMBICA",
+    "vendorCode": "R0"
+  },
+  {
+    "vendorName": "REDSTAR",
+    "vendorCode": "R1"
+  },
+  {
+    "vendorName": "RUNTASTIC",
+    "vendorCode": "R2"
+  },
+  {
+    "vendorName": "ROMOSS",
+    "vendorCode": "R3"
+  },
+  {
+    "vendorName": "ROWENTA",
+    "vendorCode": "R4"
+  },
+  {
+    "vendorName": "ROLSEN",
+    "vendorCode": "R5"
+  },
+  {
+    "vendorName": "REDMOND",
+    "vendorCode": "R6"
+  },
+  {
+    "vendorName": "REMINGTON",
+    "vendorCode": "R7"
+  },
+  {
+    "vendorName": "PARROT",
+    "vendorCode": "R8"
+  },
+  {
+    "vendorName": "RITZVIVA",
+    "vendorCode": "R9"
+  },
+  {
+    "vendorName": "RIVACASE",
+    "vendorCode": "RA"
+  },
+  {
+    "vendorName": "AGM GLOBAL VISION",
+    "vendorCode": "RB"
+  },
+  {
+    "vendorName": "BYTEZONE",
+    "vendorCode": "RC"
+  },
+  {
+    "vendorName": "RIDANGO",
+    "vendorCode": "RD"
+  },
+  {
+    "vendorName": "REXANT",
+    "vendorCode": "RE"
+  },
+  {
+    "vendorName": "ELEMENT",
+    "vendorCode": "RF"
+  },
+  {
+    "vendorName": "DRAEGER",
+    "vendorCode": "RG"
+  },
+  {
+    "vendorName": "HI",
+    "vendorCode": "RH"
+  },
+  {
+    "vendorName": "RICOH",
+    "vendorCode": "RI"
+  },
+  {
+    "vendorName": "BOE",
+    "vendorCode": "RJ"
+  },
+  {
+    "vendorName": "REOLINK",
+    "vendorCode": "RK"
+  },
+  {
+    "vendorName": "RELISYS",
+    "vendorCode": "RL"
+  },
+  {
+    "vendorName": "RMA",
+    "vendorCode": "RM"
+  },
+  {
+    "vendorName": "ARANET",
+    "vendorCode": "RN"
+  },
+  {
+    "vendorName": "ROCCAT",
+    "vendorCode": "RO"
+  },
+  {
+    "vendorName": "ORAL-B",
+    "vendorCode": "RP"
+  },
+  {
+    "vendorName": "RED SQUARE",
+    "vendorCode": "RQ"
+  },
+  {
+    "vendorName": "ROBOROCK",
+    "vendorCode": "RR"
+  },
+  {
+    "vendorName": "ROVERSCAN",
+    "vendorCode": "RS"
+  },
+  {
+    "vendorName": "RESANTA",
+    "vendorCode": "RT"
+  },
+  {
+    "vendorName": "ASTRALINUX",
+    "vendorCode": "RU"
+  },
+  {
+    "vendorName": "KRESS",
+    "vendorCode": "RV"
+  },
+  {
+    "vendorName": "RUCKUS WIRELESS",
+    "vendorCode": "RW"
+  },
+  {
+    "vendorName": "RAZER",
+    "vendorCode": "RZ"
+  },
+  {
+    "vendorName": "SCARLETT",
+    "vendorCode": "S0"
+  },
+  {
+    "vendorName": "SCANPOWER",
+    "vendorCode": "S1"
+  },
+  {
+    "vendorName": "STINOL",
+    "vendorCode": "S2"
+  },
+  {
+    "vendorName": "SANDISK BY WESTERN DIGITAL",
+    "vendorCode": "S3"
+  },
+  {
+    "vendorName": "SIGMA",
+    "vendorCode": "S4"
+  },
+  {
+    "vendorName": "SILICON POWER",
+    "vendorCode": "S5"
+  },
+  {
+    "vendorName": "SYMANTEC",
+    "vendorCode": "S6"
+  },
+  {
+    "vendorName": "SPEEDLINK",
+    "vendorCode": "S7"
+  },
+  {
+    "vendorName": "SUPERTALENT",
+    "vendorCode": "S8"
+  },
+  {
+    "vendorName": "SPIRE",
+    "vendorCode": "S9"
+  },
+  {
+    "vendorName": "SAMSUNG",
+    "vendorCode": "SA"
+  },
+  {
+    "vendorName": "NOVASTAR",
+    "vendorCode": "SB"
+  },
+  {
+    "vendorName": "LEDMAN",
+    "vendorCode": "SC"
+  },
+  {
+    "vendorName": "SONY",
+    "vendorCode": "SD"
+  },
+  {
+    "vendorName": "SEAGATE",
+    "vendorCode": "SE"
+  },
+  {
+    "vendorName": "SAILFISH",
+    "vendorCode": "SF"
+  },
+  {
+    "vendorName": "SINGER",
+    "vendorCode": "SG"
+  },
+  {
+    "vendorName": "SHUTTLE",
+    "vendorCode": "SH"
+  },
+  {
+    "vendorName": "SILICOM",
+    "vendorCode": "SI"
+  },
+  {
+    "vendorName": "SYNOLOGY",
+    "vendorCode": "SJ"
+  },
+  {
+    "vendorName": "SAKURA",
+    "vendorCode": "SK"
+  },
+  {
+    "vendorName": "SPARKLE",
+    "vendorCode": "SL"
+  },
+  {
+    "vendorName": "SUPERMICRO",
+    "vendorCode": "SM"
+  },
+  {
+    "vendorName": "SUNSHINE",
+    "vendorCode": "SN"
+  },
+  {
+    "vendorName": "SOLIS",
+    "vendorCode": "SO"
+  },
+  {
+    "vendorName": "SAPPHIRE",
+    "vendorCode": "SP"
+  },
+  {
+    "vendorName": "TELEVIC",
+    "vendorCode": "SQ"
+  },
+  {
+    "vendorName": "ZEEVE",
+    "vendorCode": "SR"
+  },
+  {
+    "vendorName": "SANITY SYSTEM",
+    "vendorCode": "SS"
+  },
+  {
+    "vendorName": "CERTANCE",
+    "vendorCode": "ST"
+  },
+  {
+    "vendorName": "SUUNTO",
+    "vendorCode": "SU"
+  },
+  {
+    "vendorName": "ANALOG WAY",
+    "vendorCode": "SV"
+  },
+  {
+    "vendorName": "SWEEX",
+    "vendorCode": "SW"
+  },
+  {
+    "vendorName": "SECRETDATE",
+    "vendorCode": "SY"
+  },
+  {
+    "vendorName": "SUNELL",
+    "vendorCode": "SZ"
+  },
+  {
+    "vendorName": "TELE2 agent",
+    "vendorCode": "T_"
+  },
+  {
+    "vendorName": "TRITON",
+    "vendorCode": "T0"
+  },
+  {
+    "vendorName": "TILDE",
+    "vendorCode": "T1"
+  },
+  {
+    "vendorName": "TRANSCEND",
+    "vendorCode": "T2"
+  },
+  {
+    "vendorName": "TP-LINK",
+    "vendorCode": "T3"
+  },
+  {
+    "vendorName": "TAGAN",
+    "vendorCode": "T4"
+  },
+  {
+    "vendorName": "TEFAL",
+    "vendorCode": "T5"
+  },
+  {
+    "vendorName": "THOMAS",
+    "vendorCode": "T6"
+  },
+  {
+    "vendorName": "TELEMAKS",
+    "vendorCode": "T7"
+  },
+  {
+    "vendorName": "TELEFUNKEN",
+    "vendorCode": "T8"
+  },
+  {
+    "vendorName": "TEXET",
+    "vendorCode": "T9"
+  },
+  {
+    "vendorName": "TOYOTA",
+    "vendorCode": "TA"
+  },
+  {
+    "vendorName": "TIMBERK",
+    "vendorCode": "TB"
+  },
+  {
+    "vendorName": "TELECOM",
+    "vendorCode": "TC"
+  },
+  {
+    "vendorName": "TUXEDO",
+    "vendorCode": "TD"
+  },
+  {
+    "vendorName": "TEAC",
+    "vendorCode": "TE"
+  },
+  {
+    "vendorName": "TCL",
+    "vendorCode": "TG"
+  },
+  {
+    "vendorName": "THECUS",
+    "vendorCode": "TH"
+  },
+  {
+    "vendorName": "TITAN",
+    "vendorCode": "TI"
+  },
+  {
+    "vendorName": "TTESPORTS",
+    "vendorCode": "TJ"
+  },
+  {
+    "vendorName": "THERMALTAKE",
+    "vendorCode": "TK"
+  },
+  {
+    "vendorName": "TELSEY",
+    "vendorCode": "TL"
+  },
+  {
+    "vendorName": "TAMRON",
+    "vendorCode": "TM"
+  },
+  {
+    "vendorName": "TRENDNET",
+    "vendorCode": "TN"
+  },
+  {
+    "vendorName": "TOSHIBA",
+    "vendorCode": "TO"
+  },
+  {
+    "vendorName": "T-PHOX",
+    "vendorCode": "TP"
+  },
+  {
+    "vendorName": "AMRITA",
+    "vendorCode": "TQ"
+  },
+  {
+    "vendorName": "THRUSTMASTER",
+    "vendorCode": "TR"
+  },
+  {
+    "vendorName": "STEELSERIES",
+    "vendorCode": "TS"
+  },
+  {
+    "vendorName": "TOMTOM",
+    "vendorCode": "TT"
+  },
+  {
+    "vendorName": "TRUST",
+    "vendorCode": "TU"
+  },
+  {
+    "vendorName": "TVCOM",
+    "vendorCode": "TV"
+  },
+  {
+    "vendorName": "TECNOWARE",
+    "vendorCode": "TW"
+  },
+  {
+    "vendorName": "TRONSMART",
+    "vendorCode": "TX"
+  },
+  {
+    "vendorName": "TYAN COMPUTER",
+    "vendorCode": "TY"
+  },
+  {
+    "vendorName": "TESLA",
+    "vendorCode": "TZ"
+  },
+  {
+    "vendorName": "LEGRAND",
+    "vendorCode": "U0"
+  },
+  {
+    "vendorName": "UBIQUITI",
+    "vendorCode": "U1"
+  },
+  {
+    "vendorName": "SUPRA",
+    "vendorCode": "U2"
+  },
+  {
+    "vendorName": "UFO",
+    "vendorCode": "U3"
+  },
+  {
+    "vendorName": "MICROFOCUS",
+    "vendorCode": "U4"
+  },
+  {
+    "vendorName": "UNIFIED MESSAGING SYSTEMS",
+    "vendorCode": "U5"
+  },
+  {
+    "vendorName": "SUSE",
+    "vendorCode": "U6"
+  },
+  {
+    "vendorName": "VARTON",
+    "vendorCode": "U7"
+  },
+  {
+    "vendorName": "LTV",
+    "vendorCode": "U8"
+  },
+  {
+    "vendorName": "PARITET",
+    "vendorCode": "U9"
+  },
+  {
+    "vendorName": "ELKO UKRAINE",
+    "vendorCode": "UA"
+  },
+  {
+    "vendorName": "ULTRACELL",
+    "vendorCode": "UC"
+  },
+  {
+    "vendorName": "ENERGIZER",
+    "vendorCode": "UE"
+  },
+  {
+    "vendorName": "TEAMGROUP",
+    "vendorCode": "UG"
+  },
+  {
+    "vendorName": "HUAMI",
+    "vendorCode": "UH"
+  },
+  {
+    "vendorName": "WHISPER",
+    "vendorCode": "UI"
+  },
+  {
+    "vendorName": "ALAY",
+    "vendorCode": "UJ"
+  },
+  {
+    "vendorName": "ROCKSBIKE",
+    "vendorCode": "UK"
+  },
+  {
+    "vendorName": "DEERMA",
+    "vendorCode": "UL"
+  },
+  {
+    "vendorName": "UMAX",
+    "vendorCode": "UM"
+  },
+  {
+    "vendorName": "BARIER",
+    "vendorCode": "UO"
+  },
+  {
+    "vendorName": "UNIQ",
+    "vendorCode": "UQ"
+  },
+  {
+    "vendorName": "US ROBOTICS",
+    "vendorCode": "US"
+  },
+  {
+    "vendorName": "UPVEL",
+    "vendorCode": "UV"
+  },
+  {
+    "vendorName": "MERSIVE",
+    "vendorCode": "UX"
+  },
+  {
+    "vendorName": "SMARTMI",
+    "vendorCode": "UY"
+  },
+  {
+    "vendorName": "VERITAS",
+    "vendorCode": "V0"
+  },
+  {
+    "vendorName": "VIKS",
+    "vendorCode": "V1"
+  },
+  {
+    "vendorName": "VENTOLUX",
+    "vendorCode": "V2"
+  },
+  {
+    "vendorName": "VITEK",
+    "vendorCode": "V3"
+  },
+  {
+    "vendorName": "VIVITEK",
+    "vendorCode": "V4"
+  },
+  {
+    "vendorName": "Previous VESTEL",
+    "vendorCode": "V5"
+  },
+  {
+    "vendorName": "VARTA",
+    "vendorCode": "V6"
+  },
+  {
+    "vendorName": "VESTEL",
+    "vendorCode": "V7"
+  },
+  {
+    "vendorName": "TEAMVIEWER",
+    "vendorCode": "V8"
+  },
+  {
+    "vendorName": "VMWARE",
+    "vendorCode": "V9"
+  },
+  {
+    "vendorName": "IPESOFT",
+    "vendorCode": "VB"
+  },
+  {
+    "vendorName": "VIKING COMPONENTS",
+    "vendorCode": "VC"
+  },
+  {
+    "vendorName": "VONSHEF",
+    "vendorCode": "VD"
+  },
+  {
+    "vendorName": "VERBATIM",
+    "vendorCode": "VE"
+  },
+  {
+    "vendorName": "VSSL",
+    "vendorCode": "VI"
+  },
+  {
+    "vendorName": "VOLUTZ",
+    "vendorCode": "VL"
+  },
+  {
+    "vendorName": "MOBVOI",
+    "vendorCode": "VM"
+  },
+  {
+    "vendorName": "SVEN",
+    "vendorCode": "VN"
+  },
+  {
+    "vendorName": "VCOM",
+    "vendorCode": "VO"
+  },
+  {
+    "vendorName": "VIVO",
+    "vendorCode": "VP"
+  },
+  {
+    "vendorName": "VERTEX",
+    "vendorCode": "VR"
+  },
+  {
+    "vendorName": "VIEWSONIC",
+    "vendorCode": "VS"
+  },
+  {
+    "vendorName": "VCA TECHNOLOGY",
+    "vendorCode": "VT"
+  },
+  {
+    "vendorName": "VARMILO",
+    "vendorCode": "VU"
+  },
+  {
+    "vendorName": "VIVASTAR",
+    "vendorCode": "VV"
+  },
+  {
+    "vendorName": "VIOMI",
+    "vendorCode": "VX"
+  },
+  {
+    "vendorName": "SIZZAPP",
+    "vendorCode": "VZ"
+  },
+  {
+    "vendorName": "EKF",
+    "vendorCode": "W0"
+  },
+  {
+    "vendorName": "WWM",
+    "vendorCode": "W1"
+  },
+  {
+    "vendorName": "WEXLER",
+    "vendorCode": "W2"
+  },
+  {
+    "vendorName": "WESC",
+    "vendorCode": "W3"
+  },
+  {
+    "vendorName": "WHIRLPOOL",
+    "vendorCode": "W4"
+  },
+  {
+    "vendorName": "WOWWEE",
+    "vendorCode": "W5"
+  },
+  {
+    "vendorName": "WONDER WORKSHOP",
+    "vendorCode": "W6"
+  },
+  {
+    "vendorName": "MAXICOM",
+    "vendorCode": "W7"
+  },
+  {
+    "vendorName": "STROITEL",
+    "vendorCode": "W8"
+  },
+  {
+    "vendorName": "KEAZ",
+    "vendorCode": "W9"
+  },
+  {
+    "vendorName": "TECHNOAWARE",
+    "vendorCode": "WA"
+  },
+  {
+    "vendorName": "WESTERN DIGITAL",
+    "vendorCode": "WD"
+  },
+  {
+    "vendorName": "MAXPOWER",
+    "vendorCode": "WE"
+  },
+  {
+    "vendorName": "GAGGIA",
+    "vendorCode": "WG"
+  },
+  {
+    "vendorName": "HIWATCH",
+    "vendorCode": "WH"
+  },
+  {
+    "vendorName": "AEWIN",
+    "vendorCode": "WI"
+  },
+  {
+    "vendorName": "COPPI",
+    "vendorCode": "WJ"
+  },
+  {
+    "vendorName": "FREJUS",
+    "vendorCode": "WK"
+  },
+  {
+    "vendorName": "SWANN",
+    "vendorCode": "WN"
+  },
+  {
+    "vendorName": "SKYWORTH",
+    "vendorCode": "WO"
+  },
+  {
+    "vendorName": "PERFECTRON",
+    "vendorCode": "WP"
+  },
+  {
+    "vendorName": "SAFEWAY SYSTEM",
+    "vendorCode": "WS"
+  },
+  {
+    "vendorName": "VIT",
+    "vendorCode": "WT"
+  },
+  {
+    "vendorName": "LUMAX",
+    "vendorCode": "X0"
+  },
+  {
+    "vendorName": "XILENCE",
+    "vendorCode": "X1"
+  },
+  {
+    "vendorName": "XIGMATEK",
+    "vendorCode": "X2"
+  },
+  {
+    "vendorName": "XTREMEMAC",
+    "vendorCode": "X3"
+  },
+  {
+    "vendorName": "AXYCAM",
+    "vendorCode": "X4"
+  },
+  {
+    "vendorName": "AJAX",
+    "vendorCode": "X5"
+  },
+  {
+    "vendorName": "MTS",
+    "vendorCode": "X6"
+  },
+  {
+    "vendorName": "AXXONSOFT",
+    "vendorCode": "X7"
+  },
+  {
+    "vendorName": "SOUNDMAX",
+    "vendorCode": "X8"
+  },
+  {
+    "vendorName": "CASEPRO",
+    "vendorCode": "X9"
+  },
+  {
+    "vendorName": "AXALTO",
+    "vendorCode": "XA"
+  },
+  {
+    "vendorName": "HOGAN",
+    "vendorCode": "XB"
+  },
+  {
+    "vendorName": "CG MOBILE",
+    "vendorCode": "XC"
+  },
+  {
+    "vendorName": "DEPO COMPUTERS",
+    "vendorCode": "XD"
+  },
+  {
+    "vendorName": "XEROX",
+    "vendorCode": "XE"
+  },
+  {
+    "vendorName": "XFX",
+    "vendorCode": "XF"
+  },
+  {
+    "vendorName": "OVENTROP",
+    "vendorCode": "XH"
+  },
+  {
+    "vendorName": "XIRCOM",
+    "vendorCode": "XI"
+  },
+  {
+    "vendorName": "ZANDZ",
+    "vendorCode": "XJ"
+  },
+  {
+    "vendorName": "VERKADA",
+    "vendorCode": "XM"
+  },
+  {
+    "vendorName": "NEXCOM",
+    "vendorCode": "XN"
+  },
+  {
+    "vendorName": "XIAOMI",
+    "vendorCode": "XO"
+  },
+  {
+    "vendorName": "SPEK",
+    "vendorCode": "XP"
+  },
+  {
+    "vendorName": "MITSUBISHI ELECTRIC",
+    "vendorCode": "XR"
+  },
+  {
+    "vendorName": "AXIOMTEK",
+    "vendorCode": "XT"
+  },
+  {
+    "vendorName": "NEW TECHNOLOGY",
+    "vendorCode": "XV"
+  },
+  {
+    "vendorName": "XYZPRINTING",
+    "vendorCode": "XY"
+  },
+  {
+    "vendorName": "CABEUS",
+    "vendorCode": "Y0"
+  },
+  {
+    "vendorName": "YOTA",
+    "vendorCode": "Y1"
+  },
+  {
+    "vendorName": "PARSEC",
+    "vendorCode": "Y2"
+  },
+  {
+    "vendorName": "CHAYKA",
+    "vendorCode": "Y3"
+  },
+  {
+    "vendorName": "SNOM",
+    "vendorCode": "Y4"
+  },
+  {
+    "vendorName": "FERGUSON",
+    "vendorCode": "Y5"
+  },
+  {
+    "vendorName": "CNS NETWORK",
+    "vendorCode": "Y6"
+  },
+  {
+    "vendorName": "AIRHOT",
+    "vendorCode": "Y7"
+  },
+  {
+    "vendorName": "CTC UNION",
+    "vendorCode": "Y8"
+  },
+  {
+    "vendorName": "TRUIMPH",
+    "vendorCode": "Y9"
+  },
+  {
+    "vendorName": "AUKEY",
+    "vendorCode": "YA"
+  },
+  {
+    "vendorName": "TRICOLOR",
+    "vendorCode": "YB"
+  },
+  {
+    "vendorName": "HYPERLINE",
+    "vendorCode": "YD"
+  },
+  {
+    "vendorName": "YEELIGHT",
+    "vendorCode": "YG"
+  },
+  {
+    "vendorName": "YI TECHNOLOGY",
+    "vendorCode": "YI"
+  },
+  {
+    "vendorName": "YUNMAI",
+    "vendorCode": "YJ"
+  },
+  {
+    "vendorName": "EVELUX",
+    "vendorCode": "YK"
+  },
+  {
+    "vendorName": "YEALINK",
+    "vendorCode": "YL"
+  },
+  {
+    "vendorName": "SHARK",
+    "vendorCode": "YM"
+  },
+  {
+    "vendorName": "NINJA",
+    "vendorCode": "YN"
+  },
+  {
+    "vendorName": "VIKHR",
+    "vendorCode": "YO"
+  },
+  {
+    "vendorName": "RIWA",
+    "vendorCode": "YQ"
+  },
+  {
+    "vendorName": "OPENYARD",
+    "vendorCode": "YR"
+  },
+  {
+    "vendorName": "YEASTAR",
+    "vendorCode": "YS"
+  },
+  {
+    "vendorName": "TANTOS",
+    "vendorCode": "YT"
+  },
+  {
+    "vendorName": "TUAREX",
+    "vendorCode": "YU"
+  },
+  {
+    "vendorName": "HYPERX",
+    "vendorCode": "YX"
+  },
+  {
+    "vendorName": "SOJUZ",
+    "vendorCode": "YZ"
+  },
+  {
+    "vendorName": "WIZE",
+    "vendorCode": "Z0"
+  },
+  {
+    "vendorName": "ZALMAN",
+    "vendorCode": "Z1"
+  },
+  {
+    "vendorName": "ZELMER",
+    "vendorCode": "Z2"
+  },
+  {
+    "vendorName": "ZANUSSI",
+    "vendorCode": "Z3"
+  },
+  {
+    "vendorName": "MK TRADE",
+    "vendorCode": "Z4"
+  },
+  {
+    "vendorName": "POZIS",
+    "vendorCode": "Z5"
+  },
+  {
+    "vendorName": "ZYXEL",
+    "vendorCode": "Z6"
+  },
+  {
+    "vendorName": "ZACO",
+    "vendorCode": "Z7"
+  },
+  {
+    "vendorName": "ZEBRA",
+    "vendorCode": "Z8"
+  },
+  {
+    "vendorName": "IQBOARD",
+    "vendorCode": "Z9"
+  },
+  {
+    "vendorName": "SIEZA",
+    "vendorCode": "ZA"
+  },
+  {
+    "vendorName": "GAZER",
+    "vendorCode": "ZE"
+  },
+  {
+    "vendorName": "GZ-ELECTRONICS",
+    "vendorCode": "ZG"
+  },
+  {
+    "vendorName": "TIANDY",
+    "vendorCode": "ZJ"
+  },
+  {
+    "vendorName": "ZKTECO",
+    "vendorCode": "ZK"
+  },
+  {
+    "vendorName": "TECNO",
+    "vendorCode": "ZL"
+  },
+  {
+    "vendorName": "ZMI",
+    "vendorCode": "ZM"
+  },
+  {
+    "vendorName": "ZOTAC",
+    "vendorCode": "ZO"
+  },
+  {
+    "vendorName": "ZICPLAY",
+    "vendorCode": "ZP"
+  },
+  {
+    "vendorName": "ZERTEN",
+    "vendorCode": "ZQ"
+  },
+  {
+    "vendorName": "SPECTRUM SOURCING",
+    "vendorCode": "ZS"
+  },
+  {
+    "vendorName": "ZTE",
+    "vendorCode": "ZT"
+  },
+  {
+    "vendorName": "RIKA",
+    "vendorCode": "ZU"
+  },
+  {
+    "vendorName": "360",
+    "vendorCode": "8I"
+  },
+  {
+    "vendorName": "ZIPPY",
+    "vendorCode": "ZY"
+  },
+  {
+    "vendorName": "LEGION",
+    "vendorCode": "ZZ"
+  },
+  {
+    "vendorName": "Western West",
+    "vendorCode": "WW"
+  },
+  {
+    "vendorName": "GRUNDIG",
+    "vendorCode": "RX"
+  },
+  {
+    "vendorName": "SHTYL",
+    "vendorCode": "JS"
+  },
+  {
+    "vendorName": "MASTERMANN",
+    "vendorCode": "JR"
+  },
+  {
+    "vendorName": "F+TECH",
+    "vendorCode": "FP"
+  },
+  {
+    "vendorName": "IFLOW",
+    "vendorCode": "JF"
+  },
+  {
+    "vendorName": "Bibi",
+    "vendorCode": ""
+  },
+  {
+    "vendorName": "ЗВЕЗДА",
+    "vendorCode": "6Z"
+  },
+  {
+    "vendorName": "HIKROBOT",
+    "vendorCode": "1HR"
+  },
+  {
+    "vendorName": "NEBO Systems",
+    "vendorCode": "1NB"
+  },
+  {
+    "vendorName": "NORDFROST",
+    "vendorCode": "5N"
+  },
+  {
+    "vendorName": "test 2",
+    "vendorCode": "TD1"
+  },
+  {
+    "vendorName": "MARSRIVA",
+    "vendorCode": "1MR"
+  },
+  {
+    "vendorName": "RETIC",
+    "vendorCode": "9J"
+  },
+  {
+    "vendorName": "FORMULA",
+    "vendorCode": "FW"
+  },
+  {
+    "vendorName": "ULTIMA COMFORT",
+    "vendorCode": "1UC"
+  },
+  {
+    "vendorName": "TROUVER",
+    "vendorCode": "1TR"
+  },
+  {
+    "vendorName": "1C",
+    "vendorCode": "11C"
+  },
+  {
+    "vendorName": "BRAYER",
+    "vendorCode": "1BR"
+  },
+  {
+    "vendorName": "BLACKTON",
+    "vendorCode": "1BT"
+  },
+  {
+    "vendorName": "MAXSUN",
+    "vendorCode": "1MA"
+  },
+  {
+    "vendorName": "INFERIT",
+    "vendorCode": "1IF"
+  },
+  {
+    "vendorName": "NICTECH",
+    "vendorCode": "1NT"
+  },
+  {
+    "vendorName": "ГРАВИТОН",
+    "vendorCode": "1GR"
+  },
+  {
+    "vendorName": "EDFLAT",
+    "vendorCode": "1EF"
+  },
+  {
+    "vendorName": "CENTEK",
+    "vendorCode": "1CT"
+  },
+  {
+    "vendorName": "ENGINOVA",
+    "vendorCode": "1EN"
+  },
+  {
+    "vendorName": "iRU",
+    "vendorCode": "1IR"
+  },
+  {
+    "vendorName": "iVIGO",
+    "vendorCode": "1IV"
+  },
+  {
+    "vendorName": "B4COM",
+    "vendorCode": "1B4"
+  },
+  {
+    "vendorName": "FIBERTRADE",
+    "vendorCode": "1FT"
+  },
+  {
+    "vendorName": "РУБЕЖ",
+    "vendorCode": "1RB"
+  },
+  {
+    "vendorName": "GENERAL ELECTRONICS",
+    "vendorCode": "1GE"
+  },
+  {
+    "vendorName": "NETCRAZE",
+    "vendorCode": "1NC"
+  },
+  {
+    "vendorName": "KRAFTWAY",
+    "vendorCode": "1KW"
+  },
+  {
+    "vendorName": "SBER",
+    "vendorCode": "1SB"
+  },
+  {
+    "vendorName": "MEMBLAZE",
+    "vendorCode": "1MB"
+  },
+  {
+    "vendorName": "OSCAL",
+    "vendorCode": "1OS"
+  },
+  {
+    "vendorName": "РУВЕР",
+    "vendorCode": "1RV"
+  },
+  {
+    "vendorName": "COSORI",
+    "vendorCode": "1CO"
+  },
+  {
+    "vendorName": "AIVRES",
+    "vendorCode": "1AI"
+  }
+]

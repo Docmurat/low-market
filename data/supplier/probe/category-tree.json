@@ -1,0 +1,3266 @@
+[
+  {
+    "totalProducts": 632,
+    "name": "Сетевое оборудование",
+    "code": null,
+    "url": null,
+    "id": 402,
+    "childs": [
+      {
+        "totalProducts": 244,
+        "name": "Беспроводное оборудование",
+        "code": null,
+        "url": null,
+        "id": 432,
+        "childs": [
+          {
+            "totalProducts": 6,
+            "name": "Антенны и аксессуары",
+            "code": "WAE",
+            "url": null,
+            "id": 517,
+            "childs": []
+          },
+          {
+            "totalProducts": 83,
+            "name": "Беспроводные точки доступа",
+            "code": "WAP",
+            "url": null,
+            "id": 518,
+            "childs": []
+          },
+          {
+            "totalProducts": 0,
+            "name": "Контроллеры беспроводных сетей",
+            "code": "WCO",
+            "url": null,
+            "id": 519,
+            "childs": []
+          },
+          {
+            "totalProducts": 34,
+            "name": "Наружное оборудование",
+            "code": "WOD",
+            "url": null,
+            "id": 520,
+            "childs": []
+          },
+          {
+            "totalProducts": 4,
+            "name": "Маршрутизаторы с поддержкой 3G/4G",
+            "code": "WR3",
+            "url": null,
+            "id": 521,
+            "childs": []
+          },
+          {
+            "totalProducts": 4,
+            "name": "Усилители сигнала",
+            "code": "WRE",
+            "url": null,
+            "id": 522,
+            "childs": []
+          },
+          {
+            "totalProducts": 96,
+            "name": "Беспроводные маршрутизаторы",
+            "code": "WRO",
+            "url": null,
+            "id": 523,
+            "childs": []
+          },
+          {
+            "totalProducts": 17,
+            "name": "Беспроводные сетевые адаптеры",
+            "code": "WRA",
+            "url": null,
+            "id": 524,
+            "childs": []
+          },
+          {
+            "totalProducts": 0,
+            "name": "Оборудование ADSL",
+            "code": "WAD",
+            "url": null,
+            "id": 525,
+            "childs": []
+          }
+        ]
+      },
+      {
+        "totalProducts": 328,
+        "name": "Проводное оборудование",
+        "code": null,
+        "url": null,
+        "id": 433,
+        "childs": [
+          {
+            "totalProducts": 0,
+            "name": "Оборудование ADSL",
+            "code": "NAD",
+            "url": null,
+            "id": 526,
+            "childs": []
+          },
+          {
+            "totalProducts": 30,
+            "name": "Медиаконвертеры и модули",
+            "code": "MCO",
+            "url": null,
+            "id": 527,
+            "childs": []
+          },
+          {
+            "totalProducts": 6,
+            "name": "Сетевые адаптеры и модемы",
+            "code": "NIC",
+            "url": null,
+            "id": 528,
+            "childs": []
+          },
+          {
+            "totalProducts": 259,
+            "name": "Коммутаторы",
+            "code": "SWI",
+            "url": null,
+            "id": 529,
+            "childs": []
+          },
+          {
+            "totalProducts": 33,
+            "name": "Проводные маршрутизаторы",
+            "code": "ROU",
+            "url": null,
+            "id": 530,
+            "childs": []
+          }
+        ]
+      },
+      {
+        "totalProducts": 2,
+        "name": "KVM переключатели",
+        "code": "SWK",
+        "url": null,
+        "id": 434,
+        "childs": []
+      },
+      {
+        "totalProducts": 0,
+        "name": "Безопасность локальных сетеи",
+        "code": "SEC",
+        "url": null,
+        "id": 435,
+        "childs": []
+      },
+      {
+        "totalProducts": 14,
+        "name": "Оборудование PoE",
+        "code": "POE",
+        "url": null,
+        "id": 436,
+        "childs": []
+      },
+      {
+        "totalProducts": 9,
+        "name": "Аксессуары для сети",
+        "code": "NCC",
+        "url": null,
+        "id": 437,
+        "childs": []
+      },
+      {
+        "totalProducts": 1,
+        "name": "Оборудование Powerline",
+        "code": "PWL",
+        "url": null,
+        "id": 438,
+        "childs": []
+      },
+      {
+        "totalProducts": 0,
+        "name": "Принт-серверы",
+        "code": "WPS",
+        "url": null,
+        "id": 439,
+        "childs": []
+      },
+      {
+        "totalProducts": 9,
+        "name": "Промышленный Ethernet",
+        "code": "IET",
+        "url": null,
+        "id": 440,
+        "childs": []
+      },
+      {
+        "totalProducts": 20,
+        "name": "Пассивное оборудование",
+        "code": "CBL",
+        "url": null,
+        "id": 441,
+        "childs": []
+      },
+      {
+        "totalProducts": 5,
+        "name": "Телефоны/Телефоны VOIP",
+        "code": null,
+        "url": null,
+        "id": 442,
+        "childs": [
+          {
+            "totalProducts": 1,
+            "name": "Телефоны",
+            "code": "TPH",
+            "url": null,
+            "id": 756,
+            "childs": []
+          },
+          {
+            "totalProducts": 4,
+            "name": "Телефоны VOIP",
+            "code": "VOI",
+            "url": null,
+            "id": 757,
+            "childs": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "totalProducts": 2299,
+    "name": "Ноутбуки и компьютеры",
+    "code": null,
+    "url": null,
+    "id": 403,
+    "childs": [
+      {
+        "totalProducts": 0,
+        "name": "Планшеты для рисования",
+        "code": "DRT",
+        "url": null,
+        "id": 443,
+        "childs": []
+      },
+      {
+        "totalProducts": 412,
+        "name": "Ноутбуки ",
+        "code": null,
+        "url": null,
+        "id": 444,
+        "childs": [
+          {
+            "totalProducts": 6,
+            "name": "Прочие аксессуары",
+            "code": "NBA",
+            "url": null,
+            "id": 695,
+            "childs": []
+          },
+          {
+            "totalProducts": 3,
+            "name": "Защищённые ноутбуки",
+            "code": "RMD",
+            "url": null,
+            "id": 798,
+            "childs": []
+          },
+          {
+            "totalProducts": 14,
+            "name": "Аксессуары для защищённых решений",
+            "code": "RDC",
+            "url": null,
+            "id": 799,
+            "childs": []
+          },
+          {
+            "totalProducts": 22,
+            "name": "Сумки для ноутбуков",
+            "code": "NBC",
+            "url": null,
+            "id": 800,
+            "childs": []
+          },
+          {
+            "totalProducts": 367,
+            "name": "Ноутбуки и аксессуары",
+            "code": "NB",
+            "url": null,
+            "id": 801,
+            "childs": []
+          }
+        ]
+      },
+      {
+        "totalProducts": 215,
+        "name": "Носители информации",
+        "code": null,
+        "url": null,
+        "id": 445,
+        "childs": [
+          {
+            "totalProducts": 31,
+            "name": "Внешние SSD",
+            "code": "SSX",
+            "url": null,
+            "id": 716,
+            "childs": []
+          },
+          {
+            "totalProducts": 91,
+            "name": "Флешки",
+            "code": "MDU",
+            "url": null,
+            "id": 717,
+            "childs": []
+          },
+          {
+            "totalProducts": 48,
+            "name": "Карты памяти и картридеры",
+            "code": "MFL",
+            "url": null,
+            "id": 718,
+            "childs": []
+          },
+          {
+            "totalProducts": 7,
+            "name": "Внешние жесткие диски 3.5\"",
+            "code": "HDE",
+            "url": null,
+            "id": 719,
+            "childs": []
+          },
+          {
+            "totalProducts": 37,
+            "name": "Внешние жесткие диски 2.5\"",
+            "code": "HE2",
+            "url": null,
+            "id": 720,
+            "childs": []
+          },
+          {
+            "totalProducts": 1,
+            "name": "Аксессуары",
+            "code": "HDA",
+            "url": null,
+            "id": 721,
+            "childs": []
+          }
+        ]
+      },
+      {
+        "totalProducts": 133,
+        "name": "Оргтехника",
+        "code": null,
+        "url": null,
+        "id": 446,
+        "childs": [
+          {
+            "totalProducts": 36,
+            "name": "Лазерные принтеры",
+            "code": "LAS",
+            "url": null,
+            "id": 722,
+            "childs": []
+          },
+          {
+            "totalProducts": 90,
+            "name": "МФУ",
+            "code": "AIO",
+            "url": null,
+            "id": 723,
+            "childs": []
+          },
+          {
+            "totalProducts": 0,
+            "name": "Брошюровщики \\ переплетчики",
+            "code": "BIN",
+            "url": null,
+            "id": 724,
+            "childs": []
+          },
+          {
+            "totalProducts": 0,
+            "name": "Другое офисное оборудование",
+            "code": "OEQ",
+            "url": null,
+            "id": 725,
+            "childs": []
+          },
+          {
+            "totalProducts": 0,
+            "name": "Струйные принтеры",
+            "code": "INJ",
+            "url": null,
+            "id": 726,
+            "childs": []
+          },
+          {
+            "totalProducts": 0,
+            "name": "Сканеры",
+            "code": "SCN",
+            "url": null,
+            "id": 727,
+            "childs": []
+          },
+          {
+            "totalProducts": 0,
+            "name": "Шредеры",
+            "code": "SHD",
+            "url": null,
+            "id": 728,
+            "childs": []
+          },
+          {
+            "totalProducts": 0,
+            "name": "Принтеры для чеков",
+            "code": "POS",
+            "url": null,
+            "id": 729,
+            "childs": []
+          },
+          {
+            "totalProducts": 0,
+            "name": "Сейфы",
+            "code": "SAF",
+            "url": null,
+            "id": 730,
+            "childs": []
+          },
+          {
+            "totalProducts": 7,
+            "name": "Плоттеры",
+            "code": "PLT",
+            "url": null,
+            "id": 731,
+            "childs": []
+          }
+        ]
+      },
+      {
+        "totalProducts": 19,
+        "name": "Расходные материалы",
+        "code": null,
+        "url": null,
+        "id": 447,
+        "childs": [
+          {
+            "totalProducts": 1,
+            "name": "Ленточные картриджи",
+            "code": "SMA",
+            "url": null,
+            "id": 732,
+            "childs": []
+          },
+          {
+            "totalProducts": 1,
+            "name": "Аксессуары для принтеров",
+            "code": "PCC",
+            "url": null,
+            "id": 733,
+            "childs": []
+          },
+          {
+            "totalProducts": 4,
+            "name": "Лазерные картриджи и тонеры",
+            "code": "SLJ",
+            "url": null,
+            "id": 734,
+            "childs": []
+          },
+          {
+            "totalProducts": 1,
+            "name": "Струйные картриджи и чернила",
+            "code": "SIJ",
+            "url": null,
+            "id": 735,
+            "childs": []
+          },
+          {
+            "totalProducts": 0,
+            "name": "Бумага и пленки",
+            "code": "PAP",
+            "url": null,
+            "id": 736,
+            "childs": []
+          },
+          {
+            "totalProducts": 9,
+            "name": "Элементы питания",
+            "code": "BAT",
+            "url": null,
+            "id": 737,
+            "childs": []
+          },
+          {
+            "totalProducts": 3,
+            "name": "Чистящие средства",
+            "code": "CLN",
+            "url": null,
+            "id": 738,
+            "childs": []
+          }
+        ]
+      },
+      {
+        "totalProducts": 276,
+        "name": "Клавиатуры и мыши",
+        "code": null,
+        "url": null,
+        "id": 449,
+        "childs": [
+          {
+            "totalProducts": 97,
+            "name": "Клавиатуры",
+            "code": "KEY",
+            "url": null,
+            "id": 696,
+            "childs": []
+          },
+          {
+            "totalProducts": 155,
+            "name": "Мыши",
+            "code": "MOU",
+            "url": null,
+            "id": 697,
+            "childs": []
+          },
+          {
+            "totalProducts": 24,
+            "name": "Коврики для мышей",
+            "code": "MOP",
+            "url": null,
+            "id": 698,
+            "childs": []
+          }
+        ]
+      },
+      {
+        "totalProducts": 7,
+        "name": "Веб-камеры",
+        "code": "WCA",
+        "url": null,
+        "id": 450,
+        "childs": []
+      },
+      {
+        "totalProducts": 871,
+        "name": "Мониторы",
+        "code": null,
+        "url": null,
+        "id": 451,
+        "childs": [
+          {
+            "totalProducts": 25,
+            "name": "Широкоформатные мониторы",
+            "code": "LCD",
+            "url": null,
+            "id": 429,
+            "childs": []
+          },
+          {
+            "totalProducts": 836,
+            "name": "Мониторы LCD",
+            "code": "LC3",
+            "url": null,
+            "id": 430,
+            "childs": []
+          },
+          {
+            "totalProducts": 2,
+            "name": "Кронштейны и подставки",
+            "code": "MAS",
+            "url": null,
+            "id": 431,
+            "childs": []
+          }
+        ]
+      },
+      {
+        "totalProducts": 116,
+        "name": "ИБП, Сетевые фильтры",
+        "code": null,
+        "url": null,
+        "id": 452,
+        "childs": [
+          {
+            "totalProducts": 24,
+            "name": "Сетевые фильтры",
+            "code": "SPR",
+            "url": null,
+            "id": 463,
+            "childs": []
+          },
+          {
+            "totalProducts": 38,
+            "name": "Аксессуары для ИБП",
+            "code": "UCC",
+            "url": null,
+            "id": 464,
+            "childs": []
+          },
+          {
+            "totalProducts": 44,
+            "name": "ИБП для рабочих станций",
+            "code": "UPW",
+            "url": null,
+            "id": 465,
+            "childs": []
+          },
+          {
+            "totalProducts": 10,
+            "name": "Электрические удлинители",
+            "code": "PST",
+            "url": null,
+            "id": 466,
+            "childs": []
+          }
+        ]
+      },
+      {
+        "totalProducts": 163,
+        "name": "Кабели и переходники",
+        "code": null,
+        "url": null,
+        "id": 453,
+        "childs": [
+          {
+            "totalProducts": 8,
+            "name": "Аудио-кабели",
+            "code": "ACB",
+            "url": null,
+            "id": 467,
+            "childs": []
+          },
+          {
+            "totalProducts": 71,
+            "name": "Видео кабели",
+            "code": "VCB",
+            "url": null,
+            "id": 468,
+            "childs": []
+          },
+          {
+            "totalProducts": 0,
+            "name": "Кабели",
+            "code": "CAB",
+            "url": null,
+            "id": 469,
+            "childs": []
+          },
+          {
+            "totalProducts": 46,
+            "name": "Сетевые кабели",
+            "code": "CBL",
+            "url": null,
+            "id": 470,
+            "childs": []
+          },
+          {
+            "totalProducts": 9,
+            "name": "Разветвители USB",
+            "code": "UHU",
+            "url": null,
+            "id": 471,
+            "childs": []
+          },
+          {
+            "totalProducts": 14,
+            "name": "Хабы, Разветвители",
+            "code": "IOC",
+            "url": null,
+            "id": 472,
+            "childs": []
+          },
+          {
+            "totalProducts": 15,
+            "name": "Кабели питания",
+            "code": null,
+            "url": null,
+            "id": 815,
+            "childs": []
+          }
+        ]
+      },
+      {
+        "totalProducts": 11,
+        "name": "Компьютеры",
+        "code": null,
+        "url": null,
+        "id": 454,
+        "childs": [
+          {
+            "totalProducts": 0,
+            "name": "Встраиваемые компьютеры",
+            "code": "ICO",
+            "url": null,
+            "id": 482,
+            "childs": []
+          },
+          {
+            "totalProducts": 0,
+            "name": "Моноблоки",
+            "code": "MNB",
+            "url": null,
+            "id": 483,
+            "childs": []
+          },
+          {
+            "totalProducts": 9,
+            "name": "Компьютеры",
+            "code": "DT",
+            "url": null,
+            "id": 484,
+            "childs": []
+          },
+          {
+            "totalProducts": 0,
+            "name": "Платформы Compute Stick",
+            "code": "CST",
+            "url": null,
+            "id": 485,
+            "childs": []
+          },
+          {
+            "totalProducts": 0,
+            "name": "Платформы NUC",
+            "code": "COK",
+            "url": null,
+            "id": 486,
+            "childs": []
+          },
+          {
+            "totalProducts": 1,
+            "name": "Мини ПК",
+            "code": "DTM",
+            "url": null,
+            "id": 487,
+            "childs": []
+          }
+        ]
+      },
+      {
+        "totalProducts": 76,
+        "name": "Игровые аксессуары",
+        "code": null,
+        "url": null,
+        "id": 455,
+        "childs": [
+          {
+            "totalProducts": 66,
+            "name": "Игровые кресла и столы",
+            "code": "GAC",
+            "url": null,
+            "id": 556,
+            "childs": []
+          },
+          {
+            "totalProducts": 10,
+            "name": "Аксессуары для консолей",
+            "code": "GCO",
+            "url": null,
+            "id": 557,
+            "childs": []
+          },
+          {
+            "totalProducts": 0,
+            "name": "Консоли",
+            "code": "GAM",
+            "url": null,
+            "id": 558,
+            "childs": []
+          }
+        ]
+      },
+      {
+        "totalProducts": 0,
+        "name": "Аксессуары для ноутбука",
+        "code": null,
+        "url": null,
+        "id": 817,
+        "childs": []
+      }
+    ]
+  },
+  {
+    "totalProducts": 840,
+    "name": "Серверное оборудование",
+    "code": null,
+    "url": null,
+    "id": 404,
+    "childs": [
+      {
+        "totalProducts": 195,
+        "name": "Накопители HDD&SSD Enterprise",
+        "code": null,
+        "url": null,
+        "id": 456,
+        "childs": [
+          {
+            "totalProducts": 36,
+            "name": "SSD Enterprise SATA",
+            "code": "SFM",
+            "url": null,
+            "id": 534,
+            "childs": []
+          },
+          {
+            "totalProducts": 71,
+            "name": "Жесткие диски Enterprise SATA",
+            "code": "HES",
+            "url": null,
+            "id": 535,
+            "childs": []
+          },
+          {
+            "totalProducts": 32,
+            "name": "Жесткие диски Enterprise SAS",
+            "code": "HDC",
+            "url": null,
+            "id": 536,
+            "childs": []
+          },
+          {
+            "totalProducts": 12,
+            "name": "SSD Enterprise SAS",
+            "code": "SSS",
+            "url": null,
+            "id": 537,
+            "childs": []
+          },
+          {
+            "totalProducts": 44,
+            "name": "SSD Enterprise PCI-E",
+            "code": "SSP",
+            "url": null,
+            "id": 538,
+            "childs": []
+          },
+          {
+            "totalProducts": 0,
+            "name": "SSD Desktop PCI-E",
+            "code": null,
+            "url": null,
+            "id": 816,
+            "childs": []
+          }
+        ]
+      },
+      {
+        "totalProducts": 9,
+        "name": "Серверы",
+        "code": "SER",
+        "url": null,
+        "id": 457,
+        "childs": []
+      },
+      {
+        "totalProducts": 481,
+        "name": "Серверные компоненты",
+        "code": null,
+        "url": null,
+        "id": 458,
+        "childs": [
+          {
+            "totalProducts": 0,
+            "name": "Сопроцессоры",
+            "code": "CCP",
+            "url": null,
+            "id": 473,
+            "childs": []
+          },
+          {
+            "totalProducts": 6,
+            "name": "Корпуса для серверов",
+            "code": "SCH",
+            "url": null,
+            "id": 474,
+            "childs": []
+          },
+          {
+            "totalProducts": 194,
+            "name": "Процессоры для серверов",
+            "code": "CPS",
+            "url": null,
+            "id": 475,
+            "childs": []
+          },
+          {
+            "totalProducts": 60,
+            "name": "Оперативная память",
+            "code": "MES",
+            "url": null,
+            "id": 476,
+            "childs": []
+          },
+          {
+            "totalProducts": 63,
+            "name": "Платформы",
+            "code": "SYS",
+            "url": null,
+            "id": 477,
+            "childs": []
+          },
+          {
+            "totalProducts": 44,
+            "name": "Дисковые контроллеры",
+            "code": "DDC",
+            "url": null,
+            "id": 478,
+            "childs": []
+          },
+          {
+            "totalProducts": 13,
+            "name": "Материнские платы для серверов",
+            "code": "MBS",
+            "url": null,
+            "id": 479,
+            "childs": []
+          },
+          {
+            "totalProducts": 14,
+            "name": "Сетевые контроллеры",
+            "code": "NIN",
+            "url": null,
+            "id": 480,
+            "childs": []
+          },
+          {
+            "totalProducts": 87,
+            "name": "Сетевые адаптеры и модемы для серверов",
+            "code": "NIC",
+            "url": null,
+            "id": 481,
+            "childs": []
+          }
+        ]
+      },
+      {
+        "totalProducts": 56,
+        "name": "Аксессуары для СХД",
+        "code": null,
+        "url": null,
+        "id": 459,
+        "childs": [
+          {
+            "totalProducts": 19,
+            "name": "Модули памяти для СХД",
+            "code": "TME",
+            "url": null,
+            "id": 508,
+            "childs": []
+          },
+          {
+            "totalProducts": 7,
+            "name": "Блоки питания для СХД",
+            "code": "TPU",
+            "url": null,
+            "id": 509,
+            "childs": []
+          },
+          {
+            "totalProducts": 5,
+            "name": "Комплекты для монтажа в стойку",
+            "code": "TRM",
+            "url": null,
+            "id": 510,
+            "childs": []
+          },
+          {
+            "totalProducts": 9,
+            "name": "Прочие аксессуары",
+            "code": "STC",
+            "url": null,
+            "id": 511,
+            "childs": []
+          },
+          {
+            "totalProducts": 16,
+            "name": "JBOD",
+            "code": "JBO",
+            "url": null,
+            "id": 512,
+            "childs": []
+          },
+          {
+            "totalProducts": 0,
+            "name": "Накопители SAS для СХД",
+            "code": "TAS",
+            "url": null,
+            "id": 513,
+            "childs": []
+          }
+        ]
+      },
+      {
+        "totalProducts": 4,
+        "name": "ПО для систем хранения данных",
+        "code": "SSO",
+        "url": null,
+        "id": 460,
+        "childs": []
+      },
+      {
+        "totalProducts": 48,
+        "name": "Системы хранения данных",
+        "code": null,
+        "url": null,
+        "id": 461,
+        "childs": [
+          {
+            "totalProducts": 46,
+            "name": "NAS",
+            "code": "STS",
+            "url": null,
+            "id": 506,
+            "childs": []
+          },
+          {
+            "totalProducts": 2,
+            "name": "SAN",
+            "code": "HSD",
+            "url": null,
+            "id": 507,
+            "childs": []
+          }
+        ]
+      },
+      {
+        "totalProducts": 47,
+        "name": "Аксессуары для серверов",
+        "code": null,
+        "url": null,
+        "id": 462,
+        "childs": [
+          {
+            "totalProducts": 20,
+            "name": "Кабели для серверов",
+            "code": "SCB",
+            "url": null,
+            "id": 758,
+            "childs": []
+          },
+          {
+            "totalProducts": 1,
+            "name": "Системы охлаждения серверов",
+            "code": "SFA",
+            "url": null,
+            "id": 759,
+            "childs": []
+          },
+          {
+            "totalProducts": 18,
+            "name": "Комплекты для монтажа",
+            "code": "SMO",
+            "url": null,
+            "id": 760,
+            "childs": []
+          },
+          {
+            "totalProducts": 5,
+            "name": "Блоки питания для серверов",
+            "code": "SPU",
+            "url": null,
+            "id": 761,
+            "childs": []
+          },
+          {
+            "totalProducts": 1,
+            "name": "ИБП для серверов",
+            "code": "UPR",
+            "url": null,
+            "id": 762,
+            "childs": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "totalProducts": 1658,
+    "name": "Комплектующие",
+    "code": null,
+    "url": null,
+    "id": 405,
+    "childs": [
+      {
+        "totalProducts": 87,
+        "name": "Устройства охлаждения",
+        "code": null,
+        "url": null,
+        "id": 419,
+        "childs": [
+          {
+            "totalProducts": 7,
+            "name": "Вентиляторы для корпусов",
+            "code": "COS",
+            "url": null,
+            "id": 531,
+            "childs": []
+          },
+          {
+            "totalProducts": 3,
+            "name": "Термопаста",
+            "code": "COA",
+            "url": null,
+            "id": 532,
+            "childs": []
+          },
+          {
+            "totalProducts": 77,
+            "name": "Кулеры и системы охлаждения CPU",
+            "code": "COC",
+            "url": null,
+            "id": 533,
+            "childs": []
+          }
+        ]
+      },
+      {
+        "totalProducts": 291,
+        "name": "Накопители SSD",
+        "code": null,
+        "url": null,
+        "id": 420,
+        "childs": [
+          {
+            "totalProducts": 23,
+            "name": "SSD PCI-E",
+            "code": "SSG",
+            "url": null,
+            "id": 514,
+            "childs": []
+          },
+          {
+            "totalProducts": 89,
+            "name": "SSD клиентские SATA",
+            "code": "SSM",
+            "url": null,
+            "id": 515,
+            "childs": []
+          },
+          {
+            "totalProducts": 21,
+            "name": "SSD MSATA",
+            "code": "SSU",
+            "url": null,
+            "id": 516,
+            "childs": []
+          },
+          {
+            "totalProducts": 158,
+            "name": "SSD M.2 SATA",
+            "code": "SS2",
+            "url": null,
+            "id": 809,
+            "childs": []
+          }
+        ]
+      },
+      {
+        "totalProducts": 234,
+        "name": "Видеокарты",
+        "code": "VGP",
+        "url": null,
+        "id": 421,
+        "childs": []
+      },
+      {
+        "totalProducts": 53,
+        "name": "Жесткие диски",
+        "code": null,
+        "url": null,
+        "id": 422,
+        "childs": [
+          {
+            "totalProducts": 51,
+            "name": "Жесткие диски 3.5\" SATA",
+            "code": "HDS",
+            "url": null,
+            "id": 493,
+            "childs": []
+          },
+          {
+            "totalProducts": 1,
+            "name": "Жесткие диски 2.5\" SATA",
+            "code": "HMS",
+            "url": null,
+            "id": 494,
+            "childs": []
+          }
+        ]
+      },
+      {
+        "totalProducts": 74,
+        "name": "Корпуса",
+        "code": "CAS",
+        "url": null,
+        "id": 423,
+        "childs": []
+      },
+      {
+        "totalProducts": 79,
+        "name": "Блоки питания",
+        "code": "PSU",
+        "url": null,
+        "id": 424,
+        "childs": []
+      },
+      {
+        "totalProducts": 151,
+        "name": "Материнские платы",
+        "code": null,
+        "url": null,
+        "id": 425,
+        "childs": [
+          {
+            "totalProducts": 75,
+            "name": "Материнские платы AMD CPU",
+            "code": "MBA",
+            "url": null,
+            "id": 488,
+            "childs": []
+          },
+          {
+            "totalProducts": 76,
+            "name": "Материнские платы Intel CPU",
+            "code": "MBI",
+            "url": null,
+            "id": 489,
+            "childs": []
+          }
+        ]
+      },
+      {
+        "totalProducts": 2,
+        "name": "Оптические приводы",
+        "code": "DVD",
+        "url": null,
+        "id": 426,
+        "childs": []
+      },
+      {
+        "totalProducts": 130,
+        "name": "Процессоры",
+        "code": "CPU",
+        "url": null,
+        "id": 427,
+        "childs": []
+      },
+      {
+        "totalProducts": 557,
+        "name": "Модули памяти",
+        "code": null,
+        "url": null,
+        "id": 428,
+        "childs": [
+          {
+            "totalProducts": 474,
+            "name": "Модули памяти Desktop PC",
+            "code": "MEM",
+            "url": null,
+            "id": 490,
+            "childs": []
+          },
+          {
+            "totalProducts": 83,
+            "name": "Модули памяти для ноутбуков",
+            "code": "MEB",
+            "url": null,
+            "id": 491,
+            "childs": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "totalProducts": 0,
+    "name": "Рекламные материалы",
+    "code": null,
+    "url": null,
+    "id": 406,
+    "childs": [
+      {
+        "totalProducts": 0,
+        "name": "Рекламные материалы",
+        "code": "MKT",
+        "url": null,
+        "id": 492,
+        "childs": []
+      }
+    ]
+  },
+  {
+    "totalProducts": 959,
+    "name": "Смартфоны и гаджеты",
+    "code": null,
+    "url": null,
+    "id": 407,
+    "childs": [
+      {
+        "totalProducts": 215,
+        "name": "Планшеты",
+        "code": "TPC",
+        "url": null,
+        "id": 495,
+        "childs": [
+          {
+            "totalProducts": 9,
+            "name": "Защищенные планшеты",
+            "code": "TRE",
+            "url": null,
+            "id": 821,
+            "childs": []
+          },
+          {
+            "totalProducts": 206,
+            "name": "Планшеты",
+            "code": "TAB",
+            "url": null,
+            "id": 822,
+            "childs": []
+          }
+        ]
+      },
+      {
+        "totalProducts": 0,
+        "name": "Электронные книжки",
+        "code": "ERD",
+        "url": null,
+        "id": 496,
+        "childs": []
+      },
+      {
+        "totalProducts": 4,
+        "name": "Аксессуары для планшетов",
+        "code": null,
+        "url": null,
+        "id": 497,
+        "childs": [
+          {
+            "totalProducts": 2,
+            "name": "Чехлы для планшетов",
+            "code": "TSL",
+            "url": null,
+            "id": 693,
+            "childs": []
+          },
+          {
+            "totalProducts": 2,
+            "name": "Держатели и прочие аксессуары",
+            "code": "TPA",
+            "url": null,
+            "id": 694,
+            "childs": []
+          }
+        ]
+      },
+      {
+        "totalProducts": 553,
+        "name": "Мобильные телефоны",
+        "code": null,
+        "url": null,
+        "id": 498,
+        "childs": [
+          {
+            "totalProducts": 0,
+            "name": "Кнопочные телефоны",
+            "code": "MPF",
+            "url": null,
+            "id": 676,
+            "childs": []
+          },
+          {
+            "totalProducts": 553,
+            "name": "Смартфоны",
+            "code": "MPH",
+            "url": null,
+            "id": 677,
+            "childs": []
+          }
+        ]
+      },
+      {
+        "totalProducts": 36,
+        "name": "Аксессуары для смартфонов",
+        "code": null,
+        "url": null,
+        "id": 499,
+        "childs": [
+          {
+            "totalProducts": 0,
+            "name": "Селфи-палки и пр. аксессуары",
+            "code": "MPA",
+            "url": null,
+            "id": 678,
+            "childs": []
+          },
+          {
+            "totalProducts": 0,
+            "name": "Внешние аккумуляторы",
+            "code": "POB",
+            "url": null,
+            "id": 679,
+            "childs": []
+          },
+          {
+            "totalProducts": 0,
+            "name": "Портативные звуковые колонки",
+            "code": "SPE",
+            "url": null,
+            "id": 680,
+            "childs": []
+          },
+          {
+            "totalProducts": 0,
+            "name": "Защитные пленки и стекла",
+            "code": "MSP",
+            "url": null,
+            "id": 681,
+            "childs": []
+          },
+          {
+            "totalProducts": 3,
+            "name": "Чехлы для смартфонов",
+            "code": "MPC",
+            "url": null,
+            "id": 682,
+            "childs": []
+          },
+          {
+            "totalProducts": 6,
+            "name": "Автомобильные держатели",
+            "code": "MHC",
+            "url": null,
+            "id": 683,
+            "childs": []
+          },
+          {
+            "totalProducts": 22,
+            "name": "Кабели",
+            "code": "UCB",
+            "url": null,
+            "id": 684,
+            "childs": []
+          }
+        ]
+      },
+      {
+        "totalProducts": 128,
+        "name": "Гаджеты",
+        "code": null,
+        "url": null,
+        "id": 500,
+        "childs": [
+          {
+            "totalProducts": 110,
+            "name": "Смарт-часы",
+            "code": "SMW",
+            "url": null,
+            "id": 685,
+            "childs": []
+          },
+          {
+            "totalProducts": 17,
+            "name": "Фитнес-браслеты",
+            "code": "SPF",
+            "url": null,
+            "id": 686,
+            "childs": []
+          },
+          {
+            "totalProducts": 0,
+            "name": "Аксессуары для гаджетов",
+            "code": "SPA",
+            "url": null,
+            "id": 687,
+            "childs": []
+          },
+          {
+            "totalProducts": 1,
+            "name": "GPS-трекеры",
+            "code": "GPT",
+            "url": null,
+            "id": 688,
+            "childs": []
+          }
+        ]
+      },
+      {
+        "totalProducts": 0,
+        "name": "FM трансмиттеры",
+        "code": "CFT",
+        "url": null,
+        "id": 501,
+        "childs": []
+      },
+      {
+        "totalProducts": 0,
+        "name": "Спортивные камеры",
+        "code": "VCA",
+        "url": null,
+        "id": 502,
+        "childs": []
+      },
+      {
+        "totalProducts": 23,
+        "name": "Зарядные устройства",
+        "code": "CHA",
+        "url": null,
+        "id": 503,
+        "childs": []
+      },
+      {
+        "totalProducts": 0,
+        "name": "Системы нагревания IQOS",
+        "code": "ELC",
+        "url": null,
+        "id": 504,
+        "childs": []
+      },
+      {
+        "totalProducts": 0,
+        "name": "Цифровые фотоаппараты",
+        "code": "PHO",
+        "url": null,
+        "id": 505,
+        "childs": []
+      }
+    ]
+  },
+  {
+    "totalProducts": 173,
+    "name": "Красота и здоровье",
+    "code": null,
+    "url": null,
+    "id": 408,
+    "childs": [
+      {
+        "totalProducts": 33,
+        "name": "Машинки для стрижки",
+        "code": "HCL",
+        "url": null,
+        "id": 576,
+        "childs": []
+      },
+      {
+        "totalProducts": 11,
+        "name": "Щипцы",
+        "code": "BAC",
+        "url": null,
+        "id": 577,
+        "childs": []
+      },
+      {
+        "totalProducts": 34,
+        "name": "Фены",
+        "code": "HDR",
+        "url": null,
+        "id": 578,
+        "childs": []
+      },
+      {
+        "totalProducts": 10,
+        "name": "Бритвы",
+        "code": "SHR",
+        "url": null,
+        "id": 580,
+        "childs": []
+      },
+      {
+        "totalProducts": 3,
+        "name": "Эпиляторы",
+        "code": "EPI",
+        "url": null,
+        "id": 581,
+        "childs": []
+      },
+      {
+        "totalProducts": 5,
+        "name": "Весы",
+        "code": "BSC",
+        "url": null,
+        "id": 582,
+        "childs": []
+      },
+      {
+        "totalProducts": 18,
+        "name": "Массажеры",
+        "code": "MSB",
+        "url": null,
+        "id": 583,
+        "childs": []
+      },
+      {
+        "totalProducts": 1,
+        "name": "Маникюрные наборы",
+        "code": "MNC",
+        "url": null,
+        "id": 584,
+        "childs": []
+      },
+      {
+        "totalProducts": 0,
+        "name": "Здоровье",
+        "code": null,
+        "url": null,
+        "id": 585,
+        "childs": [
+          {
+            "totalProducts": 0,
+            "name": "Назальные аспираторы",
+            "code": "HCA",
+            "url": null,
+            "id": 763,
+            "childs": []
+          },
+          {
+            "totalProducts": 0,
+            "name": "Дезинфекторы и антисептики",
+            "code": "ABS",
+            "url": null,
+            "id": 764,
+            "childs": []
+          },
+          {
+            "totalProducts": 0,
+            "name": "Защита для лица",
+            "code": "FSR",
+            "url": null,
+            "id": 765,
+            "childs": []
+          },
+          {
+            "totalProducts": 0,
+            "name": "Телемедицина",
+            "code": "TEM",
+            "url": null,
+            "id": 766,
+            "childs": []
+          },
+          {
+            "totalProducts": 0,
+            "name": "Тонометры",
+            "code": "BPM",
+            "url": null,
+            "id": 767,
+            "childs": []
+          },
+          {
+            "totalProducts": 0,
+            "name": "Ингаляторы",
+            "code": "INH",
+            "url": null,
+            "id": 768,
+            "childs": []
+          },
+          {
+            "totalProducts": 0,
+            "name": "Термометры",
+            "code": "THE",
+            "url": null,
+            "id": 769,
+            "childs": []
+          }
+        ]
+      },
+      {
+        "totalProducts": 58,
+        "name": "Электрические зубные щётки",
+        "code": "ETB",
+        "url": null,
+        "id": 586,
+        "childs": []
+      },
+      {
+        "totalProducts": 0,
+        "name": "Выпрямители для волос",
+        "code": "HSA",
+        "url": null,
+        "id": 813,
+        "childs": []
+      }
+    ]
+  },
+  {
+    "totalProducts": 4,
+    "name": "Программное обеспечение",
+    "code": null,
+    "url": null,
+    "id": 409,
+    "childs": [
+      {
+        "totalProducts": 0,
+        "name": "Резервное копирование",
+        "code": "CLA",
+        "url": null,
+        "id": 539,
+        "childs": []
+      },
+      {
+        "totalProducts": 0,
+        "name": "Цифровая графика, видео дизайн",
+        "code": "VGD",
+        "url": null,
+        "id": 540,
+        "childs": []
+      },
+      {
+        "totalProducts": 0,
+        "name": "Лицензионные коды",
+        "code": "VSS",
+        "url": null,
+        "id": 541,
+        "childs": []
+      },
+      {
+        "totalProducts": 0,
+        "name": "Офисные приложения",
+        "code": "OFF",
+        "url": null,
+        "id": 542,
+        "childs": []
+      },
+      {
+        "totalProducts": 1,
+        "name": "OC Windows OEM",
+        "code": "OWI",
+        "url": null,
+        "id": 543,
+        "childs": []
+      },
+      {
+        "totalProducts": 0,
+        "name": "OC Windows Retail",
+        "code": "RWI",
+        "url": null,
+        "id": 544,
+        "childs": []
+      },
+      {
+        "totalProducts": 0,
+        "name": "Антивирусы",
+        "code": "ANT",
+        "url": null,
+        "id": 545,
+        "childs": []
+      },
+      {
+        "totalProducts": 3,
+        "name": "Windows Server",
+        "code": "SOS",
+        "url": null,
+        "id": 546,
+        "childs": []
+      },
+      {
+        "totalProducts": 0,
+        "name": "OC Windows ESD",
+        "code": "ESD",
+        "url": null,
+        "id": 547,
+        "childs": []
+      },
+      {
+        "totalProducts": 0,
+        "name": "OC Astra Linux",
+        "code": "LIO",
+        "url": null,
+        "id": 548,
+        "childs": []
+      }
+    ]
+  },
+  {
+    "totalProducts": 241,
+    "name": "Безопасность и видеонаблюдение",
+    "code": null,
+    "url": null,
+    "id": 410,
+    "childs": [
+      {
+        "totalProducts": 0,
+        "name": "Системы охранной сигнализации",
+        "code": null,
+        "url": null,
+        "id": 413,
+        "childs": [
+          {
+            "totalProducts": 0,
+            "name": "Контроллеры",
+            "code": "ADM",
+            "url": null,
+            "id": 638,
+            "childs": []
+          },
+          {
+            "totalProducts": 0,
+            "name": "Извещатели дыма",
+            "code": "FDE",
+            "url": null,
+            "id": 639,
+            "childs": []
+          },
+          {
+            "totalProducts": 0,
+            "name": "Устройства пожарной сигнализации",
+            "code": "FAC",
+            "url": null,
+            "id": 640,
+            "childs": []
+          },
+          {
+            "totalProducts": 0,
+            "name": "Сигнальные сирены",
+            "code": "SIR",
+            "url": null,
+            "id": 641,
+            "childs": []
+          }
+        ]
+      },
+      {
+        "totalProducts": 42,
+        "name": "Домофония",
+        "code": null,
+        "url": null,
+        "id": 549,
+        "childs": [
+          {
+            "totalProducts": 8,
+            "name": "Контроль доступа",
+            "code": "CRL",
+            "url": null,
+            "id": 633,
+            "childs": []
+          },
+          {
+            "totalProducts": 0,
+            "name": "Пульты ДУ",
+            "code": "RCL",
+            "url": null,
+            "id": 634,
+            "childs": []
+          },
+          {
+            "totalProducts": 29,
+            "name": "Видеодомофоны",
+            "code": "DEV",
+            "url": null,
+            "id": 635,
+            "childs": []
+          },
+          {
+            "totalProducts": 0,
+            "name": "Блоки питания",
+            "code": "SPS",
+            "url": null,
+            "id": 636,
+            "childs": []
+          },
+          {
+            "totalProducts": 5,
+            "name": "Извещатели",
+            "code": "MDE",
+            "url": null,
+            "id": 637,
+            "childs": []
+          }
+        ]
+      },
+      {
+        "totalProducts": 1,
+        "name": "Конференц-системы аудио",
+        "code": "CNS",
+        "url": null,
+        "id": 550,
+        "childs": []
+      },
+      {
+        "totalProducts": 0,
+        "name": "Громкоговорители",
+        "code": "PLO",
+        "url": null,
+        "id": 552,
+        "childs": []
+      },
+      {
+        "totalProducts": 30,
+        "name": "Видеорегистраторы",
+        "code": null,
+        "url": null,
+        "id": 553,
+        "childs": [
+          {
+            "totalProducts": 0,
+            "name": "DVR",
+            "code": "STD",
+            "url": null,
+            "id": 770,
+            "childs": []
+          },
+          {
+            "totalProducts": 22,
+            "name": "NVR",
+            "code": "NVR",
+            "url": null,
+            "id": 771,
+            "childs": []
+          }
+        ]
+      },
+      {
+        "totalProducts": 163,
+        "name": "Видеокамеры",
+        "code": null,
+        "url": null,
+        "id": 554,
+        "childs": [
+          {
+            "totalProducts": 16,
+            "name": "Wi-Fi Камеры",
+            "code": "NCI",
+            "url": null,
+            "id": 772,
+            "childs": []
+          },
+          {
+            "totalProducts": 147,
+            "name": "IP-камеры",
+            "code": "FNC",
+            "url": null,
+            "id": 773,
+            "childs": []
+          },
+          {
+            "totalProducts": 0,
+            "name": "AHD камеры",
+            "code": "AHD",
+            "url": null,
+            "id": 774,
+            "childs": []
+          },
+          {
+            "totalProducts": 0,
+            "name": "HD-TVI / Turbo HD камеры",
+            "code": "HDT",
+            "url": null,
+            "id": 775,
+            "childs": []
+          },
+          {
+            "totalProducts": 0,
+            "name": "HDCVI камеры",
+            "code": "HSC",
+            "url": null,
+            "id": 776,
+            "childs": []
+          }
+        ]
+      },
+      {
+        "totalProducts": 5,
+        "name": "Аксессуары для камер",
+        "code": null,
+        "url": null,
+        "id": 555,
+        "childs": [
+          {
+            "totalProducts": 2,
+            "name": "Компоненты для сетевых камер",
+            "code": "IPC",
+            "url": null,
+            "id": 777,
+            "childs": []
+          },
+          {
+            "totalProducts": 3,
+            "name": "Аксессуары для CCTV камер",
+            "code": "CAC",
+            "url": null,
+            "id": 778,
+            "childs": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "totalProducts": 894,
+    "name": "Телевизоры и аудио",
+    "code": null,
+    "url": null,
+    "id": 411,
+    "childs": [
+      {
+        "totalProducts": 3,
+        "name": "Медиа плееры",
+        "code": "TMP",
+        "url": null,
+        "id": 621,
+        "childs": []
+      },
+      {
+        "totalProducts": 144,
+        "name": "Аудиотехника",
+        "code": null,
+        "url": null,
+        "id": 622,
+        "childs": [
+          {
+            "totalProducts": 10,
+            "name": "Микрофоны",
+            "code": "MIC",
+            "url": null,
+            "id": 739,
+            "childs": []
+          },
+          {
+            "totalProducts": 127,
+            "name": "Акустические системы",
+            "code": "SPE",
+            "url": null,
+            "id": 740,
+            "childs": []
+          },
+          {
+            "totalProducts": 7,
+            "name": "Музыкальные центры",
+            "code": "HAV",
+            "url": null,
+            "id": 741,
+            "childs": []
+          },
+          {
+            "totalProducts": 0,
+            "name": "Аудио и мультимедиа",
+            "code": "OTM",
+            "url": null,
+            "id": 742,
+            "childs": []
+          }
+        ]
+      },
+      {
+        "totalProducts": 203,
+        "name": "Наушники",
+        "code": null,
+        "url": null,
+        "id": 623,
+        "childs": [
+          {
+            "totalProducts": 0,
+            "name": "Наушники с микрофоном",
+            "code": "HST",
+            "url": null,
+            "id": 743,
+            "childs": []
+          },
+          {
+            "totalProducts": 0,
+            "name": "Наушники без микрофона",
+            "code": "HPH",
+            "url": null,
+            "id": 744,
+            "childs": []
+          }
+        ]
+      },
+      {
+        "totalProducts": 8,
+        "name": "Проекторы и экраны",
+        "code": "OTP",
+        "url": null,
+        "id": 624,
+        "childs": []
+      },
+      {
+        "totalProducts": 0,
+        "name": "ТВ ресиверы DVBT2",
+        "code": "VTV",
+        "url": null,
+        "id": 625,
+        "childs": []
+      },
+      {
+        "totalProducts": 3,
+        "name": "Аксессуары для ТВ",
+        "code": null,
+        "url": null,
+        "id": 626,
+        "childs": [
+          {
+            "totalProducts": 3,
+            "name": "Кронштейны и подставки",
+            "code": "MAS",
+            "url": null,
+            "id": 628,
+            "childs": []
+          },
+          {
+            "totalProducts": 0,
+            "name": "ТВ антенны",
+            "code": "TVA",
+            "url": null,
+            "id": 629,
+            "childs": []
+          },
+          {
+            "totalProducts": 0,
+            "name": "Универсальные пульты ДУ",
+            "code": "TRC",
+            "url": null,
+            "id": 630,
+            "childs": []
+          }
+        ]
+      },
+      {
+        "totalProducts": 533,
+        "name": "Телевизоры",
+        "code": "TVP",
+        "url": null,
+        "id": 627,
+        "childs": []
+      }
+    ]
+  },
+  {
+    "totalProducts": 0,
+    "name": "Активный отдых и спорт",
+    "code": null,
+    "url": null,
+    "id": 412,
+    "childs": [
+      {
+        "totalProducts": 0,
+        "name": "Скутеры",
+        "code": "SBS",
+        "url": null,
+        "id": 631,
+        "childs": []
+      },
+      {
+        "totalProducts": 0,
+        "name": "Чемоданы и рюкзаки",
+        "code": "SBA",
+        "url": null,
+        "id": 632,
+        "childs": []
+      }
+    ]
+  },
+  {
+    "totalProducts": 3073,
+    "name": "Бытовая техника",
+    "code": null,
+    "url": null,
+    "id": 414,
+    "childs": [
+      {
+        "totalProducts": 41,
+        "name": "Швейные машины и оверлоки",
+        "code": null,
+        "url": null,
+        "id": 642,
+        "childs": [
+          {
+            "totalProducts": 38,
+            "name": "Швейные машины",
+            "code": "SEW",
+            "url": null,
+            "id": 649,
+            "childs": []
+          },
+          {
+            "totalProducts": 3,
+            "name": "Оверлоки",
+            "code": "OVL",
+            "url": null,
+            "id": 650,
+            "childs": []
+          }
+        ]
+      },
+      {
+        "totalProducts": 285,
+        "name": "Техника для дома",
+        "code": null,
+        "url": null,
+        "id": 643,
+        "childs": [
+          {
+            "totalProducts": 1,
+            "name": "Лампочки",
+            "code": "LBU",
+            "url": null,
+            "id": 559,
+            "childs": []
+          },
+          {
+            "totalProducts": 77,
+            "name": "Утюги и парогенераторы",
+            "code": "IRO",
+            "url": null,
+            "id": 661,
+            "childs": []
+          },
+          {
+            "totalProducts": 142,
+            "name": "Пылесосы",
+            "code": "VCL",
+            "url": null,
+            "id": 662,
+            "childs": []
+          },
+          {
+            "totalProducts": 1,
+            "name": "Прочая техника для дома",
+            "code": "HOA",
+            "url": null,
+            "id": 663,
+            "childs": []
+          },
+          {
+            "totalProducts": 4,
+            "name": "Уход за одеждой/обувью",
+            "code": "SDR",
+            "url": null,
+            "id": 664,
+            "childs": []
+          },
+          {
+            "totalProducts": 47,
+            "name": "Роботы-пылесосы",
+            "code": "VCR",
+            "url": null,
+            "id": 665,
+            "childs": []
+          },
+          {
+            "totalProducts": 8,
+            "name": "Отпариватели",
+            "code": "GST",
+            "url": null,
+            "id": 666,
+            "childs": []
+          },
+          {
+            "totalProducts": 3,
+            "name": "Аксессуары для пылесосов",
+            "code": "VAA",
+            "url": null,
+            "id": 667,
+            "childs": []
+          },
+          {
+            "totalProducts": 2,
+            "name": "Аксессуары для роботов-пылесос",
+            "code": "VRA",
+            "url": null,
+            "id": 668,
+            "childs": []
+          },
+          {
+            "totalProducts": 0,
+            "name": "Умные светильники",
+            "code": "POL",
+            "url": null,
+            "id": 669,
+            "childs": []
+          }
+        ]
+      },
+      {
+        "totalProducts": 0,
+        "name": "Кофемашины и кофеварки",
+        "code": null,
+        "url": null,
+        "id": 644,
+        "childs": [
+          {
+            "totalProducts": 0,
+            "name": "Кофемолки",
+            "code": "CGR",
+            "url": null,
+            "id": 689,
+            "childs": []
+          },
+          {
+            "totalProducts": 0,
+            "name": "Кофемашины",
+            "code": "CAU",
+            "url": null,
+            "id": 691,
+            "childs": []
+          },
+          {
+            "totalProducts": 0,
+            "name": "Кофеварки",
+            "code": "CBM",
+            "url": null,
+            "id": 692,
+            "childs": []
+          }
+        ]
+      },
+      {
+        "totalProducts": 1635,
+        "name": "Крупная бытовая техника",
+        "code": null,
+        "url": null,
+        "id": 645,
+        "childs": [
+          {
+            "totalProducts": 33,
+            "name": "Сушильные машины",
+            "code": "DRY",
+            "url": null,
+            "id": 587,
+            "childs": []
+          },
+          {
+            "totalProducts": 139,
+            "name": "Кухонные вытяжки",
+            "code": "EFH",
+            "url": null,
+            "id": 588,
+            "childs": []
+          },
+          {
+            "totalProducts": 217,
+            "name": "Морозильники и лари",
+            "code": "FRE",
+            "url": null,
+            "id": 589,
+            "childs": []
+          },
+          {
+            "totalProducts": 41,
+            "name": "Посудомоечные машины",
+            "code": "DWA",
+            "url": null,
+            "id": 590,
+            "childs": []
+          },
+          {
+            "totalProducts": 1,
+            "name": "Винные шкафы",
+            "code": "WCL",
+            "url": null,
+            "id": 591,
+            "childs": []
+          },
+          {
+            "totalProducts": 617,
+            "name": "Холодильники",
+            "code": "FRI",
+            "url": null,
+            "id": 592,
+            "childs": []
+          },
+          {
+            "totalProducts": 244,
+            "name": "Кухонные плиты",
+            "code": "COO",
+            "url": null,
+            "id": 593,
+            "childs": []
+          },
+          {
+            "totalProducts": 343,
+            "name": "Стиральные машины",
+            "code": "WAM",
+            "url": null,
+            "id": 594,
+            "childs": []
+          }
+        ]
+      },
+      {
+        "totalProducts": 439,
+        "name": "Техника для кухни",
+        "code": null,
+        "url": null,
+        "id": 646,
+        "childs": [
+          {
+            "totalProducts": 21,
+            "name": "Кофеварки",
+            "code": "CBM",
+            "url": null,
+            "id": 561,
+            "childs": []
+          },
+          {
+            "totalProducts": 13,
+            "name": "Кофемашины",
+            "code": "CAU",
+            "url": null,
+            "id": 562,
+            "childs": []
+          },
+          {
+            "totalProducts": 16,
+            "name": "Кофемолки",
+            "code": "CGR",
+            "url": null,
+            "id": 563,
+            "childs": []
+          },
+          {
+            "totalProducts": 47,
+            "name": "Блендеры",
+            "code": "BLE",
+            "url": null,
+            "id": 595,
+            "childs": []
+          },
+          {
+            "totalProducts": 0,
+            "name": "Кухонные комбайны",
+            "code": "FPR",
+            "url": null,
+            "id": 596,
+            "childs": []
+          },
+          {
+            "totalProducts": 90,
+            "name": "Электрочайники",
+            "code": "KET",
+            "url": null,
+            "id": 597,
+            "childs": []
+          },
+          {
+            "totalProducts": 34,
+            "name": "Мясорубки",
+            "code": "MGR",
+            "url": null,
+            "id": 598,
+            "childs": []
+          },
+          {
+            "totalProducts": 22,
+            "name": "Тостеры и сэндвичницы",
+            "code": "TOS",
+            "url": null,
+            "id": 599,
+            "childs": []
+          },
+          {
+            "totalProducts": 29,
+            "name": "Миксеры",
+            "code": "MIX",
+            "url": null,
+            "id": 600,
+            "childs": []
+          },
+          {
+            "totalProducts": 4,
+            "name": "Хлебопечи",
+            "code": "BMR",
+            "url": null,
+            "id": 601,
+            "childs": []
+          },
+          {
+            "totalProducts": 60,
+            "name": "Микроволновые печи",
+            "code": "MWA",
+            "url": null,
+            "id": 602,
+            "childs": []
+          },
+          {
+            "totalProducts": 2,
+            "name": "Кухонные весы",
+            "code": "KSC",
+            "url": null,
+            "id": 603,
+            "childs": []
+          },
+          {
+            "totalProducts": 7,
+            "name": "Мультиварки",
+            "code": "MCR",
+            "url": null,
+            "id": 604,
+            "childs": []
+          },
+          {
+            "totalProducts": 0,
+            "name": "Блинницы",
+            "code": "CMA",
+            "url": null,
+            "id": 605,
+            "childs": []
+          },
+          {
+            "totalProducts": 0,
+            "name": "Йогуртницы",
+            "code": "YOG",
+            "url": null,
+            "id": 606,
+            "childs": []
+          },
+          {
+            "totalProducts": 5,
+            "name": "Термопоты",
+            "code": "THP",
+            "url": null,
+            "id": 607,
+            "childs": []
+          },
+          {
+            "totalProducts": 0,
+            "name": "Пароварки",
+            "code": "STM",
+            "url": null,
+            "id": 608,
+            "childs": []
+          },
+          {
+            "totalProducts": 11,
+            "name": "Соковыжималки",
+            "code": "JEX",
+            "url": null,
+            "id": 609,
+            "childs": []
+          },
+          {
+            "totalProducts": 0,
+            "name": "Фритюрницы",
+            "code": "DFR",
+            "url": null,
+            "id": 610,
+            "childs": []
+          },
+          {
+            "totalProducts": 7,
+            "name": "Ломтерезки",
+            "code": "SLI",
+            "url": null,
+            "id": 611,
+            "childs": []
+          },
+          {
+            "totalProducts": 34,
+            "name": "Электрогрили",
+            "code": "GRI",
+            "url": null,
+            "id": 612,
+            "childs": []
+          },
+          {
+            "totalProducts": 3,
+            "name": "Измельчители",
+            "code": "CHO",
+            "url": null,
+            "id": 613,
+            "childs": []
+          },
+          {
+            "totalProducts": 3,
+            "name": "Сушки для фруктов и овощей",
+            "code": "FRD",
+            "url": null,
+            "id": 614,
+            "childs": []
+          },
+          {
+            "totalProducts": 0,
+            "name": "Вафельницы",
+            "code": "WAF",
+            "url": null,
+            "id": 615,
+            "childs": []
+          },
+          {
+            "totalProducts": 15,
+            "name": "Мини-печи и настольные плиты",
+            "code": "MOV",
+            "url": null,
+            "id": 616,
+            "childs": []
+          },
+          {
+            "totalProducts": 3,
+            "name": "Кухонные принадлежности",
+            "code": "KWR",
+            "url": null,
+            "id": 617,
+            "childs": []
+          },
+          {
+            "totalProducts": 0,
+            "name": "Яйцеварки",
+            "code": "EGB",
+            "url": null,
+            "id": 618,
+            "childs": []
+          },
+          {
+            "totalProducts": 2,
+            "name": "Вакуумные упаковщики",
+            "code": "VSE",
+            "url": null,
+            "id": 619,
+            "childs": []
+          },
+          {
+            "totalProducts": 6,
+            "name": "Измельчители пищевых отходов",
+            "code": "FWD",
+            "url": null,
+            "id": 620,
+            "childs": []
+          },
+          {
+            "totalProducts": 5,
+            "name": "Электрические турки",
+            "code": "TUR",
+            "url": null,
+            "id": 690,
+            "childs": []
+          }
+        ]
+      },
+      {
+        "totalProducts": 673,
+        "name": "Встраиваемая техника",
+        "code": null,
+        "url": null,
+        "id": 647,
+        "childs": [
+          {
+            "totalProducts": 82,
+            "name": "Встраиваемые электропанели",
+            "code": "BHO",
+            "url": null,
+            "id": 745,
+            "childs": []
+          },
+          {
+            "totalProducts": 31,
+            "name": "Встраиваемые печи СВЧ",
+            "code": "BMW",
+            "url": null,
+            "id": 746,
+            "childs": []
+          },
+          {
+            "totalProducts": 71,
+            "name": "Встраиваемые кухонные вытяжки",
+            "code": "BEH",
+            "url": null,
+            "id": 747,
+            "childs": []
+          },
+          {
+            "totalProducts": 178,
+            "name": "Встраиваемые газовые панели",
+            "code": "BGH",
+            "url": null,
+            "id": 748,
+            "childs": []
+          },
+          {
+            "totalProducts": 166,
+            "name": "Встраиваемые духовки",
+            "code": "BOV",
+            "url": null,
+            "id": 749,
+            "childs": []
+          },
+          {
+            "totalProducts": 15,
+            "name": "Встраиваемые морозильники",
+            "code": "BFR",
+            "url": null,
+            "id": 750,
+            "childs": []
+          },
+          {
+            "totalProducts": 5,
+            "name": "Встраиваемые стиральные машины",
+            "code": "BWA",
+            "url": null,
+            "id": 751,
+            "childs": []
+          },
+          {
+            "totalProducts": 61,
+            "name": "Встраиваемые холодильники",
+            "code": "BRF",
+            "url": null,
+            "id": 752,
+            "childs": []
+          },
+          {
+            "totalProducts": 64,
+            "name": "Встраиваемые посудомоечные машины",
+            "code": "BDW",
+            "url": null,
+            "id": 753,
+            "childs": []
+          },
+          {
+            "totalProducts": 0,
+            "name": "Подогреватели посуды",
+            "code": "BWD",
+            "url": null,
+            "id": 754,
+            "childs": []
+          },
+          {
+            "totalProducts": 0,
+            "name": "Встраиваемые кофемашины",
+            "code": "BCM",
+            "url": null,
+            "id": 755,
+            "childs": []
+          },
+          {
+            "totalProducts": 0,
+            "name": "КБТ+встройка",
+            "code": null,
+            "url": null,
+            "id": 805,
+            "childs": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "totalProducts": 144,
+    "name": "Климатическая техника",
+    "code": null,
+    "url": null,
+    "id": 415,
+    "childs": [
+      {
+        "totalProducts": 4,
+        "name": "Вентиляторы",
+        "code": "FAN",
+        "url": null,
+        "id": 656,
+        "childs": []
+      },
+      {
+        "totalProducts": 37,
+        "name": "Водонагреватели",
+        "code": "WHE",
+        "url": null,
+        "id": 657,
+        "childs": []
+      },
+      {
+        "totalProducts": 51,
+        "name": "Обогреватели",
+        "code": null,
+        "url": null,
+        "id": 658,
+        "childs": [
+          {
+            "totalProducts": 25,
+            "name": "Электрические конвекторы",
+            "code": "CON",
+            "url": null,
+            "id": 651,
+            "childs": []
+          },
+          {
+            "totalProducts": 6,
+            "name": "Масляные радиаторы",
+            "code": "OIL",
+            "url": null,
+            "id": 652,
+            "childs": []
+          },
+          {
+            "totalProducts": 8,
+            "name": "Тепловентиляторы",
+            "code": "FAH",
+            "url": null,
+            "id": 653,
+            "childs": []
+          },
+          {
+            "totalProducts": 7,
+            "name": "Тепловые пушки",
+            "code": "CYL",
+            "url": null,
+            "id": 654,
+            "childs": []
+          },
+          {
+            "totalProducts": 5,
+            "name": "ИК-обогреватели",
+            "code": "IRH",
+            "url": null,
+            "id": 655,
+            "childs": []
+          }
+        ]
+      },
+      {
+        "totalProducts": 31,
+        "name": "Очистители и увлажнители",
+        "code": "HUM",
+        "url": null,
+        "id": 659,
+        "childs": []
+      },
+      {
+        "totalProducts": 21,
+        "name": "Кондиционеры",
+        "code": "ACO",
+        "url": null,
+        "id": 660,
+        "childs": []
+      }
+    ]
+  },
+  {
+    "totalProducts": 22,
+    "name": "Садовая техника",
+    "code": null,
+    "url": null,
+    "id": 416,
+    "childs": [
+      {
+        "totalProducts": 8,
+        "name": "Мойки высокого давления",
+        "code": "HPW",
+        "url": null,
+        "id": 670,
+        "childs": []
+      },
+      {
+        "totalProducts": 6,
+        "name": "Газонокосилки и триммеры",
+        "code": "LMO",
+        "url": null,
+        "id": 671,
+        "childs": []
+      },
+      {
+        "totalProducts": 1,
+        "name": "Насосы",
+        "code": "WPU",
+        "url": null,
+        "id": 672,
+        "childs": []
+      },
+      {
+        "totalProducts": 0,
+        "name": "Садовая техника",
+        "code": "GAR",
+        "url": null,
+        "id": 673,
+        "childs": []
+      },
+      {
+        "totalProducts": 0,
+        "name": "Воздуходувки",
+        "code": "BLW",
+        "url": null,
+        "id": 674,
+        "childs": []
+      },
+      {
+        "totalProducts": 1,
+        "name": "Аксессуары для моек",
+        "code": "HPA",
+        "url": null,
+        "id": 675,
+        "childs": []
+      },
+      {
+        "totalProducts": 3,
+        "name": "Электростанции",
+        "code": null,
+        "url": null,
+        "id": 812,
+        "childs": []
+      },
+      {
+        "totalProducts": 3,
+        "name": "Снегоуборщики",
+        "code": null,
+        "url": null,
+        "id": 814,
+        "childs": []
+      }
+    ]
+  },
+  {
+    "totalProducts": 287,
+    "name": "Строительство и ремонт",
+    "code": null,
+    "url": null,
+    "id": 417,
+    "childs": [
+      {
+        "totalProducts": 3,
+        "name": "Рубанки",
+        "code": "PLN",
+        "url": null,
+        "id": 699,
+        "childs": []
+      },
+      {
+        "totalProducts": 5,
+        "name": "Строительные пылесосы",
+        "code": "CVC",
+        "url": null,
+        "id": 700,
+        "childs": []
+      },
+      {
+        "totalProducts": 0,
+        "name": "Электрические степлеры",
+        "code": "ELS",
+        "url": null,
+        "id": 701,
+        "childs": []
+      },
+      {
+        "totalProducts": 34,
+        "name": "Пилы",
+        "code": "SAW",
+        "url": null,
+        "id": 702,
+        "childs": []
+      },
+      {
+        "totalProducts": 2,
+        "name": "Сварочное оборудование",
+        "code": "WEL",
+        "url": null,
+        "id": 703,
+        "childs": []
+      },
+      {
+        "totalProducts": 67,
+        "name": "Шлифовальные машины",
+        "code": null,
+        "url": null,
+        "id": 704,
+        "childs": [
+          {
+            "totalProducts": 6,
+            "name": "Полировальные машины УПМ",
+            "code": "PLR",
+            "url": null,
+            "id": 712,
+            "childs": []
+          },
+          {
+            "totalProducts": 3,
+            "name": "Реноваторы (МФИ)",
+            "code": "MFT",
+            "url": null,
+            "id": 713,
+            "childs": []
+          },
+          {
+            "totalProducts": 37,
+            "name": "УШМ (болгарки)",
+            "code": "ANG",
+            "url": null,
+            "id": 714,
+            "childs": []
+          },
+          {
+            "totalProducts": 21,
+            "name": "Шлифмашины",
+            "code": "BSA",
+            "url": null,
+            "id": 715,
+            "childs": []
+          }
+        ]
+      },
+      {
+        "totalProducts": 0,
+        "name": "Освещение",
+        "code": null,
+        "url": null,
+        "id": 705,
+        "childs": [
+          {
+            "totalProducts": 0,
+            "name": "Фонари",
+            "code": "LAM",
+            "url": null,
+            "id": 648,
+            "childs": []
+          }
+        ]
+      },
+      {
+        "totalProducts": 3,
+        "name": "Точильные станки",
+        "code": "SHM",
+        "url": null,
+        "id": 706,
+        "childs": []
+      },
+      {
+        "totalProducts": 0,
+        "name": "Компрессоры",
+        "code": "CMP",
+        "url": null,
+        "id": 707,
+        "childs": []
+      },
+      {
+        "totalProducts": 168,
+        "name": "Электроинструменты",
+        "code": null,
+        "url": null,
+        "id": 708,
+        "childs": [
+          {
+            "totalProducts": 15,
+            "name": "Дрели сетевые 220В",
+            "code": "DRI",
+            "url": null,
+            "id": 779,
+            "childs": []
+          },
+          {
+            "totalProducts": 20,
+            "name": "Перфораторы сетевые 220В",
+            "code": "RHA",
+            "url": null,
+            "id": 780,
+            "childs": []
+          },
+          {
+            "totalProducts": 0,
+            "name": "Шуруповерты сетевые 220В",
+            "code": "SCD",
+            "url": null,
+            "id": 781,
+            "childs": []
+          },
+          {
+            "totalProducts": 4,
+            "name": "Фрезеры",
+            "code": "WOR",
+            "url": null,
+            "id": 782,
+            "childs": []
+          },
+          {
+            "totalProducts": 6,
+            "name": "Аккумуляторные отвертки 3.6В",
+            "code": "CSC",
+            "url": null,
+            "id": 783,
+            "childs": []
+          },
+          {
+            "totalProducts": 1,
+            "name": "Клеевые пистолеты",
+            "code": "GLG",
+            "url": null,
+            "id": 784,
+            "childs": []
+          },
+          {
+            "totalProducts": 4,
+            "name": "Строительные фены",
+            "code": "HEG",
+            "url": null,
+            "id": 785,
+            "childs": []
+          },
+          {
+            "totalProducts": 0,
+            "name": "Краскопульты",
+            "code": "PSG",
+            "url": null,
+            "id": 786,
+            "childs": []
+          },
+          {
+            "totalProducts": 0,
+            "name": "Другие электроинструменты",
+            "code": "PTO",
+            "url": null,
+            "id": 787,
+            "childs": []
+          },
+          {
+            "totalProducts": 8,
+            "name": "Лобзики",
+            "code": "JIG",
+            "url": null,
+            "id": 788,
+            "childs": []
+          },
+          {
+            "totalProducts": 87,
+            "name": "Аккумуляторные шуруповерты, дрели",
+            "code": "DRC",
+            "url": null,
+            "id": 789,
+            "childs": []
+          },
+          {
+            "totalProducts": 10,
+            "name": "Перфораторы аккумуляторные",
+            "code": "RHC",
+            "url": null,
+            "id": 790,
+            "childs": []
+          },
+          {
+            "totalProducts": 12,
+            "name": "Гайковерты",
+            "code": "EWR",
+            "url": null,
+            "id": 791,
+            "childs": []
+          },
+          {
+            "totalProducts": 0,
+            "name": "Мотобуры",
+            "code": "EAG",
+            "url": null,
+            "id": 792,
+            "childs": []
+          },
+          {
+            "totalProducts": 1,
+            "name": "Граверы",
+            "code": "ENG",
+            "url": null,
+            "id": 793,
+            "childs": []
+          }
+        ]
+      },
+      {
+        "totalProducts": 0,
+        "name": "Паяльники",
+        "code": "SOL",
+        "url": null,
+        "id": 709,
+        "childs": []
+      },
+      {
+        "totalProducts": 4,
+        "name": "Наборы инструментов",
+        "code": "TOO",
+        "url": null,
+        "id": 710,
+        "childs": []
+      },
+      {
+        "totalProducts": 1,
+        "name": "Лазерные уровни",
+        "code": "LAL",
+        "url": null,
+        "id": 711,
+        "childs": []
+      }
+    ]
+  },
+  {
+    "totalProducts": 2,
+    "name": "Автотовары",
+    "code": null,
+    "url": null,
+    "id": 418,
+    "childs": [
+      {
+        "totalProducts": 1,
+        "name": "Автомобильные компрессоры",
+        "code": "CRC",
+        "url": null,
+        "id": 794,
+        "childs": []
+      },
+      {
+        "totalProducts": 0,
+        "name": "Игрушки",
+        "code": "TOY",
+        "url": null,
+        "id": 795,
+        "childs": []
+      },
+      {
+        "totalProducts": 0,
+        "name": "Видеорегистраторы",
+        "code": "VRE",
+        "url": null,
+        "id": 796,
+        "childs": []
+      },
+      {
+        "totalProducts": 1,
+        "name": "Автомобильные держатели",
+        "code": "TOU",
+        "url": null,
+        "id": 797,
+        "childs": []
+      }
+    ]
+  },
+  {
+    "totalProducts": 116,
+    "name": "Умный дом",
+    "code": "HAU",
+    "url": null,
+    "id": 551,
+    "childs": [
+      {
+        "totalProducts": 80,
+        "name": "Умные колонки",
+        "code": null,
+        "url": null,
+        "id": 807,
+        "childs": []
+      },
+      {
+        "totalProducts": 32,
+        "name": "Товары Умного дома",
+        "code": null,
+        "url": null,
+        "id": 808,
+        "childs": []
+      }
+    ]
+  },
+  {
+    "totalProducts": 0,
+    "name": "Услуги",
+    "code": null,
+    "url": null,
+    "id": 804,
+    "childs": []
+  },
+  {
+    "totalProducts": 0,
+    "name": "zzzНеИспользовать Мелкая бытовая техника",
+    "code": null,
+    "url": null,
+    "id": 818,
+    "childs": []
+  },
+  {
+    "totalProducts": 0,
+    "name": "Комплекты",
+    "code": null,
+    "url": null,
+    "id": 820,
+    "childs": []
+  }
+]

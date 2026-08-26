@@ -1,0 +1,36 @@
+[
+  {
+    "productId": 1248528,
+    "traceability": "N",
+    "gism": false,
+    "productName": "Адаптер POWERLINE 1000MBPS KIT PH3 TENDA",
+    "manufacturerCode": "PH3",
+    "vendorCode": "ND",
+    "categoryCode": "PWL",
+    "catalogTree": "Сетевое оборудование/Оборудование Powerline",
+    "paymentTerms": null,
+    "paymentTermName": null,
+    "lastUpdateDate": "1786372615",
+    "crossReference": "",
+    "warranty": "36",
+    "isEol": false,
+    "isKitItem": false,
+    "events": [],
+    "isNew": false,
+    "productPrice": 4422.51,
+    "eanCodes": "-",
+    "inTransit": [
+      {
+        "quantity": 0,
+        "stock": "MSK"
+      }
+    ],
+    "inStock": [
+      {
+        "quantity": "2",
+        "stock": "MSK"
+      }
+    ],
+    "rrp": 5777.3
+  }
+]

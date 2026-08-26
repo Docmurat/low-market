@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import { prisma } from '@/lib/db';
+import { SITE_NAME } from '@/lib/site';
 
 export default async function Header() {
   const rootCategories = await prisma.category.findMany({
@@ -11,8 +12,12 @@ export default async function Header() {
     <header className="bg-ink text-white">
       <div className="mx-auto max-w-7xl px-4">
         <div className="flex items-center gap-6 py-4">
-          <Link href="/" className="font-display text-2xl font-bold tracking-tight">
-            ВОЛЬТ<span className="text-volt">⚡</span>
+          <Link
+            href="/"
+            className="font-display text-2xl font-bold tracking-tight"
+            aria-label={`${SITE_NAME} — на главную`}
+          >
+            LOW<span className="text-volt">-</span>Market
           </Link>
 
           <form action="/search" className="flex-1 max-w-2xl hidden sm:flex">

@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import { Unbounded, Manrope, JetBrains_Mono } from 'next/font/google';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
+import { SITE_NAME, SITE_TAGLINE, SITE_DESCRIPTION, SITE_URL } from '@/lib/site';
 import './globals.css';
 
 const display = Unbounded({
@@ -21,9 +22,17 @@ const mono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: 'ВОЛЬТ — компьютерная и бытовая техника с быстрой доставкой по Москве и МО',
-  description:
-    'Интернет-магазин компьютерной и бытовой техники. Цены субдистрибьютора, доставка 1-2 дня по Москве и Московской области.',
+  metadataBase: new URL(SITE_URL),
+  title: {
+    default: `${SITE_NAME} — ${SITE_TAGLINE}`,
+    template: `%s — ${SITE_NAME}`,
+  },
+  description: SITE_DESCRIPTION,
+  openGraph: {
+    siteName: SITE_NAME,
+    locale: 'ru_RU',
+    type: 'website',
+  },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

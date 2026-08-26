@@ -1,10 +1,14 @@
+import { SITE_NAME } from '@/lib/site';
+
 export default function Footer() {
+  const year = new Date().getFullYear();
+
   return (
     <footer className="bg-ink text-gray-400 mt-16">
       <div className="mx-auto max-w-7xl px-4 py-10 grid gap-8 sm:grid-cols-3 text-sm">
         <div>
           <div className="font-display text-lg text-white mb-3">
-            ВОЛЬТ<span className="text-volt">⚡</span>
+            LOW<span className="text-volt">-</span>Market
           </div>
           <p>
             Компьютерная и бытовая техника по ценам субдистрибьютора. Вся продукция —
@@ -28,7 +32,7 @@ export default function Footer() {
         </div>
       </div>
       <div className="border-t border-gray-800 py-4 text-center text-xs">
-        ИП · Реквизиты и публичная оферта появятся здесь перед запуском
+        © {year} {SITE_NAME} · ИП · Реквизиты и публичная оферта появятся здесь перед запуском
       </div>
     </footer>
   );

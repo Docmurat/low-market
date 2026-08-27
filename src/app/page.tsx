@@ -64,6 +64,7 @@ export default async function HomePage() {
             {popular.map((p) => (
               <ProductCard
                 key={p.id}
+                id={p.id}
                 slug={p.slug}
                 name={p.name}
                 brand={p.brand}
@@ -71,6 +72,7 @@ export default async function HomePage() {
                 stock={p.stock}
                 image={p.images[0]}
                 sku={p.supplierSku}
+                gism={p.gism}
               />
             ))}
           </div>

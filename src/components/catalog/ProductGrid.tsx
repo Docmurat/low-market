@@ -9,6 +9,7 @@ type Item = {
   stock: number;
   images: string[];
   supplierSku: string;
+  gism?: boolean;
 };
 
 export default function ProductGrid({ items, emptyText = 'Ничего не найдено. Попробуйте убрать часть фильтров.' }: { items: Item[]; emptyText?: string }) {
@@ -16,7 +17,18 @@ export default function ProductGrid({ items, emptyText = 'Ничего не на
   return (
     <div className="grid grid-cols-2 sm:grid-cols-3 xl:grid-cols-4 gap-4">
       {items.map((p) => (
-        <ProductCard key={p.id} slug={p.slug} name={p.name} brand={p.brand} price={p.price.toString()} stock={p.stock} image={p.images[0]} sku={p.supplierSku} />
+        <ProductCard
+          key={p.id}
+          id={p.id}
+          slug={p.slug}
+          name={p.name}
+          brand={p.brand}
+          price={p.price.toString()}
+          stock={p.stock}
+          image={p.images[0]}
+          sku={p.supplierSku}
+          gism={p.gism}
+        />
       ))}
     </div>
   );

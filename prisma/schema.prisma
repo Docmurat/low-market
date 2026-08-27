@@ -1,5 +1,5 @@
 // Схема данных. Шаг 6b: каталог, зеркалирующий дерево поставщика + поля фида.
-// Заказы/пользователи добавим на шагах 3-4.
+// Шаг 3: корзина (Cart/CartItem) и заказы (Order/OrderItem). Пользователи — шаг 4.
 generator client {
   provider = "prisma-client-js"
 }
@@ -75,6 +75,8 @@ model Product {
   specsSyncedAt      DateTime? // когда последний раз тянули Description/MediaItems (null = ещё не тянули)
 
   attributes  ProductAttribute[]
+  cartItems   CartItem[]
+  orderItems  OrderItem[]
 
   createdAt   DateTime @default(now())
   updatedAt   DateTime @updatedAt
@@ -121,4 +123,86 @@ model ProductAttribute {
   @@unique([productId, key, value])
   @@index([key, value])
   @@index([key, numValue])
+}
+
+/// Корзина гостя. id (cuid) хранится в cookie lm_cart (90 дней).
+/// Цены в корзине НЕ фиксируются — всегда берём актуальную Product.price;
+/// снимок цены делается только при создании заказа (OrderItem).
+/// На шаге 4 добавим userId, чтобы корзина переезжала за авторизованным покупателем.
+model Cart {
+  id        String     @id @default(cuid())
+  items     CartItem[]
+  createdAt DateTime   @default(now())
+  updatedAt DateTime   @updatedAt
+}
+
+model CartItem {
+  id        Int      @id @default(autoincrement())
+  cartId    String
+  cart      Cart     @relation(fields: [cartId], references: [id], onDelete: Cascade)
+  productId Int
+  product   Product  @relation(fields: [productId], references: [id], onDelete: Cascade)
+  qty       Int      @default(1)
+  createdAt DateTime @default(now())
+
+  @@unique([cartId, productId])
+  @@index([cartId])
+}
+
+/// Заказ покупателя. Создаётся на шаге подтверждения чекаута со статусом new.
+/// Оплата (ЮKassa) — шаг 7, заказ у поставщика — шаг 6c, userId — шаг 4.
+/// Статусы: new → confirmed → paid → shipped → done | cancelled (строка, без enum —
+/// чтобы менять набор без миграций).
+model Order {
+  id          Int      @id @default(autoincrement())
+  number      String   @unique // LM-000123 — человекочитаемый номер
+  accessToken String   @unique @default(cuid()) // секретная ссылка на страницу заказа
+  status      String   @default("new")
+
+  // контакты
+  customerName String
+  phone        String   // нормализован: +7XXXXXXXXXX
+  email        String   @default("")
+
+  // доставка: courier | pickup. Адрес — структурой (для зон доставки, шаг 8).
+  deliveryMethod String
+  city           String @default("")
+  street         String @default("")
+  house          String @default("")
+  apartment      String @default("")
+  entrance       String @default("")
+  floor          String @default("")
+  intercom       String @default("")
+  comment        String @default("")
+
+  // суммы, ₽ (снимок на момент заказа)
+  itemsTotal   Decimal @db.Decimal(12, 2)
+  deliveryCost Decimal @db.Decimal(12, 2) @default(0)
+  total        Decimal @db.Decimal(12, 2)
+
+  cartId    String? // из какой корзины создан (для отладки)
+  items     OrderItem[]
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([status, createdAt])
+  @@index([phone])
+}
+
+/// Позиция заказа — снимок товара на момент оформления (цена, название, артикул).
+model OrderItem {
+  id        Int      @id @default(autoincrement())
+  orderId   Int
+  order     Order    @relation(fields: [orderId], references: [id], onDelete: Cascade)
+  productId Int?
+  product   Product? @relation(fields: [productId], references: [id], onDelete: SetNull)
+  sku       String   // supplierSku
+  name      String
+  brand     String   @default("")
+  image     String   @default("")
+  price     Decimal  @db.Decimal(12, 2) // розничная на момент заказа
+  basePrice Decimal  @db.Decimal(12, 2) // закупка на момент заказа (для маржи в админке)
+  qty       Int
+
+  @@index([orderId])
 }

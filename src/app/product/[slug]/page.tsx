@@ -7,6 +7,8 @@ import { formatPrice } from '@/lib/format';
 import { isHiddenSpec } from '@/lib/supplier/category-rules';
 import { looksLikeHtml, sanitizeHtml } from '@/lib/html';
 import Gallery from '@/components/product/Gallery';
+import AddToCartButton from '@/components/cart/AddToCartButton';
+import CrossSell from '@/components/product/CrossSell';
 
 function stockText(stock: number, label: string | null): string {
   if (stock <= 0) return 'Под заказ · срок уточняйте';
@@ -64,14 +66,13 @@ export default async function ProductPage({ params }: { params: { slug: string }
             <div className={`mt-1 text-sm font-medium ${product.stock > 0 ? 'text-green-600' : 'text-steel'}`}>
               {stockText(product.stock, product.stockLabel)}
             </div>
-            <button
-              className="mt-4 w-full rounded-lg bg-volt py-3 font-semibold text-ink hover:bg-volt-dark transition-colors disabled:opacity-50"
-              disabled={product.stock === 0}
-            >
-              В корзину
-            </button>
+            <div className="mt-4">
+              <AddToCartButton productId={product.id} stock={product.stock} gism={product.gism} size="lg" />
+            </div>
             <p className="mt-3 text-xs text-steel">
-              Корзина заработает на шаге 3. Оплата: карта, СБП.
+              {product.gism
+                ? 'Товар подлежит обязательной маркировке «Честный ЗНАК» — откроем продажу после подключения ЭДО.'
+                : 'Оплата: карта, СБП.'}
               {product.warrantyMonths ? ` Гарантия ${product.warrantyMonths} мес.` : ''}
             </p>
           </div>
@@ -105,6 +106,8 @@ export default async function ProductPage({ params }: { params: { slug: string }
           )}
         </div>
       )}
+
+      <CrossSell product={{ id: product.id, categoryId: product.categoryId, price: product.price }} />
     </div>
   );
 }

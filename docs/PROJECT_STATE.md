@@ -1,5 +1,5 @@
 # PROJECT_STATE — LOW-Market
-Обновлено: 2026-08-28 (вехи: 6b реальный синк каталога, журнал SyncLog, Шаг 2 фильтры/поиск)
+Обновлено: 2026-08-28 (вехи: Шаг 3 — корзина, чекаут/заказы, кросс-продажи)
 Файл живёт в репозитории: docs/PROJECT_STATE.md. Обновляется на каждой вехе.
 
 ## 1. Что за проект
@@ -14,15 +14,15 @@
 | 1 | Каркас Next.js, БД, каталог, карточка, пайплайн синка | ✅ |
 | 1.5 | Ребрендинг ВОЛЬТ → LOW-Market | ✅ |
 | 6a | Доступ к API поставщика: прокси на сервере, токен, клиент, проба | ✅ |
-| 6b | Реальный синк: дерево категорий поставщика → наша Category, 10 384 товара, цены/остатки, характеристики, фото; журнал SyncLog | ✅ |
+| 6b | Реальный синк: дерево категорий → Category, 10 384 товара, цены/остатки, характеристики, фото; журнал SyncLog | ✅ |
 | 2 | Фильтры по характеристикам, поиск, пагинация, сортировка, карточка товара (галерея, РРЦ, описание) | ✅ |
-| 3 | Корзина + чекаут (2 шага) + кросс-продажи | ⬜ СЛЕДУЮЩИЙ |
-| 4 | Авторизация, ЛК покупателя | ⬜ |
-| 5 | Админка: заказы, статусы, отзывы, экран SyncLog + алерты в Telegram, переопределение категории товара | ⬜ |
-| 6c | Создание заказа у поставщика (Shipment/CreateOrder), статусы отгрузок | ⬜ после 3 |
+| 3 | Корзина (Cart/CartItem) + чекаут в 2 шага + Order/OrderItem + кросс-продажи | ✅ |
+| 4 | Авторизация (телефон/email), ЛК покупателя: мои заказы, привязка корзины к userId | ⬜ СЛЕДУЮЩИЙ |
+| 5 | Админка: заказы и статусы, отзывы, экран SyncLog + алерты в Telegram, переопределение категории товара | ⬜ |
+| 6c | Создание заказа у поставщика (Shipment/CreateOrder), статусы отгрузок | ⬜ после 5 |
 | 6d | Расписание синка на сервере (cron: prices каждые 2 ч, full ночью) | ⬜ на шаге 12 |
 | 7 | ЮKassa: карты, СБП, чеки 54-ФЗ | ⬜ |
-| 8 | Доставка: зоны Москва/МО | ⬜ |
+| 8 | Доставка: зоны Москва/МО, тарифы (поля адреса в Order уже структурные) | ⬜ |
 | 9 | Отзывы + бонус за отзыв | ⬜ |
 | 10 | B2B: оптовый заказ, счёт | ⬜ |
 | 11 | PWA | ⬜ |
@@ -46,8 +46,8 @@
 - ПОСТАВЩИК — АБСОЛЮТ ТРЕЙД, eCommerce API v3. Токен в .env (SUPPLIER_API_TOKEN, 1 год).
   НЕ вызывать CreateToken. Поддержка: api@absoluttrade.ru. Пауза между запросами 3,2 с.
   Факты по данным (проверено на реальном фиде):
-  - CategoryTree: 395 узлов (без мусорных веток), коды категорий НЕ уникальны (CBL, NIC,
-    MAS, SPE, CAU…) → категории зеркалим по id узла, товар кладём по строке catalogTree.
+  - CategoryTree: 395 узлов (без мусорных веток), 294 активных; коды категорий НЕ уникальны
+    (CBL, NIC, MAS, SPE, CAU…) → категории зеркалим по id узла, товар кладём по строке catalogTree.
   - У части узлов code=null (Умные колонки, Кабели питания…) — их товары через API не достать.
   - ProductSearch по категории отдаёт всё одним ответом (пагинации нет); реально ~4% меньше,
     чем totalProducts в дереве.
@@ -58,34 +58,52 @@
   - MediaItems: ThumbPicture + Picture; ссылки на selstorage.ru часто 404, относительные
     пути /upload/… → домен https://ecom.absoluttrade.ru (src/lib/supplier/media.ts).
   - Покрытие характеристиками неровное: видеокарты/процессоры 85–95%, ноутбуки ~33%.
+  - Пустые/почти пустые категории: Наушники (0 в наличии), Чехлы для смартфонов (1).
   Открытые вопросы к поставщику: лимиты частоты; цены с НДС или без; почему часть фото
   на selstorage битые; категории с code=null.
 
 ## 4. Код (ключевые файлы)
-- prisma/schema.prisma — Category (зеркало дерева поставщика: supplierId/Code/Path, level,
-  isActive, productCount), Product (+ rrp, stockLabel, stocks, vendorCode, manufacturerCode,
-  eanCodes, warrantyMonths, gism, traceability, isEol, isNew, syncedAt, specsSyncedAt),
-  ProductAttribute (нормализованные значения для фильтров), SyncLog (журнал прогонов).
+### Каталог и синк
+- prisma/schema.prisma — Category, Product (+ поля фида), ProductAttribute, SyncLog,
+  Cart, CartItem, Order, OrderItem. Миграции: …_supplier_sync, …_cart, …_orders.
 - scripts/sync-supplier.ts — синк: режимы full | prices | specs; --category=CODE, --limit=N,
   --no-specs, --refresh-specs. Полный: ~18 мин товары + ~1 ч характеристики. Идемпотентен.
   В конце full/specs вызывает buildAttributes. Пишет SyncLog.
 - scripts/build-attributes.ts — specs → ProductAttribute по конфигу фильтров + перенос
   Description поставщика в product.description (если пусто).
-- scripts/reprice.ts — пересчёт цен по базе без API (после правки .env/матрицы).
-- scripts/fix-images.ts — починка ссылок на фото в базе.
-- scripts/db-stats.ts — статистика каталога; scripts/spec-stats.ts <slug> — статистика
-  характеристик и нормализованных атрибутов по категории.
-- scripts/probe-supplier.ts — проба API (сырые ответы в data/supplier/probe/).
-- src/lib/pricing.ts — FLAT_MARKUP_PCT из .env (сейчас 10) побеждает всё; матрица по slug-цепочке
-  и floor остаются в коде для будущего; НДС-переключатель не активен.
-- src/lib/supplier/absolut.ts — клиент API; category-rules.ts — мусорные ветки, скрытые
-  характеристики, slugify; media.ts — нормализация ссылок фото.
-- src/lib/filters/config.ts — конфиг фильтров по категориям (ключи = URL-параметры);
-  normalize.ts — нормализаторы значений (память, частоты, PCIe, цвета…).
-- src/lib/catalog/query.ts — разбор URL, фильтры, фасеты, сортировка, пагинация (48), поиск.
+- scripts/reprice.ts — пересчёт цен по базе без API. scripts/fix-images.ts — починка фото.
+- scripts/db-stats.ts, scripts/spec-stats.ts <slug>, scripts/probe-supplier.ts.
+- src/lib/pricing.ts — FLAT_MARKUP_PCT из .env (сейчас 10) побеждает всё; матрица и floor
+  остаются в коде для будущего; НДС-переключатель не активен.
+- src/lib/supplier/{absolut.ts, category-rules.ts, media.ts}.
+- src/lib/filters/{config.ts, normalize.ts}; src/lib/catalog/query.ts (фильтры, фасеты,
+  сортировка, пагинация 48, поиск).
 - src/app/catalog/[slug]/page.tsx, src/app/search/page.tsx, src/app/product/[slug]/page.tsx;
-  src/components/catalog/{FilterSidebar (client, автоприменение), SortBar, Pagination, ProductGrid};
-  src/components/product/Gallery.tsx (client).
+  src/components/catalog/{FilterSidebar, SortBar, Pagination, ProductGrid}; ProductCard
+  (принимает id + gism → показывает кнопку «В корзину»); src/components/product/Gallery.tsx.
+### Корзина и заказы (Шаг 3)
+- src/lib/cart-shared.ts — константы/типы/проверки БЕЗ серверных импортов (можно в клиенте):
+  CART_COOKIE=lm_cart (90 дней), MAX_QTY=99, checkPurchasable, clampQty, cartTotals.
+- src/lib/cart.ts — серверное чтение: getCart(), getCartCount() (для шапки). Импортирует
+  next/headers — В КЛИЕНТСКИЕ КОМПОНЕНТЫ НЕ ИМПОРТИРОВАТЬ.
+- src/app/cart/actions.ts — server actions: addToCart, setItemQty, removeItem, clearCart.
+  Все проверки на сервере; после изменений revalidatePath('/', 'layout').
+- src/app/cart/page.tsx; src/components/cart/{AddToCartButton, CartItemRow} (client).
+- src/lib/checkout-shared.ts — типы CheckoutData, parseCheckout (валидация), normalizePhone
+  (→ +7XXXXXXXXXX), formatAddress, DELIVERY_OPTIONS (courier | pickup), ORDER_STATUS_LABEL.
+- src/app/checkout/actions.ts — saveCheckout (шаг 1 → cookie lm_checkout, сутки),
+  placeOrder (транзакция: Order + OrderItem-снимки, номер LM-000001 из id, очистка позиций
+  корзины, redirect на /order/<accessToken>).
+- src/app/checkout/page.tsx (шаг 1), src/app/checkout/confirm/page.tsx (шаг 2),
+  src/app/order/[token]/page.tsx (страница заказа по секретной ссылке, не по номеру).
+- src/components/checkout/{CheckoutForm (useFormState), PlaceOrderButton}.
+### Кросс-продажи
+- src/lib/crosssell/config.ts — 16 правил «категория-источник → категории-цели» по НАЗВАНИЮ
+  категории (точные regex с $, чтобы не подмешивать серверные/Enterprise ветки).
+- src/lib/crosssell/query.ts — getCrossSell: accessories (по правилу, в наличии, без gism,
+  перемешивание) + similar (та же категория, цена ±40%). Кэш дерева категорий 5 мин.
+- src/components/product/CrossSell.tsx — блоки «С этим товаром покупают» и «Похожие товары».
+- scripts/crosssell-check.ts — проверка правил по реальным названиям категорий.
 - Запуск скриптов: `npx tsx scripts/<имя>.ts`; npm-скрипты: sync, sync:prices, sync:specs, probe, seed.
 - .env (кроме DATABASE_URL и секретов): FLAT_MARKUP_PCT=10, SUPPLIER_PRICES_INCLUDE_VAT=true, VAT_PCT=22.
 
@@ -101,7 +119,15 @@
 - Защищённые поля: description и images не затираются; если пусто — заполняем от поставщика.
   specs всегда перезаписываются из Description; ProductAttribute перестраивается.
 - Пропавшие из фида и isEol → деактивация. Категории без товаров → isActive=false.
-- gism=true → флаг «Честный ЗНАК» (442 товара): без ЭДО и кассы с маркировкой не продавать.
+- gism=true → флаг «Честный ЗНАК» (442 товара): в корзину НЕ кладём (кнопка «Скоро в продаже»),
+  из кросс-продаж исключены. Откроем после ЭДО + кассы с маркировкой.
+- Корзина: гостевая, в БД, id в httpOnly-cookie. Цены в корзине не фиксируются (всегда
+  актуальные), снимок цены/названия/закупки — только в OrderItem. Кол-во ≤ остатка и ≤ 99.
+- Заказ: статус строкой (new → confirmed → paid → shipped → done | cancelled), без enum —
+  чтобы менять без миграций. Номер LM-000123. Страница заказа — по accessToken (cuid).
+  Адрес — структурой (city/street/house/apartment/entrance/floor/intercom) под зоны доставки.
+  deliveryCost=0 до шага 8 («рассчитаем при подтверждении»). Оплата после подтверждения менеджером.
+- Товар в заказе НЕ резервируется у поставщика (это шаг 6c); остаток на сайте не списываем.
 - Фильтры: состояние в URL (?brand=MSI&vram=16+ГБ&instock=1&sort=price_asc) — ссылки для рекламы.
 - Учёт: на старте «МойСклад» (счета, УПД, ЭДО, Честный ЗНАК, API), не 1С. Интеграция — шаг 5.
 - Все обращения к API поставщика — с IP сервера (локально через прокси).
@@ -117,16 +143,20 @@
 - Сертификат прокси надо выставлять в каждом новом терминале (NODE_EXTRA_CA_CERTS).
 - Sticky-панель фильтров длиннее экрана не прокручивается — убрали sticky.
 - Неконтролируемые чекбоксы не сбрасываются при смене URL → checked={…} + key на форме.
+- Модуль с `import { cookies } from 'next/headers'` нельзя импортировать из 'use client'
+  компонента (даже ради типа/константы) → общее выносим в *-shared.ts.
+- cookies().set() работает только в server action / route handler, не в page.tsx.
 - Часть фото поставщика битые (404 на selstorage) — отсеем при переезде на своё хранилище.
 - Товары иногда лежат «не на той полке» у поставщика (аксессуар в видеокартах) —
   переопределение категории сделаем в админке (шаг 5).
 - Секрет прокси, токен и .env в чат не вставлять.
 
 ## 7. Следующий шаг (для нового чата)
-1) Шаг 3: корзина (cookie/localStorage-id + таблица Cart/CartItem), страница корзины,
-   чекаут в 2 шага (контакты+доставка → подтверждение), таблицы Order/OrderItem, блок
-   кросс-продаж на карточке (аксессуары из связанных категорий). Кнопка «В корзину» уже есть
-   на карточке и в сетке (заглушка).
-2) Параллельно (без кода): написать api@absoluttrade.ru — НДС в ценах, лимиты, категории с
-   code=null, битые фото; спросить бухгалтера про МойСклад; регистрация в Честном ЗНАКе и ЭДО.
-3) Потом Шаг 4 (авторизация), затем 5 (админка + SyncLog + категория-override).
+1) Шаг 4: авторизация по телефону (код в SMS — провайдера выбрать; на локалке код в консоль)
+   и/или email + пароль; таблица User (+ userId в Cart и Order); ЛК: мои заказы (по userId
+   и по телефону, чтобы гостевые заказы подтянулись), профиль, адреса. Слияние гостевой
+   корзины с корзиной пользователя при входе. Ссылка «Войти» в шапке уже ведёт на /account.
+2) Параллельно (без кода): письмо api@absoluttrade.ru — НДС в ценах, лимиты, категории с
+   code=null, битые фото; бухгалтер — МойСклад; регистрация в Честном ЗНАКе и ЭДО;
+   выбрать SMS-провайдера для входа.
+3) Потом Шаг 5 (админка: заказы/статусы, SyncLog, категория-override), затем 6c и 7.

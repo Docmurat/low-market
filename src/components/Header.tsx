@@ -1,12 +1,16 @@
 import Link from 'next/link';
 import { prisma } from '@/lib/db';
 import { SITE_NAME } from '@/lib/site';
+import { getCartCount } from '@/lib/cart';
 
 export default async function Header() {
-  const rootCategories = await prisma.category.findMany({
-    where: { parentId: null },
-    orderBy: { sortOrder: 'asc' },
-  });
+  const [rootCategories, cartCount] = await Promise.all([
+    prisma.category.findMany({
+      where: { parentId: null },
+      orderBy: { sortOrder: 'asc' },
+    }),
+    getCartCount(),
+  ]);
 
   return (
     <header className="bg-ink text-white">
@@ -35,8 +39,13 @@ export default async function Header() {
           </form>
 
           <nav className="ml-auto flex items-center gap-5 text-sm font-medium">
-            <Link href="/cart" className="charge-link">
+            <Link href="/cart" className="charge-link inline-flex items-center gap-2">
               Корзина
+              {cartCount > 0 && (
+                <span className="inline-flex min-w-[1.5rem] justify-center rounded-full bg-volt px-1.5 py-0.5 text-xs font-bold text-ink tabular-nums">
+                  {cartCount}
+                </span>
+              )}
             </Link>
             <Link href="/account" className="charge-link">
               Войти

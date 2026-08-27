@@ -25,6 +25,7 @@
  *  - пропавшие из фида и isEol — деактивируются, не удаляются;
  *  - description/images — защищённые поля: если у нас пусто, заполняем от поставщика,
  *    если уже есть — не трогаем; specs всегда обновляются из Description.
+ *  - каждый прогон пишется в таблицу SyncLog (статус, счётчики, хвост лога) — для админки и алертов.
  */
 import fs from 'node:fs';
 import type { Prisma, PrismaClient } from '@prisma/client';
@@ -79,7 +80,32 @@ function parseArgs(argv: string[]): Options {
   return opts;
 }
 
-const log = (msg: string) => console.log(`[sync ${new Date().toLocaleTimeString('ru-RU')}] ${msg}`);
+// ---------- статистика прогона (пишется в таблицу SyncLog) ----------
+const stats = {
+  fetched: 0,
+  created: 0,
+  updated: 0,
+  skipped: 0,
+  deactivated: 0,
+  specsDone: 0,
+  errors: 0,
+};
+const LOG_TAIL_LINES = 120;
+const logLines: string[] = [];
+function remember(line: string) {
+  logLines.push(line);
+  if (logLines.length > LOG_TAIL_LINES) logLines.shift();
+}
+const log = (msg: string) => {
+  const line = `[sync ${new Date().toLocaleTimeString('ru-RU')}] ${msg}`;
+  console.log(line);
+  remember(line);
+};
+const logError = (msg: string) => {
+  stats.errors++;
+  console.error(msg);
+  remember(msg);
+};
 const DETAILS_BATCH = Number(process.env.SUPPLIER_DETAILS_BATCH || 20);
 
 type CategoryRow = {
@@ -232,10 +258,11 @@ async function fetchAllProducts(api: AbsolutClient, codedNodes: AbsolutNodeWithP
       for (const p of items ?? []) byId.set(p.productId, p);
       if (i % 10 === 0 || only) log(`  ${i}/${nonEmpty.length} ${node.path.join('/')} [${node.code}] → ${items?.length ?? 0}`);
     } catch (e) {
-      console.error(`  ОШИБКА категории ${node.code}: ${(e as Error).message}`);
+      logError(`  ОШИБКА категории ${node.code}: ${(e as Error).message}`);
     }
   }
   log(`уникальных товаров получено: ${byId.size}`);
+  stats.fetched = byId.size;
   return byId;
 }
 
@@ -258,6 +285,7 @@ async function upsertProducts(
   for (const p of products) {
     const category = resolveCategory(p.catalogTree, cats.byPath);
     if (!category) {
+      remember(`  пропущен #${p.productId}: категория не найдена для "${p.catalogTree}"`);
       console.warn(`  пропущен #${p.productId}: категория не найдена для "${p.catalogTree}"`);
       skipped++;
       continue;
@@ -316,6 +344,9 @@ async function upsertProducts(
   }
 
   log(`товары: создано ${created}, обновлено ${updated}, пропущено ${skipped}`);
+  stats.created = created;
+  stats.updated = updated;
+  stats.skipped = skipped;
   return seen;
 }
 
@@ -379,9 +410,10 @@ async function syncSpecs(prisma: PrismaClient, api: AbsolutClient, opts: Options
         await prisma.product.update({ where: { id: t.id }, data });
       }
       done += batch.length;
+      stats.specsDone = done;
       if ((b + 1) % 10 === 0 || b === batches - 1) log(`  характеристики: ${done}/${targets.length}`);
     } catch (e) {
-      console.error(`  ОШИБКА пачки ${b + 1}/${batches} (${ids[0]}…): ${(e as Error).message}`);
+      logError(`  ОШИБКА пачки ${b + 1}/${batches} (${ids[0]}…): ${(e as Error).message}`);
     }
   }
 }
@@ -445,19 +477,50 @@ async function syncPrices(prisma: PrismaClient, api: AbsolutClient, opts: Option
       }
       if (i % 20 === 0) log(`  ${i}/${codes.length}, обновлено ${updated}`);
     } catch (e) {
-      console.error(`  ОШИБКА категории ${code}: ${(e as Error).message}`);
+      logError(`  ОШИБКА категории ${code}: ${(e as Error).message}`);
     }
   }
   log(`цены/остатки: обновлено ${updated}`);
+  stats.updated = updated;
 }
 
 // ---------- Оркестрация ----------
 
 export async function syncFromSupplier(prisma: PrismaClient, opts: Options = { mode: 'full', refreshSpecs: false, noSpecs: false }) {
   loadEnv();
-  const api = new AbsolutClient();
   const started = Date.now();
+  const args = [
+    opts.category ? `--category=${opts.category}` : '',
+    opts.limit ? `--limit=${opts.limit}` : '',
+    opts.refreshSpecs ? '--refresh-specs' : '',
+    opts.noSpecs ? '--no-specs' : '',
+  ]
+    .filter(Boolean)
+    .join(' ');
+  const run = await prisma.syncLog.create({ data: { mode: opts.mode, args } });
 
+  let api: AbsolutClient | undefined;
+  try {
+    api = new AbsolutClient();
+    await runSync(prisma, api, opts);
+    await prisma.syncLog.update({
+      where: { id: run.id },
+      data: { ...stats, status: 'ok', finishedAt: new Date(), apiRequests: api.requests, log: logLines.join('\n'),
+        message: stats.errors > 0 ? `завершено с ${stats.errors} ошибками по категориям/пачкам` : '' },
+    });
+    log(`готово за ${Math.round((Date.now() - started) / 60000)} мин, запросов к API: ${api.requests}, ошибок: ${stats.errors}, лог #${run.id}`);
+  } catch (e) {
+    const msg = (e as Error)?.message ?? String(e);
+    remember(`ФАТАЛЬНО: ${msg}`);
+    await prisma.syncLog.update({
+      where: { id: run.id },
+      data: { ...stats, status: 'error', finishedAt: new Date(), apiRequests: api?.requests ?? 0, message: msg.slice(0, 1000), log: logLines.join('\n') },
+    });
+    throw e;
+  }
+}
+
+async function runSync(prisma: PrismaClient, api: AbsolutClient, opts: Options) {
   const me = await api.accountsMy();
   log(`API OK: ${me.username} (${me.company?.name ?? '—'}), режим ${opts.mode}${opts.category ? `, категория ${opts.category}` : ''}${opts.limit ? `, лимит ${opts.limit}` : ''}`);
 
@@ -486,12 +549,11 @@ export async function syncFromSupplier(prisma: PrismaClient, opts: Options = { m
         data: { isActive: false, stock: 0 },
       });
       log(`деактивировано пропавших: ${gone.count}`);
+      stats.deactivated = gone.count;
     }
 
     if (!opts.noSpecs) await syncSpecs(prisma, api, opts);
   }
-
-  log(`готово за ${Math.round((Date.now() - started) / 60000)} мин, запросов к API: ${api.requests}`);
 }
 
 // Запуск напрямую: npm run sync [full|prices|specs] [--category=NB] [--limit=30]

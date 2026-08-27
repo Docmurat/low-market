@@ -82,3 +82,25 @@ model Product {
   @@index([brand])
   @@index([specsSyncedAt])
 }
+
+/// Журнал прогонов синхронизации с поставщиком (для админки и алертов).
+model SyncLog {
+  id          Int       @id @default(autoincrement())
+  mode        String    // full | prices | specs
+  args        String    @default("") // --category=NB --limit=30 …
+  startedAt   DateTime  @default(now())
+  finishedAt  DateTime?
+  status      String    @default("running") // running | ok | error
+  fetched     Int       @default(0) // товаров получено от поставщика
+  created     Int       @default(0)
+  updated     Int       @default(0)
+  skipped     Int       @default(0)
+  deactivated Int       @default(0)
+  specsDone   Int       @default(0)
+  errors      Int       @default(0) // ошибок по категориям/пачкам (прогон продолжился)
+  apiRequests Int       @default(0)
+  message     String    @default("") // текст фатальной ошибки или заметки
+  log         String    @default("") // хвост консольного вывода (последние ~100 строк)
+
+  @@index([startedAt])
+}

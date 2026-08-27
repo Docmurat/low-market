@@ -40,6 +40,8 @@ import {
 } from '../src/lib/supplier/absolut';
 import { isJunkRoot, normalizePath, slugify } from '../src/lib/supplier/category-rules';
 import { purchasePriceWithVat, retailPrice } from '../src/lib/pricing';
+import { buildAttributes } from './build-attributes';
+import { normalizeImages } from '../src/lib/supplier/media';
 
 // ---------- .env без зависимостей ----------
 function loadEnv(file = '.env') {
@@ -400,7 +402,7 @@ async function syncSpecs(prisma: PrismaClient, api: AbsolutClient, opts: Options
         // Превью первым, затем галерея; пустые ссылки и дубли убираем
         const thumb = links.filter((l) => l.mediaType === 'ThumbPicture').map((l) => l.fullMediaLink);
         const pics = links.filter((l) => l.mediaType !== 'ThumbPicture').map((l) => l.fullMediaLink);
-        const images = [...new Set([...thumb, ...pics].map((u) => (u ?? '').trim()).filter(Boolean))];
+                const images = normalizeImages([...thumb, ...pics]);
 
         const data: Prisma.ProductUpdateInput = {
           specs: specs as Prisma.InputJsonValue,
@@ -528,6 +530,7 @@ async function runSync(prisma: PrismaClient, api: AbsolutClient, opts: Options) 
     await syncPrices(prisma, api, opts);
   } else if (opts.mode === 'specs') {
     await syncSpecs(prisma, api, opts);
+    await buildAttributes(prisma);
   } else {
     const tree = await api.categoryTree();
     const cats = await syncCategories(prisma, tree);
@@ -552,7 +555,10 @@ async function runSync(prisma: PrismaClient, api: AbsolutClient, opts: Options) 
       stats.deactivated = gone.count;
     }
 
-    if (!opts.noSpecs) await syncSpecs(prisma, api, opts);
+    if (!opts.noSpecs) {
+      await syncSpecs(prisma, api, opts);
+      await buildAttributes(prisma);
+    }
   }
 }
 

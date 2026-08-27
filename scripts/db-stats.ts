@@ -17,6 +17,7 @@ async function main() {
   const eol = await prisma.product.count({ where: { isEol: true } });
   const noBrand = await prisma.product.count({ where: { brand: '' } });
   const withRrp = await prisma.product.count({ where: { rrp: { not: null } } });
+    const withDesc = await prisma.product.count({ where: { description: { not: '' } } });
   const aboveRrp = await prisma.$queryRaw<{ n: bigint }[]>`SELECT count(*) AS n FROM "Product" WHERE rrp IS NOT NULL AND price > rrp`;
   const cats = await prisma.category.count();
   const catsActive = await prisma.category.count({ where: { isActive: true } });
@@ -30,6 +31,7 @@ async function main() {
   console.log(`  Честный ЗНАК:             ${gism}`);
   console.log(`  EOL:                      ${eol}`);
   console.log(`  без бренда:               ${noBrand}`);
+    console.log(`  с описанием:              ${withDesc}`); 
   console.log(`  с РРЦ:                    ${withRrp}, из них наша цена выше РРЦ: ${Number(aboveRrp[0].n)}`);
   console.log(`Категорий: ${cats}, активных: ${catsActive}`);
 }

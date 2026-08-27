@@ -3,47 +3,40 @@ export const dynamic = 'force-dynamic';
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
 import { prisma } from '@/lib/db';
-import ProductCard from '@/components/ProductCard';
+import { categoryScope, loadFacets, loadProducts, parseQuery, type SearchParams } from '@/lib/catalog/query';
+import FilterSidebar from '@/components/catalog/FilterSidebar';
+import SortBar from '@/components/catalog/SortBar';
+import Pagination from '@/components/catalog/Pagination';
+import ProductGrid from '@/components/catalog/ProductGrid';
 
-export default async function CategoryPage({ params }: { params: { slug: string } }) {
+export default async function CategoryPage({ params, searchParams }: { params: { slug: string }; searchParams: SearchParams }) {
   const category = await prisma.category.findUnique({
     where: { slug: params.slug },
     include: {
-      parent: true,
-      children: {
-        where: { isActive: true },
-        orderBy: { sortOrder: 'asc' },
-        include: { children: { where: { isActive: true }, select: { id: true } } },
-      },
+      parent: { include: { parent: true } },
+      children: { where: { isActive: true }, orderBy: { sortOrder: 'asc' } },
     },
   });
   if (!category) notFound();
 
-  // Дерево теперь трёхуровневое (зеркало поставщика): показываем товары самой
-  // категории, её детей и внуков.
-  const categoryIds = [
-    category.id,
-    ...category.children.map((c) => c.id),
-    ...category.children.flatMap((c) => c.children.map((g) => g.id)),
-  ];
-  const products = await prisma.product.findMany({
-    where: { categoryId: { in: categoryIds }, isActive: true },
-    orderBy: [{ stock: 'desc' }, { name: 'asc' }],
-    take: 48, // пагинацию добавим на шаге 2
-  });
+  const pathname = `/catalog/${category.slug}`;
+  const scope = await categoryScope(category.id);
+  const q = parseQuery(searchParams, scope.filters);
+  const base = { categoryId: { in: scope.ids } };
+  const [facets, result] = await Promise.all([loadFacets(base, q, scope.filters), loadProducts(base, q)]);
+
+  const crumbs = [category.parent?.parent, category.parent].filter(Boolean) as { slug: string; name: string }[];
 
   return (
     <div className="mx-auto max-w-7xl px-4 py-8">
       <nav className="text-sm text-steel mb-4">
         <Link href="/" className="charge-link">Главная</Link>
-        {category.parent && (
-          <>
+        {crumbs.map((c) => (
+          <span key={c.slug}>
             <span className="mx-2">/</span>
-            <Link href={`/catalog/${category.parent.slug}`} className="charge-link">
-              {category.parent.name}
-            </Link>
-          </>
-        )}
+            <Link href={`/catalog/${c.slug}`} className="charge-link">{c.name}</Link>
+          </span>
+        ))}
         <span className="mx-2">/</span>
         <span className="text-ink font-medium">{category.name}</span>
       </nav>
@@ -59,29 +52,22 @@ export default async function CategoryPage({ params }: { params: { slug: string 
               className="rounded-full border border-line bg-card px-4 py-1.5 text-sm font-medium hover:border-volt transition-colors"
             >
               {c.name}
+              {c.productCount > 0 && <span className="ml-1 text-xs text-steel">{c.productCount}</span>}
             </Link>
           ))}
         </div>
       )}
 
-      {products.length === 0 ? (
-        <p className="text-steel">В этой категории пока нет товаров.</p>
-      ) : (
-        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
-          {products.map((p) => (
-            <ProductCard
-              key={p.id}
-              slug={p.slug}
-              name={p.name}
-              brand={p.brand}
-              price={p.price.toString()}
-              stock={p.stock}
-              image={p.images[0]}
-              sku={p.supplierSku}
-            />
-          ))}
-        </div>
-      )}
+      <div className="grid gap-8 lg:grid-cols-[260px_1fr]">
+                <aside className="lg:self-start">
+          <FilterSidebar pathname={pathname} sp={searchParams} q={q} facets={facets} />
+        </aside>
+        <section>
+          <SortBar pathname={pathname} sp={searchParams} current={q.sort} total={result.total} />
+          <ProductGrid items={result.items} />
+          <Pagination pathname={pathname} sp={searchParams} page={q.page} pages={result.pages} />
+        </section>
+      </div>
     </div>
   );
 }

@@ -74,6 +74,8 @@ model Product {
   syncedAt           DateTime? // когда последний раз обновляли цену/остаток
   specsSyncedAt      DateTime? // когда последний раз тянули Description/MediaItems (null = ещё не тянули)
 
+  attributes  ProductAttribute[]
+
   createdAt   DateTime @default(now())
   updatedAt   DateTime @updatedAt
 
@@ -103,4 +105,20 @@ model SyncLog {
   log         String    @default("") // хвост консольного вывода (последние ~100 строк)
 
   @@index([startedAt])
+}
+
+/// Нормализованные значения характеристик для фильтров и быстрого поиска.
+/// Строится скриптом scripts/build-attributes.ts из Product.specs по конфигу
+/// src/lib/filters/config.ts. Сырые specs не трогаем.
+model ProductAttribute {
+  id        Int     @id @default(autoincrement())
+  productId Int
+  product   Product @relation(fields: [productId], references: [id], onDelete: Cascade)
+  key       String  // id фильтра из конфига: brand, ram, ssd, gpu_chip …
+  value     String  // нормализованное отображаемое значение: "16 ГБ", "LGA1700"
+  numValue  Float?  // числовое значение для диапазонов/сортировки (ГБ, МГц, шт.)
+
+  @@unique([productId, key, value])
+  @@index([key, value])
+  @@index([key, numValue])
 }

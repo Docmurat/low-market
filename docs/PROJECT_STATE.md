@@ -1,114 +1,132 @@
 # PROJECT_STATE — LOW-Market
-Обновлено: 2026-08-26 (вехи: GitHub, ребрендинг + прокси/токен поставщика, клиент API + проба)
+Обновлено: 2026-08-28 (вехи: 6b реальный синк каталога, журнал SyncLog, Шаг 2 фильтры/поиск)
 Файл живёт в репозитории: docs/PROJECT_STATE.md. Обновляется на каждой вехе.
 
 ## 1. Что за проект
 Интернет-магазин техники LOW-Market (экс-«ВОЛЬТ»). Розница Москва/МО, компьютерная
 техника — ядро ассортимента. Субдистрибьютор, кроссдокинг со склада поставщика
-АБСОЛЮТ ТРЕЙД (группа ELKO), ~11 000 SKU через их API. ИП УСН.
+АБСОЛЮТ ТРЕЙД (группа ELKO), ~10 400 SKU через их API. ИП УСН.
 Разработка: владелец + Claude, Windows/VSCode/GitHub/Yandex Cloud.
 
 ## 2. Дорожная карта и статус
 | Шаг | Содержание | Статус |
 |-----|-----------|--------|
-| 1 | Каркас Next.js, БД, каталог, карточка, матрица наценок, пайплайн синка (мок) | ✅ |
-| 1.5 | Ребрендинг ВОЛЬТ → LOW-Market (site.ts, layout, Header, Footer, README, .env) | ✅ |
-| 6a | Доступ к API поставщика: прокси на сервере, токен, типизированный клиент, проба | ✅ РАБОТАЕТ |
-| 6b | Реальный синк: категории → наша таблица, товары по категориям, цены/остатки, характеристики, фото; расписание | ⬜ СЛЕДУЮЩИЙ |
-| 2 | Фильтры по характеристикам (из Description API), поиск, пагинация, сортировка | ⬜ после 6b |
-| 3 | Корзина + чекаут + кросс-продажи | ⬜ |
+| 1 | Каркас Next.js, БД, каталог, карточка, пайплайн синка | ✅ |
+| 1.5 | Ребрендинг ВОЛЬТ → LOW-Market | ✅ |
+| 6a | Доступ к API поставщика: прокси на сервере, токен, клиент, проба | ✅ |
+| 6b | Реальный синк: дерево категорий поставщика → наша Category, 10 384 товара, цены/остатки, характеристики, фото; журнал SyncLog | ✅ |
+| 2 | Фильтры по характеристикам, поиск, пагинация, сортировка, карточка товара (галерея, РРЦ, описание) | ✅ |
+| 3 | Корзина + чекаут (2 шага) + кросс-продажи | ⬜ СЛЕДУЮЩИЙ |
 | 4 | Авторизация, ЛК покупателя | ⬜ |
-| 5 | Админка: заказы, статусы, отзывы | ⬜ |
+| 5 | Админка: заказы, статусы, отзывы, экран SyncLog + алерты в Telegram, переопределение категории товара | ⬜ |
 | 6c | Создание заказа у поставщика (Shipment/CreateOrder), статусы отгрузок | ⬜ после 3 |
+| 6d | Расписание синка на сервере (cron: prices каждые 2 ч, full ночью) | ⬜ на шаге 12 |
 | 7 | ЮKassa: карты, СБП, чеки 54-ФЗ | ⬜ |
 | 8 | Доставка: зоны Москва/МО | ⬜ |
 | 9 | Отзывы + бонус за отзыв | ⬜ |
 | 10 | B2B: оптовый заказ, счёт | ⬜ |
 | 11 | PWA | ⬜ |
-| 12 | Деплой: systemd, nginx для сайта, CI/CD, бэкапы БД, ужесточить SG, сменить SUPPLIER_PROXY_KEY | ⬜ |
+| 12 | Деплой: systemd, nginx для сайта, CI/CD, бэкапы БД, ужесточить SG, сменить SUPPLIER_PROXY_KEY, cron синка | ⬜ |
+| Ц | ЦЕНООБРАЗОВАНИЕ (отложено): матрица по категориям, потолок РРЦ, НДС — см. п.5 | ⬜ отдельная задача |
 
 ## 3. Инфраструктура (актуально)
-- GitHub: private-репозиторий `low-market` (ссылку даёт пользователь). Коммиты через
-  Source Control в VSCode (Smart Commit включён). .env в git не попадает.
-- ЛОКАЛЬНО: Windows. Node v24, npm 11, git 2.53. Проект в C:\dev\voltshop.
-  PostgreSQL 17 порт 5433 (!), база voltshop, пользователь postgres.
-  ВНИМАНИЕ: на 5432 — посторонний PostgreSQL 14 другого проекта, не трогать.
-  Docker НЕ используется.
-- СЕРВЕР: Yandex Cloud, ВМ voltshop-prod (Ubuntu 24.04, 2 vCPU/4ГБ, SSD 30ГБ, ru-central1-a).
-  Статический IP 89.169.138.130. SSH: login ubuntu, ключ %USERPROFILE%\.ssh\voltshop,
-  порты 22 И 443 (443 через /etc/systemd/system/ssh.socket.d/ports.conf).
-  Установлено: Node 20, PostgreSQL 16, git, **nginx (поставлен 2026-08-26)**.
-  БД на сервере — не создана (сверить на шаге 12). Группа безопасности Any/Any (ужесточить на шаге 12).
-  VPN у пользователя нужен для Claude; для SSH/scp выключать. Cloud Shell/OS Login не работают.
-- ПРОКСИ К ПОСТАВЩИКУ (на сервере): nginx, порт 8443, самоподписанный сертификат
-  /etc/nginx/certs/supplier.{crt,key} (копия crt в репо: ops/nginx/supplier.crt),
-  конфиг /etc/nginx/sites-available/supplier-proxy.conf (копия в репо ops/nginx/, секрет = CHANGE_ME).
-  Адрес: https://89.169.138.130:8443/supplier/… → https://api.absoluttrade.ru/…
-  Защита: заголовок X-Proxy-Key = SUPPLIER_PROXY_KEY из .env. Секрет засветился в чате —
-  сменить на шаге 12 (sed в конфиге + reload nginx + .env).
-  Для Node на ПК перед запуском скриптов: $env:NODE_EXTRA_CA_CERTS="C:\dev\voltshop\ops\nginx\supplier.crt"
-- ПОСТАВЩИК — АБСОЛЮТ ТРЕЙД, eCommerce API v3 (swagger 2.0):
-  документация https://api.absoluttrade.ru/local/docs/api/client/index.php,
-  спецификация https://api.absoluttrade.ru/local/docs/api/client/openapi.json.
-  Белый список: только IP сервера. Токен получен (CreateToken, поля username/password),
-  действует 1 год, лежит в .env как SUPPLIER_API_TOKEN. НЕ вызывать CreateToken повторно —
-  обнуляет текущий токен. Поддержка: api@absoluttrade.ru.
-  Ключевые методы: Catalogs/CategoryTree, Catalogs/Vendors, Catalogs/ProductSearch (по
-  categoryCodes; поля productId=elko-код, productName, manufacturerCode, vendorCode,
-  categoryCode, catalogTree, productPrice, rrp, inStock[{stock,quantity}], gism (Честный ЗНАК),
-  traceability, warranty, isEol, isNew, eanCodes, fromDateUpdate для инкремента),
-  Catalogs/AvailabilityAndPrice (лёгкий: цена+остатки), Catalogs/Products/{ids}/Description
-  (характеристики: criteria/value/measurement/complexName), Catalogs/MediaItems (фото),
-  Shipment/CreateOrder (заказ, шаг 6c).
-  Лимиты частоты в документации НЕ указаны; по аналогии с ELKO клиент держит паузу 3,2 с.
-  Открытые вопросы к поставщику: лимиты, цены с НДС или без, пагинация ProductSearch.
-- РЕЗУЛЬТАТ ПРОБЫ (data/supplier/probe/): 336 листовых категорий, 236 с товарами,
-  11 112 товаров, 1122 вендора, склад в ответах — "MSK". Мусорные ветки дерева:
-  "zzzНеИспользовать…", "Рекламные материалы", "Услуги", "Комплекты" — фильтровать.
-  У пробного товара (PWL, #1248528) 0 характеристик и пустая ссылка фото — проверить на
-  богатой категории (ноутбуки/видеокарты) перед проектированием синка.
+- GitHub: private-репозиторий https://github.com/Docmurat/low-market. Коммиты через
+  Source Control в VSCode. .env в git не попадает.
+- ЛОКАЛЬНО: Windows. Node v24, npm 11. Проект в C:\dev\voltshop.
+  PostgreSQL 17 порт 5433 (!), база voltshop. На 5432 — чужой PostgreSQL 14, не трогать.
+  Prisma 5.22 (баннер про 8.0 — игнорировать, не обновлять). Docker НЕ используется.
+- СЕРВЕР: Yandex Cloud, ВМ voltshop-prod (Ubuntu 24.04, 2 vCPU/4ГБ), IP 89.169.138.130.
+  SSH: login ubuntu, ключ %USERPROFILE%\.ssh\voltshop, порты 22 и 443.
+  Установлено: Node 20, PostgreSQL 16, git, nginx. БД на сервере не создана (шаг 12).
+  Группа безопасности Any/Any (ужесточить на шаге 12).
+  VPN у пользователя нужен для Claude; для SSH/scp и для скриптов синка — ВЫКЛЮЧАТЬ.
+- ПРОКСИ К ПОСТАВЩИКУ (на сервере): nginx :8443, самоподписанный сертификат
+  (копия в репо ops/nginx/supplier.crt), заголовок X-Proxy-Key = SUPPLIER_PROXY_KEY.
+  Перед скриптами на ПК: $env:NODE_EXTRA_CA_CERTS="C:\dev\voltshop\ops\nginx\supplier.crt"
+- ПОСТАВЩИК — АБСОЛЮТ ТРЕЙД, eCommerce API v3. Токен в .env (SUPPLIER_API_TOKEN, 1 год).
+  НЕ вызывать CreateToken. Поддержка: api@absoluttrade.ru. Пауза между запросами 3,2 с.
+  Факты по данным (проверено на реальном фиде):
+  - CategoryTree: 395 узлов (без мусорных веток), коды категорий НЕ уникальны (CBL, NIC,
+    MAS, SPE, CAU…) → категории зеркалим по id узла, товар кладём по строке catalogTree.
+  - У части узлов code=null (Умные колонки, Кабели питания…) — их товары через API не достать.
+  - ProductSearch по категории отдаёт всё одним ответом (пагинации нет); реально ~4% меньше,
+    чем totalProducts в дереве.
+  - inStock.quantity — строка: "0", "7", "> 10", "> 40", "> 100" → stock (число) + stockLabel.
+  - eanCodes "-" = пусто. rrp может быть 0/пусто. У Lenovo и др. productPrice == rrp.
+  - Description: 49 характеристик у ноутбука; ключ "Description" = HTML-текст описания
+    (переносим в product.description), "Image" — дубль фото. У ~11% товаров specs пусты.
+  - MediaItems: ThumbPicture + Picture; ссылки на selstorage.ru часто 404, относительные
+    пути /upload/… → домен https://ecom.absoluttrade.ru (src/lib/supplier/media.ts).
+  - Покрытие характеристиками неровное: видеокарты/процессоры 85–95%, ноутбуки ~33%.
+  Открытые вопросы к поставщику: лимиты частоты; цены с НДС или без; почему часть фото
+  на selstorage битые; категории с code=null.
 
 ## 4. Код (ключевые файлы)
-- src/lib/site.ts — бренд (название/URL/описание), единая точка правды.
-- src/lib/pricing.ts — матрица наценок по категориям (8–45%), floor, цены на …90.
-- src/lib/supplier/absolut.ts — клиент API поставщика (типы, throttle, retry, flattenLeafCategories, totalStock).
-- scripts/probe-supplier.ts — проба API, сохраняет сырые ответы в data/supplier/probe/.
-- scripts/sync-supplier.ts — пока читает data/supplier-mock.json; переписать на клиент (шаг 6b).
-- ops/nginx/supplier-proxy.conf, ops/nginx/supplier.crt — прокси к поставщику.
-- Запуск скриптов: `npx tsx scripts/<имя>.ts` (в .env нет dotenv-зависимости: probe грузит .env сам).
+- prisma/schema.prisma — Category (зеркало дерева поставщика: supplierId/Code/Path, level,
+  isActive, productCount), Product (+ rrp, stockLabel, stocks, vendorCode, manufacturerCode,
+  eanCodes, warrantyMonths, gism, traceability, isEol, isNew, syncedAt, specsSyncedAt),
+  ProductAttribute (нормализованные значения для фильтров), SyncLog (журнал прогонов).
+- scripts/sync-supplier.ts — синк: режимы full | prices | specs; --category=CODE, --limit=N,
+  --no-specs, --refresh-specs. Полный: ~18 мин товары + ~1 ч характеристики. Идемпотентен.
+  В конце full/specs вызывает buildAttributes. Пишет SyncLog.
+- scripts/build-attributes.ts — specs → ProductAttribute по конфигу фильтров + перенос
+  Description поставщика в product.description (если пусто).
+- scripts/reprice.ts — пересчёт цен по базе без API (после правки .env/матрицы).
+- scripts/fix-images.ts — починка ссылок на фото в базе.
+- scripts/db-stats.ts — статистика каталога; scripts/spec-stats.ts <slug> — статистика
+  характеристик и нормализованных атрибутов по категории.
+- scripts/probe-supplier.ts — проба API (сырые ответы в data/supplier/probe/).
+- src/lib/pricing.ts — FLAT_MARKUP_PCT из .env (сейчас 10) побеждает всё; матрица по slug-цепочке
+  и floor остаются в коде для будущего; НДС-переключатель не активен.
+- src/lib/supplier/absolut.ts — клиент API; category-rules.ts — мусорные ветки, скрытые
+  характеристики, slugify; media.ts — нормализация ссылок фото.
+- src/lib/filters/config.ts — конфиг фильтров по категориям (ключи = URL-параметры);
+  normalize.ts — нормализаторы значений (память, частоты, PCIe, цвета…).
+- src/lib/catalog/query.ts — разбор URL, фильтры, фасеты, сортировка, пагинация (48), поиск.
+- src/app/catalog/[slug]/page.tsx, src/app/search/page.tsx, src/app/product/[slug]/page.tsx;
+  src/components/catalog/{FilterSidebar (client, автоприменение), SortBar, Pagination, ProductGrid};
+  src/components/product/Gallery.tsx (client).
+- Запуск скриптов: `npx tsx scripts/<имя>.ts`; npm-скрипты: sync, sync:prices, sync:specs, probe, seed.
+- .env (кроме DATABASE_URL и секретов): FLAT_MARKUP_PCT=10, SUPPLIER_PRICES_INCLUDE_VAT=true, VAT_PCT=22.
 
 ## 5. Ключевые решения (не пересматривать без причины)
 - Кастомный стек вместо Битрикс.
-- Матрица наценок по категориям, floor-контроль (закупка + эквайринг 2% + буфер 3%), цены на …90.
-  Теперь есть rrp от поставщика — использовать как верхний ориентир/для отображения «выгоды».
-- Артикул товара = productId (elko-код) поставщика.
-- Защищённые поля при синке: наше description и images не затираются; но если у нас пусто —
-  заполнять из поставщика (Description/MediaItems).
-- Пропавшие из фида товары деактивируются, не удаляются. isEol → деактивировать.
-- Товары с gism=true помечать флагом «Честный ЗНАК» в схеме (влияет на маркировку/ЭДО).
-- Разделение баз: локальная (разработка) и серверная (прод) — не смешивать.
-- Все обращения к API поставщика идут с IP сервера (локально — через прокси).
-- Налоги: закладывать НДС (порог УСН 20 млн будет превышен), ставка на согласовании с бухгалтером.
+- ЦЕНЫ СЕЙЧАС: плоская наценка 10% (FLAT_MARKUP_PCT) поверх цены поставщика как есть, без НДС,
+  без потолка РРЦ. Причина: схема расчётов (нал/безнал, НДС по категориям) не прояснена.
+  ОТЛОЖЕНО, НЕ ЗАБЫТЬ: матрица по категориям (код готов), потолок РРЦ (у 3918 товаров наша
+  цена выше РРЦ), НДС. Возврат к этому — отдельная задача «Ц» после ответа поставщика/бухгалтера.
+- Категории = зеркало дерева поставщика (3 уровня), ключ supplierId; slug по имени.
+  Мусорные ветки (zzz…, Рекламные материалы, Услуги, Комплекты) не берём.
+- Артикул товара = productId поставщика. Slug товара = бренд-название-productId.
+- Защищённые поля: description и images не затираются; если пусто — заполняем от поставщика.
+  specs всегда перезаписываются из Description; ProductAttribute перестраивается.
+- Пропавшие из фида и isEol → деактивация. Категории без товаров → isActive=false.
+- gism=true → флаг «Честный ЗНАК» (442 товара): без ЭДО и кассы с маркировкой не продавать.
+- Фильтры: состояние в URL (?brand=MSI&vram=16+ГБ&instock=1&sort=price_asc) — ссылки для рекламы.
+- Учёт: на старте «МойСклад» (счета, УПД, ЭДО, Честный ЗНАК, API), не 1С. Интеграция — шаг 5.
+- Все обращения к API поставщика — с IP сервера (локально через прокси).
 - Бренд: LOW-Market. CSS-токен цвета `volt` в Tailwind НЕ переименовывать.
 
 ## 6. Известные грабли
 - Порт 22 к серверу недоступен из части сетей → запасной 443.
-- ssh.socket (Ubuntu 24.04): порты добавлять в ssh.socket.d с явным 0.0.0.0.
-- Пользователь на сервере — ubuntu (voltadmin из cloud-init не создался).
-- Prisma в песочнице Claude не работает — Claude проверяет типы заглушкой.
-- Многострочные вставки рвутся в терминале → команды по одной; на сервере файл
-  создавать одной строкой через printf (scp с ПК часто путают с командой на сервере).
-- scp/ssh запускать ТОЛЬКО в PowerShell на ПК; папка назначения на ПК должна существовать.
-- CreateToken: поле называется username (не login).
-- Секрет прокси и токен в чат не вставлять; .env в чат не вставлять.
-- `-Exclude node_modules` в Get-ChildItem не исключает папку — фильтровать через Where-Object.
+- Prisma в песочнице Claude не работает — типы проверяются заглушкой.
+- После миграции VSCode подсвечивает новые модели красным → TypeScript: Restart TS Server.
+- Prisma Studio: фильтр isNull не работает — считать через scripts/db-stats.ts.
+- Многострочные вставки рвутся в терминале → команды по одной.
+- Закрытый терминал = потерянный вывод; для долгих прогонов: `… *> data\sync.log`.
+- Сертификат прокси надо выставлять в каждом новом терминале (NODE_EXTRA_CA_CERTS).
+- Sticky-панель фильтров длиннее экрана не прокручивается — убрали sticky.
+- Неконтролируемые чекбоксы не сбрасываются при смене URL → checked={…} + key на форме.
+- Часть фото поставщика битые (404 на selstorage) — отсеем при переезде на своё хранилище.
+- Товары иногда лежат «не на той полке» у поставщика (аксессуар в видеокартах) —
+  переопределение категории сделаем в админке (шаг 5).
+- Секрет прокси, токен и .env в чат не вставлять.
 
 ## 7. Следующий шаг (для нового чата)
-1) Прогнать пробу на богатой категории: `npx tsx scripts/probe-supplier.ts <код>` (код взять из
-   data/supplier/probe/category-tree.json, напр. ноутбуки или видеокарты), убедиться, что
-   Description и MediaItems возвращают данные; прислать Claude json-файлы из data/supplier/probe.
-2) Шаг 6b: расширить prisma-схему (supplierCategoryCode, vendor, rrp, gism, traceability,
-   warranty, isEol, eanCodes, specs JSON, stock по складам), маппинг категорий поставщика на
-   наши категории и матрицу наценок, переписать scripts/sync-supplier.ts на клиент API
-   (полный синк + лёгкий синк цен/остатков), настроить расписание.
-3) Затем Шаг 2 на реальных характеристиках.
+1) Шаг 3: корзина (cookie/localStorage-id + таблица Cart/CartItem), страница корзины,
+   чекаут в 2 шага (контакты+доставка → подтверждение), таблицы Order/OrderItem, блок
+   кросс-продаж на карточке (аксессуары из связанных категорий). Кнопка «В корзину» уже есть
+   на карточке и в сетке (заглушка).
+2) Параллельно (без кода): написать api@absoluttrade.ru — НДС в ценах, лимиты, категории с
+   code=null, битые фото; спросить бухгалтера про МойСклад; регистрация в Честном ЗНАКе и ЭДО.
+3) Потом Шаг 4 (авторизация), затем 5 (админка + SyncLog + категория-override).

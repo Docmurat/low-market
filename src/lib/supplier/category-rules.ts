@@ -37,6 +37,13 @@ export const HIDDEN_SPEC_KEYS: RegExp[] = [
   /^Вес в упаковке/i,
   /^Количество в упаковке$/i,
   /^Long model codename$/i,
+  /^Description$/i, // текст описания — переносится в product.description
+  /^Новинка$/i,
+  /^ЭДО \(РНПТ\)$/i,
+  /^ESD$/i,
+  /^Крупногабаритный товар$/i,
+  /^Гарантия \(Наименование\)$/i,
+  /^Упаковка$/i,
 ];
 
 export function isHiddenSpec(key: string): boolean {

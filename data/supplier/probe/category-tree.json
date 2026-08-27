@@ -1,13 +1,13 @@
 [
   {
-    "totalProducts": 632,
+    "totalProducts": 631,
     "name": "Сетевое оборудование",
     "code": null,
     "url": null,
     "id": 402,
     "childs": [
       {
-        "totalProducts": 244,
+        "totalProducts": 243,
         "name": "Беспроводное оборудование",
         "code": null,
         "url": null,
@@ -62,7 +62,7 @@
             "childs": []
           },
           {
-            "totalProducts": 96,
+            "totalProducts": 95,
             "name": "Беспроводные маршрутизаторы",
             "code": "WRO",
             "url": null,
@@ -243,7 +243,7 @@
         "childs": []
       },
       {
-        "totalProducts": 412,
+        "totalProducts": 414,
         "name": "Ноутбуки ",
         "code": null,
         "url": null,
@@ -258,7 +258,7 @@
             "childs": []
           },
           {
-            "totalProducts": 3,
+            "totalProducts": 4,
             "name": "Защищённые ноутбуки",
             "code": "RMD",
             "url": null,
@@ -282,7 +282,7 @@
             "childs": []
           },
           {
-            "totalProducts": 367,
+            "totalProducts": 368,
             "name": "Ноутбуки и аксессуары",
             "code": "NB",
             "url": null,
@@ -292,7 +292,7 @@
         ]
       },
       {
-        "totalProducts": 215,
+        "totalProducts": 214,
         "name": "Носители информации",
         "code": null,
         "url": null,
@@ -307,7 +307,7 @@
             "childs": []
           },
           {
-            "totalProducts": 91,
+            "totalProducts": 90,
             "name": "Флешки",
             "code": "MDU",
             "url": null,
@@ -503,7 +503,7 @@
         ]
       },
       {
-        "totalProducts": 276,
+        "totalProducts": 275,
         "name": "Клавиатуры и мыши",
         "code": null,
         "url": null,
@@ -518,7 +518,7 @@
             "childs": []
           },
           {
-            "totalProducts": 155,
+            "totalProducts": 154,
             "name": "Мыши",
             "code": "MOU",
             "url": null,
@@ -544,7 +544,7 @@
         "childs": []
       },
       {
-        "totalProducts": 871,
+        "totalProducts": 873,
         "name": "Мониторы",
         "code": null,
         "url": null,
@@ -559,7 +559,7 @@
             "childs": []
           },
           {
-            "totalProducts": 836,
+            "totalProducts": 838,
             "name": "Мониторы LCD",
             "code": "LC3",
             "url": null,
@@ -577,14 +577,14 @@
         ]
       },
       {
-        "totalProducts": 116,
+        "totalProducts": 114,
         "name": "ИБП, Сетевые фильтры",
         "code": null,
         "url": null,
         "id": 452,
         "childs": [
           {
-            "totalProducts": 24,
+            "totalProducts": 23,
             "name": "Сетевые фильтры",
             "code": "SPR",
             "url": null,
@@ -608,7 +608,7 @@
             "childs": []
           },
           {
-            "totalProducts": 10,
+            "totalProducts": 9,
             "name": "Электрические удлинители",
             "code": "PST",
             "url": null,
@@ -783,14 +783,14 @@
     ]
   },
   {
-    "totalProducts": 840,
+    "totalProducts": 835,
     "name": "Серверное оборудование",
     "code": null,
     "url": null,
     "id": 404,
     "childs": [
       {
-        "totalProducts": 195,
+        "totalProducts": 193,
         "name": "Накопители HDD&SSD Enterprise",
         "code": null,
         "url": null,
@@ -805,7 +805,7 @@
             "childs": []
           },
           {
-            "totalProducts": 71,
+            "totalProducts": 70,
             "name": "Жесткие диски Enterprise SATA",
             "code": "HES",
             "url": null,
@@ -813,7 +813,7 @@
             "childs": []
           },
           {
-            "totalProducts": 32,
+            "totalProducts": 31,
             "name": "Жесткие диски Enterprise SAS",
             "code": "HDC",
             "url": null,
@@ -855,7 +855,7 @@
         "childs": []
       },
       {
-        "totalProducts": 481,
+        "totalProducts": 478,
         "name": "Серверные компоненты",
         "code": null,
         "url": null,
@@ -886,7 +886,7 @@
             "childs": []
           },
           {
-            "totalProducts": 60,
+            "totalProducts": 58,
             "name": "Оперативная память",
             "code": "MES",
             "url": null,
@@ -894,7 +894,7 @@
             "childs": []
           },
           {
-            "totalProducts": 63,
+            "totalProducts": 62,
             "name": "Платформы",
             "code": "SYS",
             "url": null,
@@ -1077,7 +1077,7 @@
     ]
   },
   {
-    "totalProducts": 1658,
+    "totalProducts": 1650,
     "name": "Комплектующие",
     "code": null,
     "url": null,
@@ -1117,7 +1117,7 @@
         ]
       },
       {
-        "totalProducts": 291,
+        "totalProducts": 289,
         "name": "Накопители SSD",
         "code": null,
         "url": null,
@@ -1132,7 +1132,7 @@
             "childs": []
           },
           {
-            "totalProducts": 89,
+            "totalProducts": 88,
             "name": "SSD клиентские SATA",
             "code": "SSM",
             "url": null,
@@ -1148,7 +1148,7 @@
             "childs": []
           },
           {
-            "totalProducts": 158,
+            "totalProducts": 157,
             "name": "SSD M.2 SATA",
             "code": "SS2",
             "url": null,
@@ -1199,7 +1199,7 @@
         "childs": []
       },
       {
-        "totalProducts": 79,
+        "totalProducts": 78,
         "name": "Блоки питания",
         "code": "PSU",
         "url": null,
@@ -1240,7 +1240,7 @@
         "childs": []
       },
       {
-        "totalProducts": 130,
+        "totalProducts": 128,
         "name": "Процессоры",
         "code": "CPU",
         "url": null,
@@ -1248,14 +1248,14 @@
         "childs": []
       },
       {
-        "totalProducts": 557,
+        "totalProducts": 554,
         "name": "Модули памяти",
         "code": null,
         "url": null,
         "id": 428,
         "childs": [
           {
-            "totalProducts": 474,
+            "totalProducts": 471,
             "name": "Модули памяти Desktop PC",
             "code": "MEM",
             "url": null,
@@ -1357,7 +1357,7 @@
         ]
       },
       {
-        "totalProducts": 553,
+        "totalProducts": 554,
         "name": "Мобильные телефоны",
         "code": null,
         "url": null,
@@ -1372,7 +1372,7 @@
             "childs": []
           },
           {
-            "totalProducts": 553,
+            "totalProducts": 554,
             "name": "Смартфоны",
             "code": "MPH",
             "url": null,
@@ -1447,14 +1447,14 @@
         ]
       },
       {
-        "totalProducts": 128,
+        "totalProducts": 127,
         "name": "Гаджеты",
         "code": null,
         "url": null,
         "id": 500,
         "childs": [
           {
-            "totalProducts": 110,
+            "totalProducts": 109,
             "name": "Смарт-часы",
             "code": "SMW",
             "url": null,
@@ -1537,7 +1537,7 @@
     "id": 408,
     "childs": [
       {
-        "totalProducts": 33,
+        "totalProducts": 32,
         "name": "Машинки для стрижки",
         "code": "HCL",
         "url": null,
@@ -1666,7 +1666,7 @@
         ]
       },
       {
-        "totalProducts": 58,
+        "totalProducts": 59,
         "name": "Электрические зубные щётки",
         "code": "ETB",
         "url": null,
@@ -1987,7 +1987,7 @@
     ]
   },
   {
-    "totalProducts": 894,
+    "totalProducts": 897,
     "name": "Телевизоры и аудио",
     "code": null,
     "url": null,
@@ -2043,7 +2043,7 @@
         ]
       },
       {
-        "totalProducts": 203,
+        "totalProducts": 205,
         "name": "Наушники",
         "code": null,
         "url": null,
@@ -2117,7 +2117,7 @@
         ]
       },
       {
-        "totalProducts": 533,
+        "totalProducts": 534,
         "name": "Телевизоры",
         "code": "TVP",
         "url": null,
@@ -2152,7 +2152,7 @@
     ]
   },
   {
-    "totalProducts": 3073,
+    "totalProducts": 3078,
     "name": "Бытовая техника",
     "code": null,
     "url": null,
@@ -2306,7 +2306,7 @@
         ]
       },
       {
-        "totalProducts": 1635,
+        "totalProducts": 1638,
         "name": "Крупная бытовая техника",
         "code": null,
         "url": null,
@@ -2337,7 +2337,7 @@
             "childs": []
           },
           {
-            "totalProducts": 41,
+            "totalProducts": 42,
             "name": "Посудомоечные машины",
             "code": "DWA",
             "url": null,
@@ -2353,7 +2353,7 @@
             "childs": []
           },
           {
-            "totalProducts": 617,
+            "totalProducts": 618,
             "name": "Холодильники",
             "code": "FRI",
             "url": null,
@@ -2369,7 +2369,7 @@
             "childs": []
           },
           {
-            "totalProducts": 343,
+            "totalProducts": 344,
             "name": "Стиральные машины",
             "code": "WAM",
             "url": null,
@@ -2379,7 +2379,7 @@
         ]
       },
       {
-        "totalProducts": 439,
+        "totalProducts": 441,
         "name": "Техника для кухни",
         "code": null,
         "url": null,
@@ -2442,7 +2442,7 @@
             "childs": []
           },
           {
-            "totalProducts": 22,
+            "totalProducts": 23,
             "name": "Тостеры и сэндвичницы",
             "code": "TOS",
             "url": null,
@@ -2546,7 +2546,7 @@
             "childs": []
           },
           {
-            "totalProducts": 34,
+            "totalProducts": 35,
             "name": "Электрогрили",
             "code": "GRI",
             "url": null,
@@ -2635,7 +2635,7 @@
         "id": 647,
         "childs": [
           {
-            "totalProducts": 82,
+            "totalProducts": 81,
             "name": "Встраиваемые электропанели",
             "code": "BHO",
             "url": null,
@@ -2699,7 +2699,7 @@
             "childs": []
           },
           {
-            "totalProducts": 64,
+            "totalProducts": 65,
             "name": "Встраиваемые посудомоечные машины",
             "code": "BDW",
             "url": null,

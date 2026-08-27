@@ -9,13 +9,14 @@
  *   SUPPLIER_API_TOKEN — Bearer-токен (действует 1 год; повторный CreateToken
  *                        обнуляет старый — поэтому клиент его НЕ создаёт)
  *   SUPPLIER_PROXY_KEY — секрет прокси (только для локальной разработки)
+ *   SUPPLIER_MIN_INTERVAL_MS — пауза между запросами (по умолчанию 3200)
  */
 
-// ---------- Типы ответов (по openapi.json поставщика) ----------
+// ---------- Типы ответов (по openapi.json поставщика и реальной пробе) ----------
 
 export interface AbsolutQuantityStock {
-  quantity: string; // приходит строкой, напр. "12" или ">10"
-  stock: string; // название склада
+  quantity: string | number; // приходит строкой: "12", "0", "> 10", "> 100"
+  stock: string; // название склада, у нас — "MSK"
 }
 
 export interface AbsolutEvent {
@@ -26,16 +27,16 @@ export interface AbsolutEvent {
 /** GET /api/Catalogs/ProductSearch */
 export interface AbsolutProduct {
   productId: number; // elko-код — наш supplierSku
-  traceability?: string; // признак прослеживаемости
+  traceability?: string; // "N" / "Y" — прослеживаемость
   gism?: boolean; // маркировка Честный ЗНАК
   productName: string;
   manufacturerCode?: string; // партномер производителя
-  vendorCode?: string; // код бренда
+  vendorCode?: string; // код бренда (см. Vendors)
   categoryCode?: string;
-  catalogTree?: string; // "Комплектующие / Видеокарты"
-  paymentTerms?: string;
-  paymentTermName?: string;
-  lastUpdateDate?: string;
+  catalogTree?: string; // "Ноутбуки и компьютеры/Ноутбуки /Ноутбуки и аксессуары"
+  paymentTerms?: string | null;
+  paymentTermName?: string | null;
+  lastUpdateDate?: string; // unix time строкой
   crossReference?: string;
   warranty?: string; // месяцы, строкой
   isEol?: boolean;
@@ -43,10 +44,10 @@ export interface AbsolutProduct {
   events?: AbsolutEvent[];
   isNew?: boolean;
   productPrice: number; // закупочная цена
-  eanCodes?: string;
+  eanCodes?: string; // "-" если нет; несколько — через запятую
   inTransit?: AbsolutQuantityStock[];
   inStock?: AbsolutQuantityStock[];
-  rrp?: number; // рекомендованная розничная цена
+  rrp?: number; // рекомендованная розничная цена (0/нет — не задана)
 }
 
 /** GET /api/Catalogs/AvailabilityAndPrice */
@@ -56,11 +57,12 @@ export interface AbsolutAvailability {
   gism?: boolean;
   price: number;
   rrp?: number;
-  paymentTerms?: string;
+  paymentTerms?: string | null;
   lastUpdateDate?: string;
   stockQuantity?: AbsolutQuantityStock[];
+  inStock?: AbsolutQuantityStock[]; // на случай, если поставщик назовёт поле как в ProductSearch
   inTransit?: AbsolutQuantityStock[];
-  eanCodes?: string[];
+  eanCodes?: string[] | string;
 }
 
 /** GET /api/Catalogs/CategoryTree */
@@ -68,8 +70,8 @@ export interface AbsolutCategoryNode {
   id: number;
   parentId?: number;
   name: string;
-  code: string;
-  url?: string;
+  code: string | null; // у групп null; коды НЕ уникальны (CBL, NIC, MAS, SPE…)
+  url?: string | null;
   totalProducts?: number;
   childs?: AbsolutCategoryNode[];
 }
@@ -83,20 +85,21 @@ export interface AbsolutVendor {
 /** GET /api/Catalogs/Products/{ids}/Description */
 export interface AbsolutDescriptionLine {
   criteria: string; // название характеристики
-  measurement?: string; // ед. изм.
-  complexName?: string; // группа характеристик
+  measurement?: string | null; // ед. изм.
+  complexName?: string | null; // группа характеристик
   value: string;
   lastUpdateDate?: string;
 }
 export interface AbsolutProductDescription {
   productId: number;
-  description: AbsolutDescriptionLine[];
+  description: AbsolutDescriptionLine[] | '' | null; // пустая строка, если характеристик нет
 }
 
 /** GET /api/Catalogs/MediaItems */
 export interface AbsolutMediaLink {
-  mediaType: string;
-  fullMediaLink: string;
+  id?: number;
+  mediaType: string; // "ThumbPicture" | "Picture"
+  fullMediaLink: string; // бывает "" — пропускать
 }
 export interface AbsolutMediaItem {
   productId: number;
@@ -117,7 +120,7 @@ export interface AbsolutConfig {
   baseUrl: string;
   token: string;
   proxyKey?: string;
-  /** Пауза между запросами, мс (у ELKO лимит: не чаще 1 раза в 3 с) */
+  /** Пауза между запросами, мс (лимиты поставщик не публикует; по аналогии с ELKO — 3,2 с) */
   minIntervalMs: number;
 }
 
@@ -153,6 +156,8 @@ const sleep = (ms: number) => new Promise((r) => setTimeout(r, ms));
 
 export class AbsolutClient {
   private lastRequestAt = 0;
+  /** Счётчик запросов — для оценки времени синка в логах */
+  public requests = 0;
 
   constructor(private cfg: AbsolutConfig = getAbsolutConfig()) {}
 
@@ -182,6 +187,7 @@ export class AbsolutClient {
 
   private async request<T>(path: string, query?: Query, attempt = 1): Promise<T> {
     await this.throttle();
+    this.requests++;
     const url = this.buildUrl(path, query);
     const headers: Record<string, string> = {
       Authorization: `Bearer ${this.cfg.token}`,
@@ -189,16 +195,28 @@ export class AbsolutClient {
     };
     if (this.cfg.proxyKey) headers['X-Proxy-Key'] = this.cfg.proxyKey;
 
-    const res = await fetch(url, { headers });
-    const text = await res.text();
+    let res: Response;
+    let text: string;
+    try {
+      res = await fetch(url, { headers });
+      text = await res.text();
+    } catch (e) {
+      // Сетевая ошибка (прокси недоступен, обрыв) — пробуем ещё несколько раз
+      if (attempt <= 3) {
+        await sleep(5000 * attempt);
+        return this.request<T>(path, query, attempt + 1);
+      }
+      throw e;
+    }
 
     if (res.ok) {
       return (text ? JSON.parse(text) : null) as T;
     }
 
-    // Лимит частоты: поставщик отвечает 400 "Call limit exceeded" или 429
-    const rateLimited = res.status === 429 || (res.status === 400 && /limit/i.test(text));
-    if (rateLimited && attempt <= 3) {
+    // Лимит частоты: 429 или 400 "Call limit exceeded"; 5xx — временная ошибка сервера
+    const retriable =
+      res.status === 429 || res.status >= 500 || (res.status === 400 && /limit/i.test(text));
+    if (retriable && attempt <= 3) {
       await sleep(3500 * attempt);
       return this.request<T>(path, query, attempt + 1);
     }
@@ -256,15 +274,17 @@ export class AbsolutClient {
 
 // ---------- Утилиты ----------
 
+export type AbsolutNodeWithPath = AbsolutCategoryNode & { path: string[] };
+
 /** Обходит дерево категорий и возвращает плоский список листьев (в них лежат товары). */
 export function flattenLeafCategories(
   tree: AbsolutCategoryNode[] | AbsolutCategoryNode,
   path: string[] = [],
-): Array<AbsolutCategoryNode & { path: string[] }> {
+): AbsolutNodeWithPath[] {
   const nodes = Array.isArray(tree) ? tree : [tree];
-  const out: Array<AbsolutCategoryNode & { path: string[] }> = [];
+  const out: AbsolutNodeWithPath[] = [];
   for (const node of nodes) {
-    const here = [...path, node.name];
+    const here = [...path, node.name.trim()];
     if (node.childs && node.childs.length > 0) {
       out.push(...flattenLeafCategories(node.childs, here));
     } else {
@@ -274,11 +294,54 @@ export function flattenLeafCategories(
   return out;
 }
 
-/** Суммарный остаток по складам; строки вида ">10" считаем как 10. */
-export function totalStock(items?: AbsolutQuantityStock[]): number {
-  if (!items) return 0;
-  return items.reduce((sum, it) => {
-    const n = parseInt(String(it.quantity).replace(/[^\d]/g, ''), 10);
-    return sum + (Number.isFinite(n) ? n : 0);
-  }, 0);
+/**
+ * Все узлы дерева (не только листья) с указанием пути. Нужно, потому что код для
+ * ProductSearch бывает у группы (напр. "Умный дом" [HAU]), а у её детей — null.
+ */
+export function flattenAllNodes(
+  tree: AbsolutCategoryNode[] | AbsolutCategoryNode,
+  path: string[] = [],
+): AbsolutNodeWithPath[] {
+  const nodes = Array.isArray(tree) ? tree : [tree];
+  const out: AbsolutNodeWithPath[] = [];
+  for (const node of nodes) {
+    const here = [...path, node.name.trim()];
+    out.push({ ...node, path: here });
+    if (node.childs && node.childs.length > 0) {
+      out.push(...flattenAllNodes(node.childs, here));
+    }
+  }
+  return out;
+}
+
+/**
+ * Разбор остатка. Поставщик присылает "0", "7", "> 10", "> 40", "> 100".
+ * Возвращает число для сортировки (для "> N" берём N) и исходную метку для витрины.
+ */
+export function parseStock(items?: AbsolutQuantityStock[] | null): {
+  quantity: number;
+  label: string | null;
+} {
+  if (!items || items.length === 0) return { quantity: 0, label: null };
+  let quantity = 0;
+  let label: string | null = null;
+  for (const it of items) {
+    const raw = String(it.quantity ?? '').trim();
+    const n = parseInt(raw.replace(/[^\d]/g, ''), 10);
+    if (Number.isFinite(n)) quantity += n;
+    if (raw.startsWith('>')) label = raw.replace(/\s+/g, ' ');
+  }
+  return { quantity, label };
+}
+
+/** Суммарный остаток по складам; строки вида "> 10" считаем как 10. */
+export function totalStock(items?: AbsolutQuantityStock[] | null): number {
+  return parseStock(items).quantity;
+}
+
+/** "6936520824113" | "a, b" | "-" | "" → массив без мусора */
+export function parseEanCodes(raw?: string | string[] | null): string[] {
+  if (!raw) return [];
+  const parts = Array.isArray(raw) ? raw : String(raw).split(/[,;\s]+/);
+  return parts.map((s) => s.trim()).filter((s) => s && s !== '-' && /^\d{8,14}$/.test(s));
 }

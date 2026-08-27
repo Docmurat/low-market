@@ -1,4 +1,5 @@
-// Схема данных. Шаг 1: каталог. Заказы/пользователи добавим на шагах 3-4.
+// Схема данных. Шаг 6b: каталог, зеркалирующий дерево поставщика + поля фида.
+// Заказы/пользователи добавим на шагах 3-4.
 generator client {
   provider = "prisma-client-js"
 }
@@ -16,33 +17,68 @@ model Category {
   parent    Category?  @relation("CategoryTree", fields: [parentId], references: [id])
   children  Category[] @relation("CategoryTree")
   // Наценка категории в процентах. Если null — берётся из матрицы в src/lib/pricing.ts
+  // (матрица ищет по цепочке slug: лист → родитель → корень).
   markupPct Decimal?   @db.Decimal(5, 2)
   products  Product[]
   sortOrder Int        @default(0)
+  // Категория без товаров в фиде поставщика — прячем с витрины, но не удаляем.
+  isActive  Boolean    @default(true)
+
+  // --- связь с деревом поставщика (АБСОЛЮТ ТРЕЙД) ---
+  supplierId   Int?    @unique // id узла в CategoryTree — ключ синхронизации
+  supplierCode String? // код для ProductSearch (НЕ уникален: CBL, NIC, MAS встречаются дважды)
+  supplierPath String? // "Ноутбуки и компьютеры/Ноутбуки/Ноутбуки и аксессуары" — по нему кладём товар
+  level        Int     @default(0) // 0 корень, 1, 2 — глубина
+  productCount Int     @default(0) // сколько товаров пришло в последнем синке
 
   @@index([parentId])
+  @@index([supplierPath])
 }
 
 model Product {
   id          Int      @id @default(autoincrement())
-  supplierSku String   @unique // артикул поставщика — ключ синхронизации
+  supplierSku String   @unique // productId (elko-код) поставщика — ключ синхронизации
   slug        String   @unique
   name        String
   brand       String   @default("")
   description String   @default("")
-  // basePrice — закупочная цена из API поставщика. price — розничная после наценки.
+  // basePrice — наша закупочная цена (с НДС, см. pricing.ts). price — розничная после наценки.
   basePrice   Decimal  @db.Decimal(12, 2)
   price       Decimal  @db.Decimal(12, 2)
+  // rrp — рекомендованная розничная цена поставщика (может отсутствовать).
+  rrp         Decimal? @db.Decimal(12, 2)
+  // stock — число для сортировки/фильтров ("> 10" → 10). stockLabel — как прислал поставщик,
+  // чтобы на витрине показывать "много" вместо точного числа.
   stock       Int      @default(0)
+  stockLabel  String?
+  // Остатки по складам как пришли: [{"stock":"MSK","quantity":"> 10"}]
+  stocks      Json     @default("[]")
   isActive    Boolean  @default(true)
-  // Характеристики хранятся как JSON: {"Сокет": "AM5", "Объём памяти": "16 ГБ"}
+  // Характеристики: {"Процессор": "AMD Ryzen 7 5700U", "Оперативная память": "16Гб"}
   specs       Json     @default("{}")
   images      String[] @default([])
   categoryId  Int
   category    Category @relation(fields: [categoryId], references: [id])
+
+  // --- поля фида поставщика ---
+  vendorCode         String?  // код бренда у поставщика (LV, HM, …); brand — имя из справочника Vendors
+  manufacturerCode   String?  // партномер производителя (Part Number)
+  supplierCategoryCode String? // categoryCode из фида
+  eanCodes           String[] @default([])
+  warrantyMonths     Int?
+  gism               Boolean  @default(false) // Честный ЗНАК — обязательная маркировка
+  traceability       Boolean  @default(false) // прослеживаемый товар
+  isEol              Boolean  @default(false) // снят с производства → деактивируем
+  isNew              Boolean  @default(false)
+  supplierUpdatedAt  DateTime? // lastUpdateDate из фида
+  syncedAt           DateTime? // когда последний раз обновляли цену/остаток
+  specsSyncedAt      DateTime? // когда последний раз тянули Description/MediaItems (null = ещё не тянули)
+
   createdAt   DateTime @default(now())
   updatedAt   DateTime @updatedAt
 
   @@index([categoryId])
   @@index([isActive, stock])
+  @@index([brand])
+  @@index([specsSyncedAt])
 }

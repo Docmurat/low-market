@@ -8,12 +8,24 @@ import ProductCard from '@/components/ProductCard';
 export default async function CategoryPage({ params }: { params: { slug: string } }) {
   const category = await prisma.category.findUnique({
     where: { slug: params.slug },
-    include: { children: { orderBy: { sortOrder: 'asc' } } },
+    include: {
+      parent: true,
+      children: {
+        where: { isActive: true },
+        orderBy: { sortOrder: 'asc' },
+        include: { children: { where: { isActive: true }, select: { id: true } } },
+      },
+    },
   });
   if (!category) notFound();
 
-  // Товары самой категории и всех её прямых подкатегорий
-  const categoryIds = [category.id, ...category.children.map((c) => c.id)];
+  // Дерево теперь трёхуровневое (зеркало поставщика): показываем товары самой
+  // категории, её детей и внуков.
+  const categoryIds = [
+    category.id,
+    ...category.children.map((c) => c.id),
+    ...category.children.flatMap((c) => c.children.map((g) => g.id)),
+  ];
   const products = await prisma.product.findMany({
     where: { categoryId: { in: categoryIds }, isActive: true },
     orderBy: [{ stock: 'desc' }, { name: 'asc' }],
@@ -24,6 +36,14 @@ export default async function CategoryPage({ params }: { params: { slug: string 
     <div className="mx-auto max-w-7xl px-4 py-8">
       <nav className="text-sm text-steel mb-4">
         <Link href="/" className="charge-link">Главная</Link>
+        {category.parent && (
+          <>
+            <span className="mx-2">/</span>
+            <Link href={`/catalog/${category.parent.slug}`} className="charge-link">
+              {category.parent.name}
+            </Link>
+          </>
+        )}
         <span className="mx-2">/</span>
         <span className="text-ink font-medium">{category.name}</span>
       </nav>

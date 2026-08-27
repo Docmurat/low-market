@@ -1,0 +1,350 @@
+[
+  {
+    "productId": 3212587,
+    "description": [
+      {
+        "criteria": "Image",
+        "measurement": null,
+        "complexName": null,
+        "value": "https://4fbfbe91-0b23-4882-b3d8-a12ea9978a65.selstorage.ru/iblock/ff8/ff8269d428288f9a89159df19b763258/1c474991-b152-4cf7-86c6-de9df7b82300.Jpeg",
+        "lastUpdateDate": "1752130117"
+      },
+      {
+        "criteria": "Бренд",
+        "measurement": null,
+        "complexName": null,
+        "value": "HONOR",
+        "lastUpdateDate": "1752130117"
+      },
+      {
+        "criteria": "Kод ELKO",
+        "measurement": null,
+        "complexName": null,
+        "value": "3212587",
+        "lastUpdateDate": "1752130117"
+      },
+      {
+        "criteria": "Part Number",
+        "measurement": null,
+        "complexName": null,
+        "value": "5301AFVL",
+        "lastUpdateDate": "1752130117"
+      },
+      {
+        "criteria": "EAN (штрих-код)",
+        "measurement": null,
+        "complexName": null,
+        "value": "6936520824113",
+        "lastUpdateDate": "1752130117"
+      },
+      {
+        "criteria": "Серия производителя ноутбуков",
+        "measurement": null,
+        "complexName": null,
+        "value": "MateBook",
+        "lastUpdateDate": "1752130117"
+      },
+      {
+        "criteria": "Long model codename",
+        "measurement": null,
+        "complexName": null,
+        "value": "HONOR MagicBook 15",
+        "lastUpdateDate": "1752130117"
+      },
+      {
+        "criteria": "Код модели продукта",
+        "measurement": null,
+        "complexName": null,
+        "value": "BMH-WFP9HN",
+        "lastUpdateDate": "1752130117"
+      },
+      {
+        "criteria": "Гнездо для микрофона 3,5 мм",
+        "measurement": null,
+        "complexName": null,
+        "value": "1.00",
+        "lastUpdateDate": "1752130117"
+      },
+      {
+        "criteria": "Размер экрана",
+        "measurement": null,
+        "complexName": null,
+        "value": "15.6\"",
+        "lastUpdateDate": "1752130117"
+      },
+      {
+        "criteria": "Частота работы оперативной памяти",
+        "measurement": null,
+        "complexName": null,
+        "value": "2666",
+        "lastUpdateDate": "1752130117"
+      },
+      {
+        "criteria": "Время работы батареи, мин",
+        "measurement": null,
+        "complexName": null,
+        "value": "11.30",
+        "lastUpdateDate": "1752130117"
+      },
+      {
+        "criteria": "Графический котроллер",
+        "measurement": null,
+        "complexName": null,
+        "value": "Интегрированный",
+        "lastUpdateDate": "1752130117"
+      },
+      {
+        "criteria": "Процессор",
+        "measurement": null,
+        "complexName": null,
+        "value": "AMD Ryzen 7",
+        "lastUpdateDate": "1752130117"
+      },
+      {
+        "criteria": "Сканер отпечатка пальцев",
+        "measurement": null,
+        "complexName": null,
+        "value": "да",
+        "lastUpdateDate": "1752130117"
+      },
+      {
+        "criteria": "Разрешение веб-камеры",
+        "measurement": null,
+        "complexName": null,
+        "value": "0.72",
+        "lastUpdateDate": "1752130117"
+      },
+      {
+        "criteria": "Стерео разъем 3,5 мм",
+        "measurement": null,
+        "complexName": null,
+        "value": "1.00",
+        "lastUpdateDate": "1752130117"
+      },
+      {
+        "criteria": "Номинальное разрешение экрана",
+        "measurement": null,
+        "complexName": null,
+        "value": "1920x1080",
+        "lastUpdateDate": "1752130117"
+      },
+      {
+        "criteria": "Серия процессора",
+        "measurement": null,
+        "complexName": null,
+        "value": "Ryzen 7",
+        "lastUpdateDate": "1752130117"
+      },
+      {
+        "criteria": "Тип процессора",
+        "measurement": null,
+        "complexName": null,
+        "value": "AMD Ryzen 7 5700U",
+        "lastUpdateDate": "1752130117"
+      },
+      {
+        "criteria": "Объем, м3",
+        "measurement": null,
+        "complexName": null,
+        "value": "0.01",
+        "lastUpdateDate": "1752130117"
+      },
+      {
+        "criteria": "Частота процессора",
+        "measurement": null,
+        "complexName": null,
+        "value": "1800",
+        "lastUpdateDate": "1752130117"
+      },
+      {
+        "criteria": "Гарантия (мес.)",
+        "measurement": null,
+        "complexName": null,
+        "value": "12",
+        "lastUpdateDate": "1752130117"
+      },
+      {
+        "criteria": "Гарантия (код)",
+        "measurement": null,
+        "complexName": null,
+        "value": "12",
+        "lastUpdateDate": "1752130117"
+      },
+      {
+        "criteria": "Гарантия (описание)",
+        "measurement": null,
+        "complexName": null,
+        "value": "1 год",
+        "lastUpdateDate": "1752130117"
+      },
+      {
+        "criteria": "Объем накопителя SSD",
+        "measurement": null,
+        "complexName": null,
+        "value": "512Гб",
+        "lastUpdateDate": "1752130117"
+      },
+      {
+        "criteria": "Оперативная память",
+        "measurement": null,
+        "complexName": null,
+        "value": "16Гб",
+        "lastUpdateDate": "1752130117"
+      },
+      {
+        "criteria": "Тип оперативной памяти",
+        "measurement": null,
+        "complexName": null,
+        "value": "DDR4",
+        "lastUpdateDate": "1752130117"
+      },
+      {
+        "criteria": "Графический адаптер",
+        "measurement": null,
+        "complexName": null,
+        "value": "AMD Radeon Graphics",
+        "lastUpdateDate": "1752130117"
+      },
+      {
+        "criteria": "Микрофон",
+        "measurement": null,
+        "complexName": null,
+        "value": "встроенный",
+        "lastUpdateDate": "1752130117"
+      },
+      {
+        "criteria": "Встроенная веб-камера",
+        "measurement": null,
+        "complexName": null,
+        "value": "да",
+        "lastUpdateDate": "1752130117"
+      },
+      {
+        "criteria": "Wi-Fi",
+        "measurement": null,
+        "complexName": null,
+        "value": "802.11a/b/g/n/ac/ax",
+        "lastUpdateDate": "1752130117"
+      },
+      {
+        "criteria": "Объем упаковки, м3",
+        "measurement": null,
+        "complexName": null,
+        "value": "0.01269",
+        "lastUpdateDate": "1752130117"
+      },
+      {
+        "criteria": "Вес упаковки, кг",
+        "measurement": null,
+        "complexName": null,
+        "value": "2.6",
+        "lastUpdateDate": "1752130117"
+      },
+      {
+        "criteria": "Язык клавиатуры",
+        "measurement": null,
+        "complexName": null,
+        "value": "ENG/RUS",
+        "lastUpdateDate": "1752130117"
+      },
+      {
+        "criteria": "Операционная система",
+        "measurement": null,
+        "complexName": null,
+        "value": "без ОС",
+        "lastUpdateDate": "1752130117"
+      },
+      {
+        "criteria": "Bluetooth",
+        "measurement": null,
+        "complexName": null,
+        "value": "да",
+        "lastUpdateDate": "1752130117"
+      },
+      {
+        "criteria": "Выход HDMI",
+        "measurement": null,
+        "complexName": null,
+        "value": "1.00",
+        "lastUpdateDate": "1752130117"
+      },
+      {
+        "criteria": "USB type C",
+        "measurement": null,
+        "complexName": null,
+        "value": "1.00",
+        "lastUpdateDate": "1752130117"
+      },
+      {
+        "criteria": "Наличие USB 3.0",
+        "measurement": null,
+        "complexName": null,
+        "value": "1.00",
+        "lastUpdateDate": "1752130117"
+      },
+      {
+        "criteria": "Наличие USB 2.0",
+        "measurement": null,
+        "complexName": null,
+        "value": "1.00",
+        "lastUpdateDate": "1752130117"
+      },
+      {
+        "criteria": "Колонки",
+        "measurement": null,
+        "complexName": null,
+        "value": "да",
+        "lastUpdateDate": "1752130117"
+      },
+      {
+        "criteria": "Цвет",
+        "measurement": null,
+        "complexName": null,
+        "value": "серый",
+        "lastUpdateDate": "1752130117"
+      },
+      {
+        "criteria": "Вес в упаковке, кг",
+        "measurement": null,
+        "complexName": null,
+        "value": "2.56",
+        "lastUpdateDate": "1752130117"
+      },
+      {
+        "criteria": "Вес без упаковки, кг",
+        "measurement": null,
+        "complexName": null,
+        "value": "1.54",
+        "lastUpdateDate": "1752130117"
+      },
+      {
+        "criteria": "Количество в упаковке",
+        "measurement": null,
+        "complexName": null,
+        "value": "1.00",
+        "lastUpdateDate": "1752130117"
+      },
+      {
+        "criteria": "Высота, мм",
+        "measurement": null,
+        "complexName": null,
+        "value": "230.00",
+        "lastUpdateDate": "1752130117"
+      },
+      {
+        "criteria": "Глубина, мм",
+        "measurement": null,
+        "complexName": null,
+        "value": "17.00",
+        "lastUpdateDate": "1752130117"
+      },
+      {
+        "criteria": "Ширина, мм",
+        "measurement": null,
+        "complexName": null,
+        "value": "358.00",
+        "lastUpdateDate": "1752130117"
+      }
+    ]
+  }
+]

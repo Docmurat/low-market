@@ -8,7 +8,10 @@
     "start": "next start",
     "lint": "next lint",
     "seed": "tsx prisma/seed.ts",
-    "sync": "tsx scripts/sync-supplier.ts"
+    "sync": "tsx scripts/sync-supplier.ts full",
+    "sync:prices": "tsx scripts/sync-supplier.ts prices",
+    "sync:specs": "tsx scripts/sync-supplier.ts specs",
+    "probe": "tsx scripts/probe-supplier.ts"
   },
   "dependencies": {
     "@prisma/client": "^5.18.0",

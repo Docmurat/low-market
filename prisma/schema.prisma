@@ -1,5 +1,6 @@
 // Схема данных. Шаг 6b: каталог, зеркалирующий дерево поставщика + поля фида.
-// Шаг 3: корзина (Cart/CartItem) и заказы (Order/OrderItem). Пользователи — шаг 4.
+// Шаг 3: корзина (Cart/CartItem) и заказы (Order/OrderItem).
+// Шаг 4: пользователи (User/Session/LoginCode), userId в Cart и Order.
 generator client {
   provider = "prisma-client-js"
 }
@@ -125,15 +126,64 @@ model ProductAttribute {
   @@index([key, numValue])
 }
 
-/// Корзина гостя. id (cuid) хранится в cookie lm_cart (90 дней).
+/// Покупатель. Вход: телефон (SMS-код) и/или email + пароль.
+/// phone — нормализован (+7XXXXXXXXXX), уникален; email необязателен, но если есть — уникален.
+/// passwordHash: "scrypt:<соль>:<хеш>" (src/lib/auth.ts); null = пароль не задан (вход только по SMS).
+model User {
+  id           Int       @id @default(autoincrement())
+  phone        String    @unique // +7XXXXXXXXXX
+  email        String?   @unique
+  passwordHash String?
+  name         String    @default("")
+  createdAt    DateTime  @default(now())
+  updatedAt    DateTime  @updatedAt
+
+  sessions Session[]
+  carts    Cart[]
+  orders   Order[]
+}
+
+/// Сессия входа. id (cuid) хранится в httpOnly-cookie lm_session (30 дней).
+/// Удаление строки = мгновенный выход на всех устройствах.
+model Session {
+  id        String   @id @default(cuid())
+  userId    Int
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  expiresAt DateTime
+  createdAt DateTime @default(now())
+
+  @@index([userId])
+  @@index([expiresAt])
+}
+
+/// Одноразовый код входа по SMS. Живёт 5 минут, максимум 5 попыток ввода,
+/// повторная отправка не чаще раза в минуту (проверяем по createdAt последней записи).
+/// Код хранится открыто — он короткоживущий и бесполезен после usedAt/expiresAt.
+model LoginCode {
+  id        Int       @id @default(autoincrement())
+  phone     String    // +7XXXXXXXXXX
+  code      String    // 6 цифр
+  attempts  Int       @default(0)
+  usedAt    DateTime?
+  expiresAt DateTime
+  createdAt DateTime  @default(now())
+
+  @@index([phone, createdAt])
+}
+
+/// Корзина. id (cuid) хранится в cookie lm_cart (90 дней).
 /// Цены в корзине НЕ фиксируются — всегда берём актуальную Product.price;
 /// снимок цены делается только при создании заказа (OrderItem).
-/// На шаге 4 добавим userId, чтобы корзина переезжала за авторизованным покупателем.
+/// userId: null = гостевая; при входе гостевая корзина сливается в корзину пользователя.
 model Cart {
   id        String     @id @default(cuid())
+  userId    Int?
+  user      User?      @relation(fields: [userId], references: [id], onDelete: SetNull)
   items     CartItem[]
   createdAt DateTime   @default(now())
   updatedAt DateTime   @updatedAt
+
+  @@index([userId])
 }
 
 model CartItem {
@@ -150,7 +200,8 @@ model CartItem {
 }
 
 /// Заказ покупателя. Создаётся на шаге подтверждения чекаута со статусом new.
-/// Оплата (ЮKassa) — шаг 7, заказ у поставщика — шаг 6c, userId — шаг 4.
+/// Оплата (ЮKassa) — шаг 7, заказ у поставщика — шаг 6c.
+/// userId: null = гостевой заказ; в ЛК гостевые заказы подтягиваются по номеру телефона.
 /// Статусы: new → confirmed → paid → shipped → done | cancelled (строка, без enum —
 /// чтобы менять набор без миграций).
 model Order {
@@ -158,6 +209,9 @@ model Order {
   number      String   @unique // LM-000123 — человекочитаемый номер
   accessToken String   @unique @default(cuid()) // секретная ссылка на страницу заказа
   status      String   @default("new")
+
+  userId Int?
+  user   User? @relation(fields: [userId], references: [id], onDelete: SetNull)
 
   // контакты
   customerName String
@@ -187,6 +241,7 @@ model Order {
 
   @@index([status, createdAt])
   @@index([phone])
+  @@index([userId])
 }
 
 /// Позиция заказа — снимок товара на момент оформления (цена, название, артикул).

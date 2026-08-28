@@ -2,14 +2,16 @@ import Link from 'next/link';
 import { prisma } from '@/lib/db';
 import { SITE_NAME } from '@/lib/site';
 import { getCartCount } from '@/lib/cart';
+import { getSessionUser } from '@/lib/auth';
 
 export default async function Header() {
-  const [rootCategories, cartCount] = await Promise.all([
+  const [rootCategories, cartCount, user] = await Promise.all([
     prisma.category.findMany({
       where: { parentId: null },
       orderBy: { sortOrder: 'asc' },
     }),
     getCartCount(),
+    getSessionUser(),
   ]);
 
   return (
@@ -47,8 +49,8 @@ export default async function Header() {
                 </span>
               )}
             </Link>
-            <Link href="/account" className="charge-link">
-              Войти
+            <Link href="/account" className="charge-link max-w-[10rem] truncate">
+              {user ? user.name || 'Кабинет' : 'Войти'}
             </Link>
           </nav>
         </div>

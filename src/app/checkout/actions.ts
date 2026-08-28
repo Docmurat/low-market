@@ -3,12 +3,14 @@
  * Server actions чекаута.
  *  saveCheckout — шаг 1: валидирует форму, кладёт данные в cookie lm_checkout, ведёт на /checkout/confirm.
  *  placeOrder   — шаг 2: создаёт Order + OrderItem в транзакции, чистит корзину, ведёт на /order/<token>.
+ * Шаг 4: если покупатель авторизован, в заказ пишется userId (для «Моих заказов» в ЛК).
  */
 import { cookies } from 'next/headers';
 import { redirect } from 'next/navigation';
 import { revalidatePath } from 'next/cache';
 import { prisma } from '@/lib/db';
 import { getCart } from '@/lib/cart';
+import { getSessionUser } from '@/lib/auth';
 import { checkPurchasable, clampQty } from '@/lib/cart-shared';
 import { CHECKOUT_COOKIE, parseCheckout, type CheckoutData, type CheckoutErrors } from '@/lib/checkout-shared';
 
@@ -41,6 +43,8 @@ export async function placeOrder(): Promise<PlaceOrderResult> {
 
   const cart = await getCart();
   if (!cart || cart.items.length === 0) redirect('/cart');
+
+  const user = await getSessionUser(); // null для гостя
 
   // Финальная проверка доступности по свежим данным из БД
   const products = await prisma.product.findMany({
@@ -76,6 +80,7 @@ export async function placeOrder(): Promise<PlaceOrderResult> {
     const created = await tx.order.create({
       data: {
         number: `tmp-${Date.now()}-${Math.random().toString(36).slice(2, 8)}`,
+        userId: user?.id ?? null,
         customerName: data.customerName,
         phone: data.phone,
         email: data.email,

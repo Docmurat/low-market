@@ -4,19 +4,21 @@ import Link from 'next/link';
 import { cookies } from 'next/headers';
 import { redirect } from 'next/navigation';
 import { getCart } from '@/lib/cart';
+import { getSessionUser } from '@/lib/auth';
 import { formatPrice } from '@/lib/format';
 import { CHECKOUT_COOKIE, EMPTY_CHECKOUT, type CheckoutData } from '@/lib/checkout-shared';
 import CheckoutForm from '@/components/checkout/CheckoutForm';
 
 export const metadata = { title: 'Оформление заказа' };
 
-function readSaved(): CheckoutData {
+/** Черновик из cookie lm_checkout или null, если его нет/он битый. */
+function readSaved(): CheckoutData | null {
   const raw = cookies().get(CHECKOUT_COOKIE)?.value;
-  if (!raw) return EMPTY_CHECKOUT;
+  if (!raw) return null;
   try {
     return { ...EMPTY_CHECKOUT, ...(JSON.parse(raw) as Partial<CheckoutData>) };
   } catch {
-    return EMPTY_CHECKOUT;
+    return null;
   }
 }
 
@@ -25,6 +27,18 @@ export default async function CheckoutPage() {
   if (!cart || cart.items.length === 0) redirect('/cart');
   const blocked = cart.items.some((i) => !i.product.isActive || i.product.stock <= 0 || i.product.gism);
   if (blocked) redirect('/cart');
+
+  // Приоритет: черновик из cookie (человек уже что-то вводил) → профиль → пусто.
+  const saved = readSaved();
+  let initial: CheckoutData;
+  if (saved) {
+    initial = saved;
+  } else {
+    const user = await getSessionUser();
+    initial = user
+      ? { ...EMPTY_CHECKOUT, customerName: user.name, phone: user.phone, email: user.email ?? '' }
+      : EMPTY_CHECKOUT;
+  }
 
   return (
     <div className="mx-auto max-w-7xl px-4 py-8">
@@ -43,7 +57,7 @@ export default async function CheckoutPage() {
       </div>
 
       <div className="grid gap-8 lg:grid-cols-[1fr_340px] items-start">
-        <CheckoutForm initial={readSaved()} />
+        <CheckoutForm initial={initial} />
 
         <aside className="rounded-2xl bg-card border border-line p-6 lg:sticky lg:top-4">
           <h2 className="font-semibold mb-3">Ваш заказ</h2>

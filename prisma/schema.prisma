@@ -1,6 +1,7 @@
 // Схема данных. Шаг 6b: каталог, зеркалирующий дерево поставщика + поля фида.
 // Шаг 3: корзина (Cart/CartItem) и заказы (Order/OrderItem).
 // Шаг 4: пользователи (User/Session/LoginCode), userId в Cart и Order.
+// Шаг 5: role у User (доступ в админку), categoryLocked у Product (ручная категория).
 generator client {
   provider = "prisma-client-js"
 }
@@ -60,6 +61,9 @@ model Product {
   images      String[] @default([])
   categoryId  Int
   category    Category @relation(fields: [categoryId], references: [id])
+  // Категорию поменяли вручную в админке → синк её больше НЕ перезаписывает
+  // (по аналогии с защитой description/images).
+  categoryLocked Boolean @default(false)
 
   // --- поля фида поставщика ---
   vendorCode         String?  // код бренда у поставщика (LV, HM, …); brand — имя из справочника Vendors
@@ -129,12 +133,14 @@ model ProductAttribute {
 /// Покупатель. Вход: телефон (SMS-код) и/или email + пароль.
 /// phone — нормализован (+7XXXXXXXXXX), уникален; email необязателен, но если есть — уникален.
 /// passwordHash: "scrypt:<соль>:<хеш>" (src/lib/auth.ts); null = пароль не задан (вход только по SMS).
+/// role: "customer" | "admin" (строка, без enum). admin назначается scripts/make-admin.ts.
 model User {
   id           Int       @id @default(autoincrement())
   phone        String    @unique // +7XXXXXXXXXX
   email        String?   @unique
   passwordHash String?
   name         String    @default("")
+  role         String    @default("customer")
   createdAt    DateTime  @default(now())
   updatedAt    DateTime  @updatedAt
 

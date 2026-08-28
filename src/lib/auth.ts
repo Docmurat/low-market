@@ -9,8 +9,9 @@
 import 'server-only';
 import { randomBytes, randomInt, scryptSync, timingSafeEqual } from 'node:crypto';
 import { cookies } from 'next/headers';
+import { redirect } from 'next/navigation';
 import { prisma } from '@/lib/db';
-import { SESSION_COOKIE, SESSION_DAYS, type UserView } from '@/lib/auth-shared';
+import { SESSION_COOKIE, SESSION_DAYS, type UserRole, type UserView } from '@/lib/auth-shared';
 
 export * from '@/lib/auth-shared';
 
@@ -43,12 +44,35 @@ export function generateLoginCode(): string {
 
 // ---------- сессии ----------
 
+const USER_SELECT = {
+  id: true,
+  phone: true,
+  email: true,
+  name: true,
+  passwordHash: true,
+  role: true,
+} as const;
+
 export function readSessionId(): string | null {
   return cookies().get(SESSION_COOKIE)?.value ?? null;
 }
 
-function toUserView(u: { id: number; phone: string; email: string | null; name: string; passwordHash: string | null }): UserView {
-  return { id: u.id, phone: u.phone, email: u.email, name: u.name, hasPassword: u.passwordHash != null };
+function toUserView(u: {
+  id: number;
+  phone: string;
+  email: string | null;
+  name: string;
+  passwordHash: string | null;
+  role: string;
+}): UserView {
+  return {
+    id: u.id,
+    phone: u.phone,
+    email: u.email,
+    name: u.name,
+    hasPassword: u.passwordHash != null,
+    role: (u.role === 'admin' ? 'admin' : 'customer') as UserRole,
+  };
 }
 
 /**
@@ -60,10 +84,22 @@ export async function getSessionUser(): Promise<UserView | null> {
   if (!id) return null;
   const session = await prisma.session.findUnique({
     where: { id },
-    include: { user: { select: { id: true, phone: true, email: true, name: true, passwordHash: true } } },
+    include: { user: { select: USER_SELECT } },
   });
   if (!session || session.expiresAt < new Date()) return null;
   return toUserView(session.user);
+}
+
+/**
+ * Для страниц /admin: возвращает админа или уводит прочь.
+ * Не-вошедших — на страницу входа, вошедших не-админов — на главную
+ * (без объяснений: посторонним незачем знать, что тут есть админка).
+ */
+export async function requireAdmin(): Promise<UserView> {
+  const user = await getSessionUser();
+  if (!user) redirect('/account/login');
+  if (user.role !== 'admin') redirect('/');
+  return user;
 }
 
 /**

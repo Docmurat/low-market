@@ -280,8 +280,11 @@ async function upsertProducts(
   let skipped = 0;
   const counts = new Map<number, number>();
 
-  const existingSkus = new Set(
-    (await prisma.product.findMany({ select: { supplierSku: true } })).map((p) => p.supplierSku),
+  // Артикул → защищена ли категория (выставляется в админке: «ручная категория»).
+  const lockedBySku = new Map(
+    (await prisma.product.findMany({ select: { supplierSku: true, categoryLocked: true } })).map(
+      (p) => [p.supplierSku, p.categoryLocked] as const,
+    ),
   );
 
   for (const p of products) {
@@ -326,9 +329,16 @@ async function upsertProducts(
       syncedAt: new Date(),
     };
 
-    if (existingSkus.has(sku)) {
-      // description/images/specs не трогаем — их ведёт фаза specs и наш контент
-      await prisma.product.update({ where: { supplierSku: sku }, data: common });
+    if (lockedBySku.has(sku)) {
+      // description/images/specs не трогаем — их ведёт фаза specs и наш контент.
+      // categoryLocked=true (категория переложена вручную в админке) → категорию
+      // тоже не трогаем: цена/остаток обновляются, полка остаётся наша.
+      let data: typeof common | Omit<typeof common, 'categoryId'> = common;
+      if (lockedBySku.get(sku)) {
+        const { categoryId: _keepManual, ...withoutCategory } = common;
+        data = withoutCategory;
+      }
+      await prisma.product.update({ where: { supplierSku: sku }, data });
       updated++;
     } else {
       await prisma.product.create({

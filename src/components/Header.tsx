@@ -41,6 +41,11 @@ export default async function Header() {
           </form>
 
           <nav className="ml-auto flex items-center gap-5 text-sm font-medium">
+            {user?.role === 'admin' && (
+              <Link href="/admin" className="charge-link text-volt">
+                Админка
+              </Link>
+            )}
             <Link href="/cart" className="charge-link inline-flex items-center gap-2">
               Корзина
               {cartCount > 0 && (

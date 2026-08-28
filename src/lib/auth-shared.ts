@@ -17,6 +17,9 @@ export const CODE_RESEND_SEC = 60; // повторная отправка не �
 
 export const PASSWORD_MIN_LENGTH = 8;
 
+/** Роли: customer (по умолчанию) | admin (назначается scripts/make-admin.ts). */
+export type UserRole = 'customer' | 'admin';
+
 /** Проверка email. Не идеальная (идеальной не существует), но отсекает явный мусор. */
 export function isValidEmail(email: string): boolean {
   const e = email.trim();
@@ -45,4 +48,5 @@ export type UserView = {
   email: string | null;
   name: string;
   hasPassword: boolean;
+  role: UserRole;
 };

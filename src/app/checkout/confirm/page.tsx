@@ -4,9 +4,11 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { cookies } from 'next/headers';
 import { redirect } from 'next/navigation';
+import { prisma } from '@/lib/db';
 import { getCart } from '@/lib/cart';
 import { formatPrice } from '@/lib/format';
 import { CHECKOUT_COOKIE, DELIVERY_OPTIONS, formatAddress, formatPhone, type CheckoutData } from '@/lib/checkout-shared';
+import { calcDelivery } from '@/lib/delivery/calc';
 import PlaceOrderButton from '@/components/checkout/PlaceOrderButton';
 
 export const metadata = { title: 'Подтверждение заказа' };
@@ -25,6 +27,28 @@ export default async function ConfirmPage() {
   if (!cart || cart.items.length === 0) redirect('/cart');
 
   const delivery = DELIVERY_OPTIONS.find((o) => o.value === data.deliveryMethod) ?? DELIVERY_OPTIONS[0];
+
+  // Шаг 8: считаем доставку ТОЙ ЖЕ функцией и на ТЕХ ЖЕ данных (БД), что placeOrder, —
+  // цифра на экране обязана совпасть с платежом. Закупка и категория берутся из БД.
+  const forDelivery = await prisma.product.findMany({
+    where: { id: { in: cart.items.map((i) => i.product.id) } },
+    select: { id: true, price: true, basePrice: true, category: { select: { name: true } } },
+  });
+  const byId = new Map(forDelivery.map((p) => [p.id, p]));
+  const quote = calcDelivery({
+    method: data.deliveryMethod,
+    city: data.city,
+    items: cart.items.map((i) => {
+      const p = byId.get(i.product.id);
+      return {
+        priceRub: p ? Number(p.price) : i.product.price,
+        baseRub: p ? Number(p.basePrice) : i.product.price,
+        qty: i.qty,
+        categoryName: p?.category?.name ?? '',
+      };
+    }),
+  });
+  const totalToPay = cart.subtotal + quote.costRub;
 
   return (
     <div className="mx-auto max-w-7xl px-4 py-8">
@@ -94,11 +118,17 @@ export default async function ConfirmPage() {
           </div>
           <div className="flex justify-between text-sm mb-4">
             <span className="text-steel">Доставка</span>
-            <span className="text-steel">по согласованию</span>
+            {data.deliveryMethod === 'pickup' ? (
+              <span className="text-steel">самовывоз — бесплатно</span>
+            ) : quote.free ? (
+              <span className="font-medium text-green-700">бесплатно</span>
+            ) : (
+              <span className="tabular-nums">{formatPrice(quote.costRub)}</span>
+            )}
           </div>
           <div className="flex justify-between items-end border-t border-line pt-4 mb-5">
             <span className="font-semibold">К оплате</span>
-            <span className="text-2xl font-bold tabular-nums">{formatPrice(cart.subtotal)}</span>
+            <span className="text-2xl font-bold tabular-nums">{formatPrice(totalToPay)}</span>
           </div>
           <PlaceOrderButton />
         </aside>

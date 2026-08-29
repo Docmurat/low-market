@@ -73,6 +73,9 @@ export default async function CheckoutPage() {
             <span className="font-semibold">Товары, {cart.count} шт.</span>
             <span className="text-xl font-bold tabular-nums">{formatPrice(cart.subtotal)}</span>
           </div>
+          <p className="mt-2 text-xs text-steel">
+            Доставка рассчитается на шаге подтверждения — по адресу и составу заказа.
+          </p>
           <Link href="/cart" className="mt-3 inline-block text-xs text-steel charge-link">Изменить состав</Link>
         </aside>
       </div>

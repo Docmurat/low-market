@@ -28,8 +28,9 @@ export type YooPayment = {
   cancellation_details?: { party?: string; reason?: string };
 };
 
-/** Позиция для платежа и чека. Цены в рублях (number), НЕ Decimal. */
-export type PaymentItem = { name: string; priceRub: number; qty: number };
+/** Позиция для платежа и чека. Цены в рублях (number), НЕ Decimal.
+ *  subject: 'commodity' (товар, по умолчанию) | 'service' (услуга — например, доставка). */
+export type PaymentItem = { name: string; priceRub: number; qty: number; subject?: 'commodity' | 'service' };
 
 function config() {
   return {
@@ -112,7 +113,7 @@ export async function createOrderPayment(args: {
         quantity: String(it.qty),
         amount: { value: rub(it.priceRub), currency: 'RUB' },
         vat_code: RECEIPT_VAT_CODE,
-        payment_subject: 'commodity', // предмет расчёта: товар
+        payment_subject: it.subject ?? 'commodity', // предмет расчёта: товар или услуга (доставка)
         payment_mode: 'full_payment', // признак расчёта: полная оплата
       })),
     },

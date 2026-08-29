@@ -164,9 +164,23 @@ export default async function OrderPage({ params, searchParams }: { params: { to
             </li>
           ))}
         </ul>
-        <div className="flex justify-between items-end border-t border-line py-4">
-          <span className="font-semibold">Итого</span>
-          <span className="text-2xl font-bold tabular-nums">{formatPrice(order.total)}</span>
+        <div className="border-t border-line py-4 space-y-1.5 text-sm">
+          <div className="flex justify-between">
+            <span className="text-steel">Товары</span>
+            <span className="tabular-nums">{formatPrice(order.itemsTotal)}</span>
+          </div>
+          <div className="flex justify-between">
+            <span className="text-steel">Доставка</span>
+            <span className="tabular-nums">
+              {Number(order.deliveryCost) > 0
+                ? formatPrice(order.deliveryCost)
+                : 'бесплатно'}
+            </span>
+          </div>
+          <div className="flex justify-between items-end pt-2">
+            <span className="font-semibold">Итого</span>
+            <span className="text-2xl font-bold tabular-nums">{formatPrice(order.total)}</span>
+          </div>
         </div>
       </section>
 

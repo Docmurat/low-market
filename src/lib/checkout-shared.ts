@@ -7,8 +7,8 @@ export const CHECKOUT_COOKIE = 'lm_checkout';
 export type DeliveryMethod = 'courier' | 'pickup';
 
 export const DELIVERY_OPTIONS: { value: DeliveryMethod; label: string; hint: string }[] = [
-  { value: 'courier', label: 'Курьером по Москве и МО', hint: '1–2 рабочих дня, стоимость рассчитаем при подтверждении' },
-  { value: 'pickup', label: 'Самовывоз', hint: 'Из пункта выдачи в Москве, адрес сообщим при подтверждении' },
+  { value: 'courier', label: 'Курьером по Москве и МО', hint: '1–2 рабочих дня; стоимость посчитается на шаге подтверждения' },
+  { value: 'pickup', label: 'Самовывоз', hint: 'Бесплатно; место и время получения согласует менеджер' },
 ];
 
 export type CheckoutData = {
@@ -102,9 +102,9 @@ export function formatAddress(d: Pick<CheckoutData, 'city' | 'street' | 'house' 
 }
 
 export const ORDER_STATUS_LABEL: Record<string, string> = {
-  new: 'Новый — ожидает подтверждения менеджером',
+  new: 'Новый — ожидает оплаты',
   confirmed: 'Подтверждён',
-  paid: 'Оплачен',
+  paid: 'Оплачен — в обработке',
   shipped: 'Передан в доставку',
   done: 'Выполнен',
   cancelled: 'Отменён',

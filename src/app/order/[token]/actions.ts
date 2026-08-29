@@ -33,11 +33,17 @@ export async function payForOrder(fd: FormData): Promise<void> {
       returnUrl: `${siteUrl()}/order/${token}`,
       customerPhone: order.phone,
       customerEmail: order.email || undefined,
-      items: order.items.map((it) => ({
-        name: [it.brand, it.name].filter(Boolean).join(' '),
-        priceRub: Number(it.price),
-        qty: it.qty,
-      })),
+      items: [
+        ...order.items.map((it) => ({
+          name: [it.brand, it.name].filter(Boolean).join(' '),
+          priceRub: Number(it.price),
+          qty: it.qty,
+        })),
+        // Чек обязан сходиться с суммой платежа (total включает доставку).
+        ...(Number(order.deliveryCost) > 0
+          ? [{ name: 'Доставка', priceRub: Number(order.deliveryCost), qty: 1, subject: 'service' as const }]
+          : []),
+      ],
     });
     await prisma.order.update({
       where: { id: order.id },

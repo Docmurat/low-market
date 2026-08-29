@@ -26,6 +26,7 @@ import { CHECKOUT_COOKIE, parseCheckout, type CheckoutData, type CheckoutErrors 
 import { createOrderPayment, isPaymentEnabled, siteUrl } from '@/lib/payment/yookassa';
 import { AbsolutClient, parseStock } from '@/lib/supplier/absolut';
 import { purchasePriceWithVat } from '@/lib/pricing';
+import { calcDelivery } from '@/lib/delivery/calc';
 
 // 7b: сколько ждём живой ответ поставщика, прежде чем откатиться на данные БД.
 // Не экспортируется (из 'use server' файла константы экспортировать нельзя).
@@ -66,7 +67,7 @@ export async function placeOrder(): Promise<PlaceOrderResult> {
   // Рубеж 1: проверка доступности по свежим данным из БД
   const products = await prisma.product.findMany({
     where: { id: { in: cart.items.map((i) => i.product.id) } },
-    select: { id: true, supplierSku: true, name: true, brand: true, images: true, price: true, basePrice: true, stock: true, isActive: true, gism: true },
+    select: { id: true, supplierSku: true, name: true, brand: true, images: true, price: true, basePrice: true, stock: true, isActive: true, gism: true, category: { select: { name: true } } },
   });
   const byId = new Map(products.map((p) => [p.id, p]));
   for (const i of cart.items) {
@@ -88,6 +89,24 @@ export async function placeOrder(): Promise<PlaceOrderResult> {
       basePrice: Number(p.basePrice), // числом: живая проверка ниже может обновить снимок
       qty,
     };
+  });
+
+  // Шаг 8: доставка считается ЗДЕСЬ, по данным БД — той же функцией и на тех же
+  // данных, что видел покупатель на шаге подтверждения. Живая проверка ниже может
+  // обновить закупку в снимке маржи, но цену доставки между экраном и оплатой
+  // это менять не должно.
+  const deliveryQuote = calcDelivery({
+    method: data.deliveryMethod,
+    city: data.city,
+    items: cart.items.map((i) => {
+      const p = byId.get(i.product.id)!;
+      return {
+        priceRub: Number(p.price),
+        baseRub: Number(p.basePrice),
+        qty: clampQty(i.qty, p.stock),
+        categoryName: p.category?.name ?? '',
+      };
+    }),
   });
 
   // Рубеж 2 (7b): живые остатки у поставщика — ловим разобранное между синками.
@@ -129,7 +148,7 @@ export async function placeOrder(): Promise<PlaceOrderResult> {
   }
 
   const itemsTotal = items.reduce((s, it) => s + Number(it.price) * it.qty, 0);
-  const deliveryCost = 0; // зоны и тарифы — шаг 8
+  const deliveryCost = deliveryQuote.costRub; // снимок в заказ; тарифы — src/lib/delivery/config.ts
   const total = itemsTotal + deliveryCost;
 
   const order = await prisma.$transaction(async (tx) => {
@@ -184,11 +203,18 @@ export async function placeOrder(): Promise<PlaceOrderResult> {
         returnUrl: `${siteUrl()}/order/${order.accessToken}`,
         customerPhone: data.phone,
         customerEmail: data.email || undefined,
-        items: items.map((it) => ({
-          name: [it.brand, it.name].filter(Boolean).join(' '),
-          priceRub: Number(it.price),
-          qty: it.qty,
-        })),
+        items: [
+          ...items.map((it) => ({
+            name: [it.brand, it.name].filter(Boolean).join(' '),
+            priceRub: Number(it.price),
+            qty: it.qty,
+          })),
+          // Чек 54-ФЗ обязан сходиться с суммой платежа копейка в копейку,
+          // поэтому платная доставка — отдельной строкой (услуга).
+          ...(deliveryCost > 0
+            ? [{ name: 'Доставка', priceRub: deliveryCost, qty: 1, subject: 'service' as const }]
+            : []),
+        ],
       });
       await prisma.order.update({
         where: { id: order.id },

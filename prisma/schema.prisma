@@ -206,7 +206,8 @@ model CartItem {
 }
 
 /// Заказ покупателя. Создаётся на шаге подтверждения чекаута со статусом new.
-/// Оплата (ЮKassa) — шаг 7, заказ у поставщика — шаг 6c.
+/// Оплата (ЮKassa) — шаг 7. Заказ у поставщика оформляется ВРУЧНУЮ в кабинете
+/// АБСОЛЮТ ТРЕЙД (решение шага 6c: API-заказов не делаем) — см. supplierOrderNumber.
 /// userId: null = гостевой заказ; в ЛК гостевые заказы подтягиваются по номеру телефона.
 /// Статусы: new → confirmed → paid → shipped → done | cancelled (строка, без enum —
 /// чтобы менять набор без миграций).
@@ -240,6 +241,19 @@ model Order {
   deliveryCost Decimal @db.Decimal(12, 2) @default(0)
   total        Decimal @db.Decimal(12, 2)
 
+  // --- ручной заказ у поставщика (шаг 6c) ---
+  // Номер заказа из кабинета АБСОЛЮТ ТРЕЙД (пусто = у поставщика ещё не заказан)
+  // и когда его оформили. Заполняется админом в карточке заказа.
+  supplierOrderNumber String    @default("")
+  supplierOrderedAt   DateTime?
+
+  // --- оплата ЮKassa (шаг 7) ---
+  // paymentId — id платежа в ЮKassa (последняя попытка оплаты; при повторной попытке перезаписывается).
+  // paymentStatus: '' = платежа не было, дальше как в ЮKassa: pending / succeeded / canceled.
+  paymentId     String    @default("")
+  paymentStatus String    @default("")
+  paidAt        DateTime?
+
   cartId    String? // из какой корзины создан (для отладки)
   items     OrderItem[]
   createdAt DateTime @default(now())
@@ -248,6 +262,7 @@ model Order {
   @@index([status, createdAt])
   @@index([phone])
   @@index([userId])
+  @@index([paymentId]) // webhook ЮKassa ищет заказ по id платежа
 }
 
 /// Позиция заказа — снимок товара на момент оформления (цена, название, артикул).

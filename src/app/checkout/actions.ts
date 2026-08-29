@@ -2,7 +2,17 @@
 /**
  * Server actions чекаута.
  *  saveCheckout — шаг 1: валидирует форму, кладёт данные в cookie lm_checkout, ведёт на /checkout/confirm.
- *  placeOrder   — шаг 2: создаёт Order + OrderItem в транзакции, чистит корзину, ведёт на /order/<token>.
+ *  placeOrder   — шаг 2: создаёт Order + OrderItem в транзакции, чистит корзину и СРАЗУ
+ *                 создаёт платёж ЮKassa → покупатель уезжает на платёжную форму (шаг 7).
+ * Проверка наличия — в два рубежа (задача 7b):
+ *   1) по свежим данным БД (последний синк) — как раньше;
+ *   2) ЖИВОЙ запрос остатков у поставщика (AvailabilityAndPrice через прокси) — ловит
+ *      товары, разобранные МЕЖДУ синками. Fail-open: если API поставщика молчит или
+ *      думает дольше 6 секунд, чекаут НЕ падает — работаем по данным БД, покупатель
+ *      ничего не замечает. Заодно, если живые данные получены, в снимок OrderItem.basePrice
+ *      пишется закупка НА МОМЕНТ ОПЛАТЫ — маржа в админке становится честной.
+ * Если ЮKassa выключена (пустые ключи в .env) или платёж не создался — покупатель
+ * попадает на страницу заказа, там есть кнопка «Оплатить».
  * Шаг 4: если покупатель авторизован, в заказ пишется userId (для «Моих заказов» в ЛК).
  */
 import { cookies } from 'next/headers';
@@ -13,6 +23,13 @@ import { getCart } from '@/lib/cart';
 import { getSessionUser } from '@/lib/auth';
 import { checkPurchasable, clampQty } from '@/lib/cart-shared';
 import { CHECKOUT_COOKIE, parseCheckout, type CheckoutData, type CheckoutErrors } from '@/lib/checkout-shared';
+import { createOrderPayment, isPaymentEnabled, siteUrl } from '@/lib/payment/yookassa';
+import { AbsolutClient, parseStock } from '@/lib/supplier/absolut';
+import { purchasePriceWithVat } from '@/lib/pricing';
+
+// 7b: сколько ждём живой ответ поставщика, прежде чем откатиться на данные БД.
+// Не экспортируется (из 'use server' файла константы экспортировать нельзя).
+const LIVE_CHECK_TIMEOUT_MS = 6_000;
 
 export type CheckoutFormState = { errors: CheckoutErrors; values: CheckoutData | null };
 
@@ -46,7 +63,7 @@ export async function placeOrder(): Promise<PlaceOrderResult> {
 
   const user = await getSessionUser(); // null для гостя
 
-  // Финальная проверка доступности по свежим данным из БД
+  // Рубеж 1: проверка доступности по свежим данным из БД
   const products = await prisma.product.findMany({
     where: { id: { in: cart.items.map((i) => i.product.id) } },
     select: { id: true, supplierSku: true, name: true, brand: true, images: true, price: true, basePrice: true, stock: true, isActive: true, gism: true },
@@ -68,10 +85,49 @@ export async function placeOrder(): Promise<PlaceOrderResult> {
       brand: p.brand,
       image: p.images[0] ?? '',
       price: p.price,
-      basePrice: p.basePrice,
+      basePrice: Number(p.basePrice), // числом: живая проверка ниже может обновить снимок
       qty,
     };
   });
+
+  // Рубеж 2 (7b): живые остатки у поставщика — ловим разобранное между синками.
+  // Любая ошибка или таймаут → console.error и работаем по данным БД (fail-open):
+  // чекаут не должен умирать вместе с API поставщика.
+  try {
+    const api = new AbsolutClient();
+    const productIds = items
+      .map((it) => Number(it.sku))
+      .filter((n) => Number.isFinite(n) && n > 0);
+    const answer = await Promise.race([
+      api.availabilityAndPrice({ productIds }),
+      new Promise<never>((_, reject) =>
+        setTimeout(() => reject(new Error('живая проверка: таймаут')), LIVE_CHECK_TIMEOUT_MS),
+      ),
+    ]);
+    const bySku = new Map((answer ?? []).map((r) => [String(r.productId), r]));
+    for (const it of items) {
+      const r = bySku.get(it.sku);
+      const fullName = [it.brand, it.name].filter(Boolean).join(' ');
+      if (!r) {
+        return { ok: false, error: `«${fullName}»: только что закончился у поставщика. Уберите товар из корзины.` };
+      }
+      const { quantity } = parseStock(r.stockQuantity ?? r.inStock);
+      if (quantity < it.qty) {
+        return {
+          ok: false,
+          error:
+            quantity <= 0
+              ? `«${fullName}»: только что закончился у поставщика. Уберите товар из корзины.`
+              : `«${fullName}»: у поставщика осталось только ${quantity} шт. Уменьшите количество в корзине.`,
+        };
+      }
+      // Живые данные есть — фиксируем в снимке закупку на момент оплаты (честная маржа).
+      it.basePrice = purchasePriceWithVat(Number(r.price) || 0);
+    }
+  } catch (e) {
+    console.error('[checkout] живая проверка у поставщика недоступна, работаем по данным БД:', e);
+  }
+
   const itemsTotal = items.reduce((s, it) => s + Number(it.price) * it.qty, 0);
   const deliveryCost = 0; // зоны и тарифы — шаг 8
   const total = itemsTotal + deliveryCost;
@@ -102,7 +158,11 @@ export async function placeOrder(): Promise<PlaceOrderResult> {
       select: { id: true },
     });
     const number = `LM-${String(created.id).padStart(6, '0')}`;
-    const updated = await tx.order.update({ where: { id: created.id }, data: { number }, select: { accessToken: true } });
+    const updated = await tx.order.update({
+      where: { id: created.id },
+      data: { number },
+      select: { id: true, number: true, accessToken: true },
+    });
     await tx.cartItem.deleteMany({ where: { cartId: cart.id } });
     return updated;
   });
@@ -110,5 +170,38 @@ export async function placeOrder(): Promise<PlaceOrderResult> {
   jar.delete(CHECKOUT_COOKIE);
   // Корзину-контейнер оставляем (cookie lm_cart живёт дальше), позиции уже удалены.
   revalidatePath('/', 'layout');
-  redirect(`/order/${order.accessToken}`);
+
+  // Шаг 7: сразу создаём платёж и уводим покупателя на платёжную форму ЮKassa.
+  // ВАЖНО: redirect() нельзя звать внутри try/catch (он работает через исключение),
+  // поэтому здесь только собираем адрес, а redirect — один, в самом конце.
+  let payUrl: string | null = null;
+  let payFailed = false;
+  if (isPaymentEnabled()) {
+    try {
+      const payment = await createOrderPayment({
+        orderNumber: order.number,
+        totalRub: total,
+        returnUrl: `${siteUrl()}/order/${order.accessToken}`,
+        customerPhone: data.phone,
+        customerEmail: data.email || undefined,
+        items: items.map((it) => ({
+          name: [it.brand, it.name].filter(Boolean).join(' '),
+          priceRub: Number(it.price),
+          qty: it.qty,
+        })),
+      });
+      await prisma.order.update({
+        where: { id: order.id },
+        data: { paymentId: payment.id, paymentStatus: payment.status },
+      });
+      payUrl = payment.confirmation?.confirmation_url ?? null;
+    } catch (e) {
+      // Заказ уже создан и не потеряется: покупатель попадёт на страницу заказа
+      // с кнопкой «Оплатить» и пометкой, что оплата не запустилась.
+      console.error('[checkout] не удалось создать платёж ЮKassa:', e);
+      payFailed = true;
+    }
+  }
+
+  redirect(payUrl ?? `/order/${order.accessToken}${payFailed ? '?payerror=1' : ''}`);
 }

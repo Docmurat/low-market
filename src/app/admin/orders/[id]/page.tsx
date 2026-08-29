@@ -7,6 +7,7 @@ import { prisma } from '@/lib/db';
 import { formatPrice } from '@/lib/format';
 import { formatAddress, formatPhone, ORDER_STATUS_LABEL } from '@/lib/checkout-shared';
 import { setOrderStatus } from '../actions';
+import SupplierOrderPanel from '@/components/admin/SupplierOrderPanel';
 
 const dtFmt = new Intl.DateTimeFormat('ru-RU', {
   day: 'numeric',
@@ -83,10 +84,25 @@ export default async function AdminOrderPage({ params }: { params: { id: string 
             </form>
           ))}
         </div>
-        <p className="mt-2 text-xs text-steel">
-          Напоминание: заказ у поставщика пока НЕ создаётся (шаг 6c) — резервируйте вручную.
-        </p>
       </section>
+
+      {/* Шаг 6c: заказ у поставщика — ВРУЧНУЮ в кабинете АБСОЛЮТ ТРЕЙД.
+          Панель помогает: список с артикулами, живая проверка остатков/закупки,
+          номер ручного заказа. Напоминание горит, пока номер не вписан. */}
+      <SupplierOrderPanel
+        orderId={order.id}
+        orderNumber={order.number}
+        status={order.status}
+        items={rows.map((r) => ({
+          sku: r.sku,
+          brand: r.brand,
+          name: r.name,
+          qty: r.qty,
+          basePrice: r.baseNum,
+        }))}
+        supplierOrderNumber={order.supplierOrderNumber}
+        supplierOrderedAtText={order.supplierOrderedAt ? dtFmt.format(order.supplierOrderedAt) : null}
+      />
 
       <section className="rounded-2xl bg-card border border-line p-5">
         <h3 className="mb-3 font-semibold">Покупатель и доставка</h3>

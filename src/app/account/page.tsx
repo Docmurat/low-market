@@ -7,6 +7,7 @@ import { getSessionUser } from '@/lib/auth';
 import { formatPhone, ORDER_STATUS_LABEL } from '@/lib/checkout-shared';
 import { formatPrice } from '@/lib/format';
 import { logout } from './actions';
+import PurchasedProducts from '@/components/account/PurchasedProducts';
 
 export const metadata = { title: 'Личный кабинет' };
 
@@ -21,7 +22,8 @@ function statusBadge(status: string): string {
 }
 
 /**
- * Личный кабинет: данные аккаунта + «Мои заказы».
+ * Личный кабинет: данные аккаунта + «Ваши покупки» (товары из оплаченных заказов
+ * со ссылкой на отзыв, Шаг 9) + «Мои заказы».
  * Заказы ищем по userId ИЛИ по телефону аккаунта — так подтягиваются
  * и гостевые заказы, оформленные на этот номер до регистрации.
  * Страница заказа — существующая /order/<accessToken>.
@@ -86,6 +88,9 @@ export default async function AccountPage() {
           </dd>
         </dl>
       </section>
+
+      {/* Шаг 9: покупки со статусом отзыва (блок сам прячется, если покупок нет) */}
+      <PurchasedProducts userId={user.id} phone={user.phone} />
 
       <section>
         <h2 className="mb-4 text-lg font-semibold">Мои заказы · {orders.length}</h2>

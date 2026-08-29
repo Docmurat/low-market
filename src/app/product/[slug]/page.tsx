@@ -9,6 +9,7 @@ import { looksLikeHtml, sanitizeHtml } from '@/lib/html';
 import Gallery from '@/components/product/Gallery';
 import AddToCartButton from '@/components/cart/AddToCartButton';
 import CrossSell from '@/components/product/CrossSell';
+import Reviews from '@/components/product/Reviews';
 
 function stockText(stock: number, label: string | null): string {
   if (stock <= 0) return 'Под заказ · срок уточняйте';
@@ -106,6 +107,9 @@ export default async function ProductPage({ params }: { params: { slug: string }
           )}
         </div>
       )}
+
+      {/* Шаг 9: отзывы (только покупатели товара; постмодерация) */}
+      <Reviews productId={product.id} />
 
       <CrossSell product={{ id: product.id, categoryId: product.categoryId, price: product.price }} />
     </div>

@@ -8,7 +8,6 @@ export const metadata = { title: 'Админка · LOW-Market' };
 /**
  * Каркас админки. requireAdmin() выполняется для КАЖДОЙ страницы раздела:
  * не вошёл → /account/login; вошёл, но не админ → на главную.
- * Пункты «скоро» включим в вехах 5.2 (заказы) и 5.3 (синк, товары).
  */
 export default async function AdminLayout({ children }: { children: React.ReactNode }) {
   await requireAdmin();
@@ -16,6 +15,7 @@ export default async function AdminLayout({ children }: { children: React.ReactN
   const nav: { href: string | null; label: string }[] = [
     { href: '/admin', label: 'Сводка' },
     { href: '/admin/orders', label: 'Заказы' },
+    { href: '/admin/reviews', label: 'Отзывы' },
     { href: '/admin/sync', label: 'Синхронизация' },
     { href: '/admin/products', label: 'Товары' },
   ];

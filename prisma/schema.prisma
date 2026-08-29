@@ -82,6 +82,7 @@ model Product {
   attributes  ProductAttribute[]
   cartItems   CartItem[]
   orderItems  OrderItem[]
+  reviews     Review[]
 
   createdAt   DateTime @default(now())
   updatedAt   DateTime @updatedAt
@@ -147,6 +148,7 @@ model User {
   sessions Session[]
   carts    Cart[]
   orders   Order[]
+  reviews  Review[]
 }
 
 /// Сессия входа. id (cuid) хранится в httpOnly-cookie lm_session (30 дней).
@@ -281,4 +283,28 @@ model OrderItem {
   qty       Int
 
   @@index([orderId])
+}
+
+/// Отзыв о товаре (Шаг 9). Оставить может ТОЛЬКО купивший товар (проверка покупки —
+/// в submitReview: есть заказ paid/shipped/done с этим товаром по userId ИЛИ телефону).
+/// Постмодерация: виден сразу, админ может скрыть (isHidden). Один отзыв на товар
+/// от пользователя (@@unique) — повторная отправка редактирует существующий.
+/// Бонус за отзыв на старте НЕ выдаём (решение владельца); поле для промокода
+/// добавим отдельной миграцией, когда дойдём.
+model Review {
+  id         Int      @id @default(autoincrement())
+  productId  Int
+  product    Product  @relation(fields: [productId], references: [id], onDelete: Cascade)
+  userId     Int
+  user       User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  rating     Int // 1–5
+  text       String   @default("")
+  authorName String   @default("") // снимок имени на момент отзыва
+  isHidden   Boolean  @default(false)
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+
+  @@unique([productId, userId])
+  @@index([productId, isHidden])
+  @@index([createdAt])
 }

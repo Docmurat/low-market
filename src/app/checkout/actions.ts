@@ -98,6 +98,7 @@ export async function placeOrder(): Promise<PlaceOrderResult> {
   const deliveryQuote = calcDelivery({
     method: data.deliveryMethod,
     city: data.city,
+    region: data.region,
     items: cart.items.map((i) => {
       const p = byId.get(i.product.id)!;
       return {

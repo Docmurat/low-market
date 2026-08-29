@@ -38,6 +38,7 @@ export default async function ConfirmPage() {
   const quote = calcDelivery({
     method: data.deliveryMethod,
     city: data.city,
+    region: data.region,
     items: cart.items.map((i) => {
       const p = byId.get(i.product.id);
       return {

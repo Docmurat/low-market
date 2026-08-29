@@ -40,6 +40,21 @@ export function detectZone(city: string): DeliveryZone {
   return /москва/i.test(city.trim()) ? 'msk' : 'mo';
 }
 
+/**
+ * Зона по ОФИЦИАЛЬНОМУ региону из адресной подсказки DaData (задача 8b):
+ * 'г Москва' → msk, 'Московская обл' → mo, всё прочее → null (курьером не возим —
+ * parseCheckout не пустит такой адрес дальше). Пустой регион (ручной ввод без
+ * подсказок) → null, и calcDelivery откатывается на detectZone по городу.
+ * ("москва" не подстрока "московская" — порядок проверок безопасен.)
+ */
+export function regionToZone(region: string): DeliveryZone | null {
+  const r = region.trim();
+  if (!r) return null;
+  if (/москва/i.test(r)) return 'msk';
+  if (/московск/i.test(r)) return 'mo';
+  return null;
+}
+
 export function isBulkyCategory(categoryName: string): boolean {
   return BULKY_CATEGORY_PATTERNS.some((re) => re.test(categoryName));
 }
@@ -47,13 +62,14 @@ export function isBulkyCategory(categoryName: string): boolean {
 export function calcDelivery(input: {
   method: 'courier' | 'pickup';
   city: string;
+  region?: string; // официальный регион из подсказки DaData ('' = не было подсказки)
   items: DeliveryQuoteItem[];
 }): DeliveryQuote {
   if (input.method === 'pickup') {
     return { costRub: PICKUP_IS_FREE ? 0 : 0, free: true, zone: null, bulky: false };
   }
 
-  const zone = detectZone(input.city);
+  const zone = regionToZone(input.region ?? '') ?? detectZone(input.city);
   const bulky = input.items.some((it) => isBulkyCategory(it.categoryName));
   const tariff = DELIVERY_TARIFFS_RUB[zone][bulky ? 'bulky' : 'regular'];
 

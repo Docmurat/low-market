@@ -3,13 +3,18 @@ import { useState } from 'react';
 import { useFormState, useFormStatus } from 'react-dom';
 import { saveCheckout, type CheckoutFormState } from '@/app/checkout/actions';
 import { DELIVERY_OPTIONS, type CheckoutData, type CheckoutErrors, type DeliveryMethod } from '@/lib/checkout-shared';
+import AddressSuggest from '@/components/checkout/AddressSuggest';
 
 function Field({
-  label, name, defaultValue, error, placeholder, type = 'text', required, autoComplete, className = '',
+  label, name, defaultValue, value, onChange, error, placeholder, type = 'text', required, autoComplete, className = '',
 }: {
-  label: string; name: keyof CheckoutData; defaultValue: string; error?: string; placeholder?: string;
+  label: string; name: keyof CheckoutData; defaultValue?: string; value?: string;
+  onChange?: (v: string) => void; error?: string; placeholder?: string;
   type?: string; required?: boolean; autoComplete?: string; className?: string;
 }) {
+  // Поле работает в двух режимах: обычное (defaultValue) и управляемое (value+onChange) —
+  // управляемые нужны городу/улице/дому, чтобы подсказка адреса могла их заполнить.
+  const controlled = value !== undefined;
   return (
     <label className={`block ${className}`}>
       <span className="text-sm text-steel">
@@ -19,7 +24,9 @@ function Field({
       <input
         name={name}
         type={type}
-        defaultValue={defaultValue}
+        {...(controlled
+          ? { value, onChange: (ev) => onChange?.(ev.target.value) }
+          : { defaultValue })}
         placeholder={placeholder}
         autoComplete={autoComplete}
         className={`mt-1 w-full rounded-lg border px-3 py-2.5 outline-none focus:ring-2 focus:ring-volt ${error ? 'border-red-500' : 'border-line'}`}
@@ -47,6 +54,10 @@ export default function CheckoutForm({ initial }: { initial: CheckoutData }) {
   const v: CheckoutData = state.values ?? initial;
   const e: CheckoutErrors = state.errors;
   const [method, setMethod] = useState<DeliveryMethod>(v.deliveryMethod);
+
+  // 8b: город/улица/дом управляемые — их заполняет подсказка DaData; region скрытый.
+  // Ручная правка ГОРОДА сбрасывает region: старый регион больше не про этот адрес.
+  const [addr, setAddr] = useState({ region: v.region, city: v.city, street: v.street, house: v.house });
 
   return (
     <form action={action} className="space-y-8">
@@ -83,12 +94,27 @@ export default function CheckoutForm({ initial }: { initial: CheckoutData }) {
 
         {method === 'courier' && (
           <div className="space-y-4 pt-2">
+            <AddressSuggest
+              onPick={(s) =>
+                setAddr({ region: s.region, city: s.city, street: s.street, house: s.house })
+              }
+            />
+            <input type="hidden" name="region" value={addr.region} />
             <div className="grid gap-4 sm:grid-cols-[1fr_2fr]">
-              <Field label="Город" name="city" defaultValue={v.city} error={e.city} required autoComplete="address-level2" />
-              <Field label="Улица" name="street" defaultValue={v.street} error={e.street} required autoComplete="address-line1" />
+              <Field
+                label="Город" name="city" value={addr.city} error={e.city} required autoComplete="address-level2"
+                onChange={(city) => setAddr((a) => ({ ...a, city, region: '' }))}
+              />
+              <Field
+                label="Улица" name="street" value={addr.street} error={e.street} required autoComplete="address-line1"
+                onChange={(street) => setAddr((a) => ({ ...a, street }))}
+              />
             </div>
             <div className="grid gap-4 grid-cols-2 sm:grid-cols-5">
-              <Field label="Дом" name="house" defaultValue={v.house} error={e.house} required />
+              <Field
+                label="Дом" name="house" value={addr.house} error={e.house} required
+                onChange={(house) => setAddr((a) => ({ ...a, house }))}
+              />
               <Field label="Квартира" name="apartment" defaultValue={v.apartment} />
               <Field label="Подъезд" name="entrance" defaultValue={v.entrance} />
               <Field label="Этаж" name="floor" defaultValue={v.floor} />

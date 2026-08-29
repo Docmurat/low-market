@@ -16,6 +16,7 @@ export type CheckoutData = {
   phone: string; // нормализован +7XXXXXXXXXX
   email: string;
   deliveryMethod: DeliveryMethod;
+  region: string; // официальный регион из подсказки DaData ('' = ручной ввод)
   city: string;
   street: string;
   house: string;
@@ -33,6 +34,7 @@ export const EMPTY_CHECKOUT: CheckoutData = {
   phone: '',
   email: '',
   deliveryMethod: 'courier',
+  region: '',
   city: 'Москва',
   street: '',
   house: '',
@@ -58,6 +60,8 @@ export function formatPhone(p: string): string {
   return `+7 (${d.slice(1, 4)}) ${d.slice(4, 7)}-${d.slice(7, 9)}-${d.slice(9)}`;
 }
 
+import { regionToZone } from '@/lib/delivery/calc';
+
 const s = (v: FormDataEntryValue | null | undefined, max = 200) => String(v ?? '').trim().slice(0, max);
 
 /** Разбор FormData шага 1 + валидация. */
@@ -68,6 +72,7 @@ export function parseCheckout(fd: FormData): { data: CheckoutData; errors: Check
     phone: s(fd.get('phone'), 30),
     email: s(fd.get('email'), 100).toLowerCase(),
     deliveryMethod: method,
+    region: s(fd.get('region'), 100),
     city: s(fd.get('city'), 100),
     street: s(fd.get('street'), 150),
     house: s(fd.get('house'), 20),
@@ -88,6 +93,11 @@ export function parseCheckout(fd: FormData): { data: CheckoutData; errors: Check
     if (!data.city) errors.city = 'Укажите город';
     if (!data.street) errors.street = 'Укажите улицу';
     if (!data.house) errors.house = 'Укажите дом';
+    // 8b: регион известен из подсказки и это не Москва/МО → курьером не возим.
+    // При ручном вводе (region пуст) не блокируем — зона посчитается по городу.
+    if (data.region && !regionToZone(data.region)) {
+      errors.city = 'Курьером доставляем только по Москве и Московской области — выберите самовывоз';
+    }
   }
   return { data, errors };
 }

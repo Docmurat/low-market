@@ -2,6 +2,7 @@
 // Шаг 3: корзина (Cart/CartItem) и заказы (Order/OrderItem).
 // Шаг 4: пользователи (User/Session/LoginCode), userId в Cart и Order.
 // Шаг 5: role у User (доступ в админку), categoryLocked у Product (ручная категория).
+// Модерация фото: imagesLocked и photoReviewStatus у Product (роль moderator — в role у User).
 generator client {
   provider = "prisma-client-js"
 }
@@ -64,6 +65,14 @@ model Product {
   // Категорию поменяли вручную в админке → синк её больше НЕ перезаписывает
   // (по аналогии с защитой description/images).
   categoryLocked Boolean @default(false)
+  // Фото правил модератор (панель /moder) → синк images НЕ дозаписывает,
+  // даже если массив пуст (модератор мог сознательно удалить весь мусор).
+  imagesLocked Boolean @default(false)
+  // Разбор фото модератором: none | done | skipped (строкой, без enum — как статусы заказов).
+  photoReviewStatus String @default("none")
+  // «Опубликовать с заглушкой»: товар БЕЗ фото показывается на витрине с картинкой-заглушкой.
+  // Без фото и без этого флага товар на витрине НЕ показывается (см. src/lib/visibility.ts).
+  photoPlaceholder Boolean @default(false)
 
   // --- поля фида поставщика ---
   vendorCode         String?  // код бренда у поставщика (LV, HM, …); brand — имя из справочника Vendors

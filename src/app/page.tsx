@@ -2,13 +2,14 @@ export const dynamic = 'force-dynamic';
 
 import Link from 'next/link';
 import { prisma } from '@/lib/db';
+import { photoVisibleWhere } from '@/lib/visibility';
 import ProductCard from '@/components/ProductCard';
 
 export default async function HomePage() {
   const [categories, popular] = await Promise.all([
     prisma.category.findMany({ where: { parentId: null }, orderBy: { sortOrder: 'asc' } }),
     prisma.product.findMany({
-      where: { isActive: true, stock: { gt: 0 } },
+      where: { isActive: true, stock: { gt: 0 }, AND: [photoVisibleWhere] },
       orderBy: { createdAt: 'desc' },
       take: 8,
     }),

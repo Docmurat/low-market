@@ -14,11 +14,13 @@
     "probe": "cross-env NODE_EXTRA_CA_CERTS=ops/nginx/supplier.crt tsx scripts/probe-supplier.ts"
   },
   "dependencies": {
+    "@aws-sdk/client-s3": "^3.1121.0",
     "@prisma/client": "^5.18.0",
     "next": "^14.2.5",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "server-only": "^0.0.1",
+    "sharp": "^0.35.4",
     "zod": "^3.23.8"
   },
   "devDependencies": {

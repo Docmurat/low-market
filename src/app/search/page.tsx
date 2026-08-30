@@ -3,6 +3,7 @@ export const dynamic = 'force-dynamic';
 import Link from 'next/link';
 import { loadFacets, loadProducts, parseQuery, searchWhere, type SearchParams } from '@/lib/catalog/query';
 import { COMMON_FILTERS } from '@/lib/filters/config';
+import { photoVisibleWhere } from '@/lib/visibility';
 import FilterSidebar from '@/components/catalog/FilterSidebar';
 import SortBar from '@/components/catalog/SortBar';
 import Pagination from '@/components/catalog/Pagination';
@@ -24,7 +25,8 @@ export default async function SearchPage({ searchParams }: { searchParams: Searc
   // В поиске — только общие фильтры (бренд), характеристики зависят от категории
   const filters = COMMON_FILTERS;
   const q = parseQuery(searchParams, filters);
-  const base = searchWhere(qs);
+  // Без фото и без заглушки товар на витрине не показываем (src/lib/visibility.ts)
+  const base = { AND: [searchWhere(qs), photoVisibleWhere] };
   const [facets, result] = await Promise.all([loadFacets(base, q, filters), loadProducts(base, q)]);
 
   return (

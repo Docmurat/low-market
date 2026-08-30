@@ -24,7 +24,13 @@ export default function ProductCard({ slug, name, brand, price, stock, image, sk
           {image ? (
             <Image src={image} alt={name} fill className="object-contain p-2" sizes="(max-width: 640px) 50vw, 25vw" />
           ) : (
-            <div className="flex h-full items-center justify-center text-4xl text-gray-300">⚡</div>
+            // Товар опубликован с заглушкой (см. src/lib/visibility.ts)
+            // eslint-disable-next-line @next/next/no-img-element
+            <img
+              src="/photo-stub.svg"
+              alt="Фото скоро появится"
+              className="absolute inset-0 h-full w-full object-contain p-2"
+            />
           )}
         </div>
         <div className="text-xs text-steel font-mono mb-1">{sku}</div>

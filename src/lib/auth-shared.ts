@@ -17,8 +17,16 @@ export const CODE_RESEND_SEC = 60; // повторная отправка не �
 
 export const PASSWORD_MIN_LENGTH = 8;
 
-/** Роли: customer (по умолчанию) | admin (назначается scripts/make-admin.ts). */
-export type UserRole = 'customer' | 'admin';
+/**
+ * Роли: customer (по умолчанию) | admin (scripts/make-admin.ts) |
+ * moderator (scripts/make-moderator.ts — доступ ТОЛЬКО к /moder, панель фото).
+ */
+export type UserRole = 'customer' | 'admin' | 'moderator';
+
+/** Есть ли доступ к разделу модерации /moder (фото). Админ может всё. */
+export function canModerate(role: UserRole): boolean {
+  return role === 'admin' || role === 'moderator';
+}
 
 /** Проверка email. Не идеальная (идеальной не существует), но отсекает явный мусор. */
 export function isValidEmail(email: string): boolean {

@@ -25,6 +25,8 @@
  *  - пропавшие из фида и isEol — деактивируются, не удаляются;
  *  - description/images — защищённые поля: если у нас пусто, заполняем от поставщика,
  *    если уже есть — не трогаем; specs всегда обновляются из Description.
+ *  - imagesLocked=true (фото правил модератор в /moder) → images НЕ трогаем ВООБЩЕ,
+ *    даже если массив пуст: модератор мог сознательно удалить весь мусор.
  *  - каждый прогон пишется в таблицу SyncLog (статус, счётчики, хвост лога) — для админки и алертов.
  */
 import fs from 'node:fs';
@@ -384,7 +386,7 @@ async function syncSpecs(prisma: PrismaClient, api: AbsolutClient, opts: Options
 
   const targets = await prisma.product.findMany({
     where,
-    select: { id: true, supplierSku: true, images: true, description: true },
+    select: { id: true, supplierSku: true, images: true, description: true, imagesLocked: true },
     orderBy: { id: 'asc' },
     ...(opts.limit ? { take: opts.limit } : {}),
   });
@@ -418,7 +420,8 @@ async function syncSpecs(prisma: PrismaClient, api: AbsolutClient, opts: Options
           specs: specs as Prisma.InputJsonValue,
           specsSyncedAt: new Date(),
         };
-        if (t.images.length === 0 && images.length > 0) data.images = images; // защищённое поле
+        // Защищённое поле; imagesLocked = фото правил модератор → не трогаем совсем
+        if (!t.imagesLocked && t.images.length === 0 && images.length > 0) data.images = images;
         await prisma.product.update({ where: { id: t.id }, data });
       }
       done += batch.length;

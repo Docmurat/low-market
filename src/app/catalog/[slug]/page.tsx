@@ -4,6 +4,7 @@ import { notFound } from 'next/navigation';
 import Link from 'next/link';
 import { prisma } from '@/lib/db';
 import { categoryScope, loadFacets, loadProducts, parseQuery, type SearchParams } from '@/lib/catalog/query';
+import { photoVisibleWhere } from '@/lib/visibility';
 import FilterSidebar from '@/components/catalog/FilterSidebar';
 import SortBar from '@/components/catalog/SortBar';
 import Pagination from '@/components/catalog/Pagination';
@@ -22,7 +23,8 @@ export default async function CategoryPage({ params, searchParams }: { params: {
   const pathname = `/catalog/${category.slug}`;
   const scope = await categoryScope(category.id);
   const q = parseQuery(searchParams, scope.filters);
-  const base = { categoryId: { in: scope.ids } };
+  // Без фото и без заглушки товар на витрине не показываем (src/lib/visibility.ts)
+  const base = { categoryId: { in: scope.ids }, AND: [photoVisibleWhere] };
   const [facets, result] = await Promise.all([loadFacets(base, q, scope.filters), loadProducts(base, q)]);
 
   const crumbs = [category.parent?.parent, category.parent].filter(Boolean) as { slug: string; name: string }[];

@@ -4,9 +4,11 @@
  *   similar     — «Похожие товары»: та же категория, близкая цена (±40%), другие товары.
  *
  * Дерево категорий небольшое (~400), поэтому грузим его целиком одним запросом
- * и ищем совпадения в памяти.
+ * и ищем совпадения в памяти. Витринное правило фото (src/lib/visibility.ts)
+ * действует и здесь: товары без фото и без заглушки в блоки не попадают.
  */
 import { prisma } from '@/lib/db';
+import { photoVisibleWhere } from '@/lib/visibility';
 import { CROSS_SELL_LIMIT, CROSS_SELL_RULES, SIMILAR_LIMIT, type CrossSellRule } from './config';
 
 type Cat = { id: number; name: string; parentId: number | null; isActive: boolean };
@@ -113,7 +115,14 @@ export async function getCrossSell(product: { id: number; categoryId: number; pr
       const ids = categoryIdsMatching(cats, re);
       if (ids.length === 0) continue;
       const found = await prisma.product.findMany({
-        where: { isActive: true, stock: { gt: 0 }, gism: false, categoryId: { in: ids }, id: { notIn: [...seen] } },
+        where: {
+          isActive: true,
+          stock: { gt: 0 },
+          gism: false,
+          categoryId: { in: ids },
+          id: { notIn: [...seen] },
+          AND: [photoVisibleWhere],
+        },
         select: productCardSelect,
         orderBy: [{ stock: 'desc' }, { price: 'asc' }],
         take: perGroup * 3, // берём с запасом и перемешиваем
@@ -133,6 +142,7 @@ export async function getCrossSell(product: { id: number; categoryId: number; pr
       categoryId: product.categoryId,
       id: { not: product.id },
       price: { gte: Math.floor(price * 0.6), lte: Math.ceil(price * 1.4) },
+      AND: [photoVisibleWhere],
     },
     select: productCardSelect,
     orderBy: [{ stock: 'desc' }, { price: 'asc' }],

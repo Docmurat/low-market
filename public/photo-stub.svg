@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600" role="img" aria-label="Фото скоро появится">
+  <rect width="600" height="600" fill="#F7F7F5"/>
+  <rect x="150" y="170" width="300" height="220" rx="24" fill="none" stroke="#D9D9D4" stroke-width="10"/>
+  <circle cx="230" cy="245" r="26" fill="#D9D9D4"/>
+  <path d="M186 356 L276 268 L336 326 L378 286 L414 356 Z" fill="#D9D9D4"/>
+  <path d="M312 120 L282 176 L306 176 L292 224 L338 158 L312 158 Z" fill="#C9E637"/>
+  <text x="300" y="450" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="34" font-weight="600" fill="#8A8A84">Фото скоро появится</text>
+  <text x="300" y="492" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="22" fill="#B3B3AD">LOW-Market</text>
+</svg>

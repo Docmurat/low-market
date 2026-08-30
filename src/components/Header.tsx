@@ -3,6 +3,7 @@ import { prisma } from '@/lib/db';
 import { SITE_NAME } from '@/lib/site';
 import { getCartCount } from '@/lib/cart';
 import { getSessionUser } from '@/lib/auth';
+import { canModerate } from '@/lib/auth-shared';
 
 export default async function Header() {
   const [rootCategories, cartCount, user] = await Promise.all([
@@ -44,6 +45,11 @@ export default async function Header() {
             {user?.role === 'admin' && (
               <Link href="/admin" className="charge-link text-volt">
                 Админка
+              </Link>
+            )}
+            {user && canModerate(user.role) && (
+              <Link href="/moder/photos" className="charge-link text-volt">
+                Модерация
               </Link>
             )}
             <Link href="/cart" className="charge-link inline-flex items-center gap-2">

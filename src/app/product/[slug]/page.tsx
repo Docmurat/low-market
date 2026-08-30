@@ -29,6 +29,8 @@ export default async function ProductPage({ params }: { params: { slug: string }
   const price = Number(product.price);
   const rrp = product.rrp != null ? Number(product.rrp) : null;
   const discount = rrp && rrp > price ? Math.round((1 - price / rrp) * 100) : 0;
+  // Прямая ссылка работает и без фото (корзины, старые ссылки) — показываем заглушку
+  const galleryImages = product.images.length > 0 ? product.images : ['/photo-stub.svg'];
 
   return (
     <div className="mx-auto max-w-7xl px-4 py-8">
@@ -43,7 +45,7 @@ export default async function ProductPage({ params }: { params: { slug: string }
       </nav>
 
       <div className="grid gap-8 lg:grid-cols-2">
-        <Gallery images={product.images} alt={product.name} />
+        <Gallery images={galleryImages} alt={product.name} />
 
         <div>
           <div className="font-mono text-xs text-steel mb-2">

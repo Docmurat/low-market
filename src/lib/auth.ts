@@ -71,7 +71,9 @@ function toUserView(u: {
     email: u.email,
     name: u.name,
     hasPassword: u.passwordHash != null,
-    role: (u.role === 'admin' ? 'admin' : 'customer') as UserRole,
+    // Роли из БД: admin и moderator проходят как есть, всё прочее — customer.
+    // (Раньше moderator схлопывался в customer — из-за этого /moder не пускал.)
+    role: (u.role === 'admin' || u.role === 'moderator' ? u.role : 'customer') as UserRole,
   };
 }
 
